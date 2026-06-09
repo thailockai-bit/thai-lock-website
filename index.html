@@ -45,14 +45,46 @@
         }
 
         .products-page{
-            background:
-            linear-gradient(
-                135deg,
-                #00144d,
-                #0b58d8
-            );
+            position: relative;
+            overflow: hidden;
 
-            color:white;
+            background:
+            linear-gradient(circle at center,
+            #0b58d8 0%,
+            #002c80 45%,
+            #00144d 100%);
+        }
+
+        .products-page::before{
+            content:"";
+
+            position:absolute;
+
+            width:700px;
+            height:700px;
+
+            border-radius:50%;
+
+            background:rgba(255,255,255,.05);
+
+            right:-150px;
+            top:-100px;
+        }
+
+        .products-page::after{
+            content:"";
+
+            position:absolute;
+
+            width:900px;
+            height:900px;
+
+            border-radius:50%;
+
+            background:rgba(255,255,255,.03);
+
+            right:-250px;
+            top:-250px;
         }
 
         .products-content{
@@ -641,179 +673,445 @@ html{scroll-behavior: smooth;
     transform: rotate(-8deg); 
 }
 
-@media (max-width:768px){
+.history-grid{
 
-    /* Navbar */
-    .nav-menu{
-        display:none;
-    }
+    display:grid;
 
-    .menu-toggle{
-        display:block;
-        font-size:40px;
-        margin-left:10px;
-    }
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
 
-    .navbar{
-        padding:10px 15px;
-    }
-
-    .nav-logo{
-        margin-left:0;
-    }
-
-    .logo{
-        width:55px;
-    }
-
-    .language-switch a{
-        font-size:16px;
-    }
-
-    .video-container::before{
-
-        width: 200%;
-        height: 300px;
-
-        left: -100px;
-        top: 300px;
-
-        transform: rotate(-35deg);
-    }
-
-    /* หน้าแรก */
-    .video-container{
-
-        min-height:auto;
-        padding:120px 20px 100px;
-
-        display:flex;
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    /* ยกเลิก absolute */
-    .content,
-    .hero-image,
-    .option,
-    .stats{
-
-        position:relative;
-        top:auto;
-        left:auto;
-        right:auto;
-
-    }
-
-    /* ข้อความ */
-    .content{
-
-        width:100%;
-        margin-bottom:40px;
-
-    }
-
-    .content h1{
-
-        font-size:42px;
-        margin-bottom:10px;
-
-    }
-
-    .content p{
-
-        font-size:18px;
-        line-height:1.7;
-
-    }
-
-    /* รูปสินค้า */
-    .hero-image{
-
-        width:100%;
-        display:flex;
-        justify-content:center;
-        margin-bottom:40px;
-
-    }
-
-    .hero-image img{
-
-        width:90%;
-        max-width:450px;
-        transform:none;
-
-    }
-
-    .hero-content{
-
-        padding-top: 120px;
-        padding-left: 20px;
-        padding-right: 20px;
-
-        gap:30px;
-
-        max-width: 100%;
-    }
-
-    /* ปุ่ม */
-    .option{
-        flex-direction:column;
-        align-items:center;
-        display: flex;
-        width: 100%;
-    }
-
-    .option button{
-
-        width:80%;
-        max-width: 430px;
-
-    }
-
-    /* สถิติ */
-    .stats{
-        display: flex;
-        flex-direction:column;
-        align-items:center;
-        width: 100%;
-    }
-
-    .stat-item{
-        width: 100%;
-        text-align: center;
-    }
-
-    .divider{
-
-        width:80px;
-        height:1px;
-
-    }
-
-    .stat-item{
-
-        width:100%;
-        text-align:center;
-
-    }
-
-    .stat-item img{
-
-        width:60px;
-        height:60px;
-
-    }
-
-    .stat-item h2{
-
-        font-size:36px;
-
-    }
+    gap:40px;
 
 }
 
-    </style>
+.history-card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.history-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.history-card img{
+
+    width:100px;
+
+    height:100px;
+
+    object-fit:contain;
+
+    margin:20px auto;
+
+}
+
+.history-section{
+
+    padding:100px 60px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00144d,
+        #0b58d8
+    );
+
+    color:white;
+
+}
+
+.history-section h2{
+
+    text-align:center;
+
+    font-size:64px;
+
+    margin-bottom:80px;
+
+}
+
+.timeline{
+
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+
+    padding: 250PX 0;
+
+}
+
+.timeline-line{
+
+    position:absolute;
+
+    top:50%;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    transform:translateY(-50%);
+
+}
+
+.timeline-item{
+
+    position:relative;
+
+    width:18%;
+
+    z-index:2;
+
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    width:22px;
+
+    height:22px;
+
+    background:#ffd700;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:50%;
+
+    width:100%;
+
+    height:4px;
+
+    background:rgba(255,255,255,.3);
+
+}
+
+.timeline-card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.4s;
+
+}
+
+.timeline-card{
+
+    opacity: 0;
+
+    transform: translate(80PX);
+
+    transition: 1S;
+}
+
+.timeline-card.show{
+    opacity: 1;
+    transform: translate(0);
+}
+
+.timeline-card:hover{
+
+    transform: scale(1.05);
+
+}
+
+.timeline-item:nth-child(even)
+.timeline-card{
+
+    margin-top:150px;
+
+}
+
+.timeline-item:nth-child(odd)
+.timeline-card{
+
+    margin-bottom:180px;
+
+}
+
+.timeline-card img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+
+    margin-bottom:20px;
+
+}
+
+.timeline-card h3{
+
+    color:#ffd700;
+
+    font-size:36px;
+
+    margin-bottom:10px;
+
+}
+
+    @media (max-width:768px){
+
+        /* Navbar */
+        .nav-menu{
+            display:none;
+        }
+
+        .menu-toggle{
+            display:block;
+            font-size:40px;
+            margin-left:10px;
+        }
+
+        .navbar{
+            padding:10px 15px;
+        }
+
+        .nav-logo{
+            margin-left:0;
+        }
+
+        .logo{
+            width:55px;
+        }
+
+        .language-switch a{
+            font-size:16px;
+        }
+
+        .video-container::before{
+
+            width: 200%;
+            height: 300px;
+
+            left: -100px;
+            top: 300px;
+
+            transform: rotate(-35deg);
+        }
+
+        /* หน้าแรก */
+        .video-container{
+
+            min-height:auto;
+            padding:120px 20px 100px;
+
+            display:flex;
+            flex-direction:column;
+            align-items:flex-start;
+        }
+
+        /* ยกเลิก absolute */
+        .content,
+        .hero-image,
+        .option,
+        .stats{
+
+            position:relative;
+            top:auto;
+            left:auto;
+            right:auto;
+
+        }
+
+        /* ข้อความ */
+        .content{
+
+            width:100%;
+            margin-bottom:40px;
+
+        }
+
+        .content h1{
+
+            font-size:42px;
+            margin-bottom:10px;
+
+        }
+
+        .content p{
+
+            font-size:18px;
+            line-height:1.7;
+
+        }
+
+        /* รูปสินค้า */
+        .hero-image{
+
+            width:100%;
+            display:flex;
+            justify-content:center;
+            margin-bottom:40px;
+
+        }
+
+        .hero-image img{
+
+            width:90%;
+            max-width:450px;
+            transform:none;
+
+        }
+
+        .hero-content{
+
+            padding-top: 120px;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            gap:30px;
+
+            max-width: 100%;
+        }
+
+        /* ปุ่ม */
+        .option{
+            flex-direction:column;
+            align-items:center;
+            display: flex;
+            width: 100%;
+        }
+
+        .option button{
+
+            width:80%;
+            max-width: 430px;
+
+        }
+
+        /* สถิติ */
+        .stats{
+            display: flex;
+            flex-direction:column;
+            align-items:center;
+            width: 100%;
+        }
+
+        .stat-item{
+            width: 100%;
+            text-align: center;
+        }
+
+        .divider{
+
+            width:80px;
+            height:1px;
+
+        }
+
+        .stat-item{
+
+            width:100%;
+            text-align:center;
+
+        }
+
+        .stat-item img{
+
+            width:60px;
+            height:60px;
+
+        }
+
+        .stat-item h2{
+
+            font-size:36px;
+
+        }
+
+        .timeline{
+
+            flex-direction:column;
+
+            gap:40px;
+
+        }
+
+        .timeline-line{
+
+            width:4px;
+
+            height:100%;
+
+            left:30px;
+
+            top:0;
+
+            transform:none;
+
+        }
+
+        .timeline-item{
+
+            width:100%;
+
+            padding-left:80px;
+
+        }
+
+        .timeline-item::before{
+
+            left:30px;
+
+            top:30px;
+
+        }
+
+        .timeline-item:nth-child(even)
+        .timeline-card,
+
+        .timeline-item:nth-child(odd)
+        .timeline-card{
+
+            margin:0;
+
+        }
+    }
+
+</style>
     
 </head>
 
@@ -989,34 +1287,85 @@ html{scroll-behavior: smooth;
             <button class="page-btn prev-btn">
                 ❮
             </button>
+        
 
-            <div class="products-content">
+<section class="history-section">
 
-                <h2>OUR PRODUCTS</h2>
+    <h2>COMPANY HISTORY</h2>
 
-                <div class="company-wrapper">
+    <div class="timeline">
 
-                    <div class="company-card">
-                        <h3>LOCK NUTS</h3>
-                    </div>
-
-                    <div class="company-card">
-                        <h3>HEX NUTS</h3>
-                    </div>
-
-                    <div class="company-card">
-                        <h3>SPECIAL FASTENERS</h3>
-                    </div>
-
-                </div>
-
+        <div class="timeline-item">
+            <div class="timeline-card">
+                <img src="factory1.jpg">
+                <h3>1980</h3>
+                <p>JING FONG INDUSTRY was founded in Taiwan</p>
             </div>
+        </div>
 
+        <div class="timeline-item">
+            <div class="timeline-card">
+                <img src="TL 1.png">
+                <h3>1991</h3>
+                <p>THAILOCK FASTENERS established</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-card">
+                <img src="iso.png">
+                <h3>2001</h3>
+                <p>ISO 9001 Certified</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-card">
+                <img src="iatf.png">
+                <h3>2012</h3>
+                <p>IATF16949 Certified</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-card">
+                <img src="factory2.jpg">
+                <h3>2020</h3>
+                <p>Rayong Factory Opened</p>
+            </div>
         </div>
 
     </div>
 
 </section>
+
+</div>
+</div>
+</section>
+
+<script>
+
+const cards = document.querySelectorAll(".timeline-card");
+
+const observer = new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:0.3
+});
+
+cards.forEach(card=>observer.observe(card));
+
+</script>
 
 <script>
 const slider = document.getElementById("companySlider");
