@@ -1,398 +1,940 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THAI LOCK</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: Arial, sans-serif; overflow-x: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THAI LOCK</title>
 
-        /* NAVBAR */
-        .navbar {
-            position: fixed; top: 0; left: 0; right: 0;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 15px 40px; background: rgba(241, 230, 230, 0.1);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            transition: top 0.4s ease; z-index: 1000;
-        }
-        .nav-logo img { width: 80px; height: auto; display: block; }
-        .nav-menu { display: flex; gap: 30px; list-style: none; flex: 1; justify-content: center; }
-        .nav-menu a { text-decoration: none; color: white; font-size: clamp(14px, 1vw, 20px); font-weight: bold; transition: 0.3s; white-space: nowrap; }
-        .nav-menu a:hover { color: #2f32f4; }
-        .nav-right { display: flex; align-items: center; gap: 20px; flex: 1; justify-content: flex-end; }
-        .language-switch { display: flex; gap: 8px; align-items: center; }
-        .language-switch a { color: white; text-decoration: none; font-size: 20px; font-weight: bold; }
-        .language-switch span { color: blue; }
-        .menu-toggle { background: transparent; border: none; color: black; font-size: 50px; cursor: pointer; display: none; }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* HERO SECTION */
-        .video-container { position: relative; width: 100%; min-height: 100vh; overflow: hidden; display: flex; align-items: center; }
-        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-        .page-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.35); z-index: 1; }
-        .video-container::before {
-            content: ""; position: absolute; top: 0; left: -150px; bottom: -150px;
-            width: 700%; height: 700px; background: rgba(0, 20, 80, 0.3);
-            transform: rotate(-25deg); z-index: 1;
-        }
-        .hero-content { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 40px; padding-left: 60px; max-width: 800px; color: white; }
-        .hero-content h1 { font-size: 48px; line-height: 1.1; margin-bottom: 20px; }
-        .hero-content p { font-size: 22px; line-height: 1.7; margin-bottom: 8px; }
-        .option { display: flex; gap: 20px; z-index: 10; }
-        .option button { padding: 12px 30px; font-size: 18px; font-weight: bold; border: 2px solid white; border-radius: 30px; background: #4169E1; color: white; cursor: pointer; transition: 0.3s; }
-        .option button:hover { background: white; color: black; }
-        .stats { display: flex; align-items: center; gap: 20px; z-index: 10; }
-        .stat-item { width: 140px; text-align: center; }
-        .stat-item img { width: 80px; height: 80px; margin: 0 auto 15px; display: block; }
-        .stat-item h2 { font-size: 40px; font-weight: 800; color: white; margin-bottom: 5px; }
-        .stat-item p { font-size: 20px; font-weight: 700; color: #000; line-height: 1.4; }
-        .divider { width: 1px; height: 80px; background: rgba(255, 255, 255, 0.4); }
+html {
+    scroll-behavior: smooth;
+}
 
-        /* PAGE SLIDER */
-        .page-slider { width: 100%; overflow: hidden; }
-        .pages { display: flex; width: 200vw; transition: 0.8s ease; }
-        .page { width: 100vw; min-height: 100vh; position: relative; flex-shrink: 0; overflow: hidden; }
-        .page-btn {
-            position: fixed; top: 50%; transform: translateY(-50%);
-            width: 70px; height: 70px; border: none; border-radius: 50%;
-            background: rgba(255,255,255,.2); color: white; font-size: 35px;
-            cursor: pointer; display: flex; justify-content: center; align-items: center; z-index: 9999;
-        }
-        .next-btn { right: 30px; }
-        .prev-btn { left: 30px; }
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
 
-        /* GROUP COMPANIES */
-        .about-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .about-content { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 100px 80px 80px; color: white; }
-        .about-content h2 { text-align: center; font-size: 60px; margin: 50px 0 60px; }
-        .company-wrapper { display: flex; justify-content: center; align-items: stretch; gap: 60px; flex-wrap: wrap; }
-        .company-card {
-            width: 350px; flex: 0 0 350px; min-height: 550px; display: flex; flex-direction: column;
-            background: rgba(0,0,0,0.45); backdrop-filter: blur(8px); border-radius: 20px; padding: 30px; transition: 0.3s;
-        }
-        .company-card:hover { transform: translateY(-10px); }
-        .company-logo { width: 90px; height: 90px; object-fit: contain; margin: 0 auto 20px; display: block; }
-        .company-card h3 { text-align: center; margin-bottom: 20px; font-size: 22px; }
-        .company-card ul { list-style: none; padding: 0; }
-        .company-card li { margin-bottom: 12px; line-height: 1.6; }
-        .company-card li::before { content: "• "; color: #4da3ff; font-weight: bold; }
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
-                /* HISTORY SECTION */
-        .products-page {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(circle at center, #0b58d8 0%, #002c80 45%, #00144d 100%);
-        }
-        .products-page::before {
-            content: "";
-            position: absolute;
-            width: 700px;
-            height: 700px;
-            border-radius: 50%;
-            background: rgba(255,255,255,.05);
-            right: -150px;
-            top: -100px;
-        }
-        .products-page::after {
-            content: "";
-            position: absolute;
-            width: 900px;
-            height: 900px;
-            border-radius: 50%;
-            background: rgba(255,255,255,.03);
-            right: -250px;
-            top: -250px;
-        }
-        .history-section {
-            position: relative;
-            z-index: 1;
-            padding: 100px 80px;
-            background: linear-gradient(135deg, #00144d, #0b58d8);
-            color: white;
-        }
-        .history-section h2 {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 64px;
-            margin-bottom: 80px;
-        }
-        .timeline {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 50px 0;
-        }
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-50%);
-        }
-        .timeline-item {
-            position: relative;
-            width: 18%;
-            z-index: 2;
-        }
-        .timeline-item::before {
-            content: "";
-            width: 22px;
-            height: 22px;
-            background: #ffd700;
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .timeline-card {
-            background: rgba(255,255,255,.08);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px 25px;
-            text-align: center;
-            transition: 1s;
-            width: 220px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateX(80px);
-        }
-        .timeline-card.show {
-            opacity: 1;
-            transform: translate(0);
-        }
-        .timeline-card:hover {
-            transform: scale(1.05);
-        }
-        .timeline-item:nth-child(even) .timeline-card {
-            margin-top: 380px;
-        }
-        .timeline-item:nth-child(odd) .timeline-card {
-            margin-bottom: 380px;
-        }
-        .timeline-card img {
-            width: 90px;
-            height: 90px;
-            object-fit: contain;
-            margin-bottom: 20px;
-        }
-        .timeline-card h3 {
-            color: #ffd700;
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        /* RESPONSIVE */
-        @media (max-width: 1200px) {
-            .hero-content { max-width: 55%; }
-            .hero-content h1 { font-size: 42px; }
-            .hero-content p { font-size: 18px; }
-        }
-        @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .menu-toggle { display: block; font-size: 40px; margin-left: 10px; }
-            .navbar { padding: 10px 15px; }
-            .nav-logo { margin-left: 0; }
-            .nav-logo img { width: 55px; }
-            .language-switch a { font-size: 16px; }
-            .video-container { padding: 120px 20px 100px; flex-direction: column; align-items: flex-start; min-height: auto; }
-            .video-container::before { width: 200%; height: 300px; left: -100px; top: 300px; transform: rotate(-35deg); }
-            .hero-content { padding: 120px 20px 0; max-width: 100%; width: 100%; gap: 30px; }
-            .option { flex-direction: column; align-items: center; width: 100%; }
-            .option button { width: 80%; max-width: 430px; }
-            .stats { flex-direction: column; width: 100%; }
-            .stat-item { width: 100%; }
-            .divider { width: 80px; height: 1px; }
-            .timeline { flex-direction: column; gap: 40px; }
-            .timeline::before { width: 4px; height: 100%; left: 30px; top: 0; transform: none; }
-            .timeline-item { width: 100%; padding-left: 80px; }
-            .timeline-item::before { left: 30px; top: 30px; }
-            .timeline-item:nth-child(even) .timeline-card, .timeline-item:nth-child(odd) .timeline-card { margin: 0; }
-        }
-    </style>
+    padding: 15px 40px;
+    background: rgba(241, 230, 230, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition: top 0.4s ease;
+    z-index: 1000;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+    flex: 1;
+}
+
+.nav-logo img {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: clamp(14px, 1vw, 20px);
+    font-weight: bold;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.nav-menu a:hover {
+    color: #2f32f4;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.language-switch {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.language-switch a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.language-switch span {
+    color: blue;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    color: black;
+    font-size: 50px;
+    cursor: pointer;
+    display: none;
+}
+
+/* HERO */
+.video-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.page-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    z-index: 1;
+}
+
+.video-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150px;
+    bottom: -150px;
+
+    width: 700%;
+    height: 700px;
+
+    background: rgba(0, 20, 80, 0.3);
+    transform: rotate(-25deg);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    padding-left: 60px;
+    max-width: 800px;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 22px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.option {
+    display: flex;
+    gap: 20px;
+}
+
+.option button {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+
+    border: 2px solid white;
+    border-radius: 30px;
+
+    background: #4169E1;
+    color: white;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option button:hover {
+    background: white;
+    color: black;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-item {
+    width: 140px;
+    text-align: center;
+}
+
+.stat-item img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+.stat-item h2 {
+    font-size: 40px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.4;
+}
+
+.divider {
+    width: 1px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* PAGE SLIDER */
+.page-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.pages {
+    display: flex;
+    width: 200vw;
+    transition: transform 0.8s ease;
+}
+
+.page {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+/* ปุ่มเลื่อนหน้า 2 / หน้า 3 แก้ให้ตรงกัน */
+.page-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 70px;
+    height: 70px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.25);
+    color: white;
+    font-size: 35px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 20;
+    transition: 0.3s;
+}
+
+.page-btn:hover {
+    background: rgba(255,255,255,.45);
+    color: #00144d;
+}
+
+.next-btn {
+    right: 35px;
+}
+
+.prev-btn {
+    left: 35px;
+}
+
+/* GROUP COMPANIES */
+.about-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 120px 90px 100px;
+    color: white;
+}
+
+.about-content h2 {
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 60px;
+}
+
+.company-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.company-card {
+    width: 350px;
+    min-height: 550px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+
+    border-radius: 20px;
+    padding: 30px;
+
+    transition: 0.3s;
+}
+
+.company-card:hover {
+    transform: translateY(-10px);
+}
+
+.company-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.company-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.company-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.company-card li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.company-card li::before {
+    content: "• ";
+    color: #4da3ff;
+    font-weight: bold;
+}
+
+/* HISTORY */
+.products-page {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 75% 20%, rgba(255,255,255,0.15), transparent 35%),
+        linear-gradient(135deg, #00144d 0%, #002c80 45%, #0b58d8 100%);
+}
+
+.products-page::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+    right: -150px;
+    top: -100px;
+    z-index: 0;
+}
+
+.products-page::after {
+    content: "";
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+    right: -250px;
+    top: -250px;
+    z-index: 0;
+}
+
+.history-section {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 120px 80px 100px;
+    color: white;
+    background: transparent;
+}
+
+.history-section h2 {
+    text-align: center;
+    font-size: 64px;
+    margin-bottom: 80px;
+}
+
+.timeline {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 50px 0;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    width: 100%;
+    height: 4px;
+
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 18%;
+    z-index: 2;
+}
+
+.timeline-item::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+
+    background: #ffd700;
+    border-radius: 50%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.timeline-card {
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
+    padding: 40px 25px;
+
+    text-align: center;
+
+    width: 220px;
+    margin: 0 auto;
+
+    opacity: 0;
+    transform: translateX(80px);
+    transition: 1s;
+}
+
+.timeline-card.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-card:hover {
+    transform: scale(1.05);
+}
+
+.timeline-item:nth-child(even) .timeline-card {
+    margin-top: 380px;
+}
+
+.timeline-item:nth-child(odd) .timeline-card {
+    margin-bottom: 380px;
+}
+
+.timeline-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.timeline-card h3 {
+    color: #ffd700;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .hero-content {
+        max-width: 65%;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .company-wrapper {
+        gap: 35px;
+    }
+
+    .company-card {
+        width: 300px;
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-logo img {
+        width: 55px;
+    }
+
+    .language-switch a {
+        font-size: 16px;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 40px;
+        margin-left: 10px;
+    }
+
+    .video-container {
+        min-height: auto;
+        padding: 120px 20px 100px;
+        align-items: flex-start;
+    }
+
+    .video-container::before {
+        width: 200%;
+        height: 300px;
+        left: -100px;
+        top: 300px;
+        transform: rotate(-35deg);
+    }
+
+    .hero-content {
+        padding: 120px 0 0;
+        max-width: 100%;
+        width: 100%;
+        gap: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p {
+        font-size: 17px;
+    }
+
+    .option {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .option button {
+        width: 80%;
+        max-width: 430px;
+    }
+
+    .stats {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .stat-item {
+        width: 100%;
+    }
+
+    .divider {
+        width: 80px;
+        height: 1px;
+    }
+
+    .about-content {
+        padding: 110px 25px 100px;
+    }
+
+    .about-content h2 {
+        font-size: 38px;
+        margin-bottom: 40px;
+    }
+
+    .company-wrapper {
+        gap: 25px;
+    }
+
+    .company-card {
+        width: 100%;
+        max-width: 360px;
+        min-height: auto;
+    }
+
+    .history-section {
+        padding: 110px 25px 100px;
+    }
+
+    .history-section h2 {
+        font-size: 38px;
+        margin-bottom: 50px;
+    }
+
+    .timeline {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 40px;
+        padding: 20px 0;
+    }
+
+    .timeline::before {
+        width: 4px;
+        height: 100%;
+        left: 30px;
+        top: 0;
+        transform: none;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 80px;
+    }
+
+    .timeline-item::before {
+        left: 30px;
+        top: 30px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-card,
+    .timeline-item:nth-child(odd) .timeline-card {
+        margin: 0;
+    }
+
+    .timeline-card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .page-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 28px;
+    }
+
+    .next-btn {
+        right: 15px;
+    }
+
+    .prev-btn {
+        left: 15px;
+    }
+}
+</style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-left">
-            <div class="nav-logo">
-                <a href="#home"><img src="TL 1.png" alt="Logo"></a>
-            </div>
-        </div>
-        <div class="nav-center">
-            <ul class="nav-menu">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">PRODUCTS</a></li>
-                <li><a href="#">CAPABILITIES</a></li>
-                <li><a href="#">QUALITY</a></li>
-                <li><a href="#">RESOURCES</a></li>
-                <li><a href="#">CONTACT US</a></li>
-            </ul>
-        </div>
-        <div class="nav-right">
-            <div class="language-switch">
-                <a href="#">TH</a><span>/</span><a href="#">EN</a><span>/</span><a href="#">中文</a>
-            </div>
-            <button class="menu-toggle">☰</button>
-        </div>
-    </nav>
 
-    <div class="video-container" id="home">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="ล่าสุด (1).mp4" type="video/mp4">
-        </video>
-        <div class="page-overlay"></div>
-        <div class="hero-content">
-            <h1>THAILOCK<br>FASTENERS</h1>
-            <p>THAILOCK FASTENERS CO., LTD was established in 1991 as a professional lock nuts manufacturer.</p>
-            <p>With over 30 years of experiences in the industry, Thailock Fasteners is now actively supplying a wide variety of nuts to customers worldwide.</p>
-            <div class="option">
-                <button onclick="location.href='quote.html'">Get Quote</button>
-                <button onclick="location.href='about.html'">Learn More</button>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <img src="r_2.png" alt="">
-                    <h2>30+</h2>
-                    <p>Years Experience</p>
-                </div>
-                <div class="divider"></div>
-                <div class="stat-item">
-                    <img src="002-globe-blue.png" alt="">
-                    <h2>50+</h2>
-                    <p>Countries Served</p>
-                </div>
-                <div class="divider"></div>
-                <div class="stat-item">
-                    <img src="9784009.png" alt="">
-                    <h2>1000+</h2>
-                    <p>Satisfied Clients</p>
-                </div>
-            </div>
+<body>
+
+<nav class="navbar">
+    <div class="nav-left">
+        <div class="nav-logo">
+            <a href="#home">
+                <img src="TL 1.png" alt="Logo">
+            </a>
         </div>
     </div>
 
-    <section class="page-slider">
-        <div class="pages" id="pages">
-            <!-- PAGE 2 -->
-            <div class="page">
-                <video autoplay muted loop playsinline class="about-video">
-                    <source src="out.mp4" type="video/mp4">
-                </video>
-                <div class="page-overlay"></div>
-                <div class="about-content">
-                    <h2>GROUP COMPANIES</h2>
-                    <div class="company-wrapper">
-                        <div class="company-card">
-                            <img src="jingfong-logo.png" class="company-logo">
-                            <h3>JING FONG INDUSTRY</h3>
-                            <ul>
-                                <li>OEM / Special Nuts</li>
-                                <li>Tainan, Taiwan</li>
-                                <li>Capacity: >1,000 Tons / Month</li>
-                            </ul>
-                        </div>
-                        <div class="company-card">
-                            <img src="TL 1.png" class="company-logo">
-                            <h3>THAILOCK FASTENERS</h3>
-                            <ul>
-                                <li>Standard / OEM Fasteners</li>
-                                <li>2 Plants at Chonburi & Rayong</li>
-                                <li>Area: 70,000 m²</li>
-                            </ul>
-                        </div>
-                        <div class="company-card">
-                            <img src="thaimax-logo.png" class="company-logo">
-                            <h3>THAIMAX PLASTICS</h3>
-                            <ul>
-                                <li>Plastic Injection Parts</li>
-                                <li>Compound Material</li>
-                                <li>Rayong, Thailand</li>
-                            </ul>
-                        </div>
+    <div class="nav-center">
+        <ul class="nav-menu">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">PRODUCTS</a></li>
+            <li><a href="#">CAPABILITIES</a></li>
+            <li><a href="#">QUALITY</a></li>
+            <li><a href="#">RESOURCES</a></li>
+            <li><a href="#">CONTACT US</a></li>
+        </ul>
+    </div>
+
+    <div class="nav-right">
+        <div class="language-switch">
+            <a href="#">TH</a>
+            <span>/</span>
+            <a href="#">EN</a>
+            <span>/</span>
+            <a href="#">中文</a>
+        </div>
+
+        <button class="menu-toggle">☰</button>
+    </div>
+</nav>
+
+<!-- PAGE 1 -->
+<div class="video-container" id="home">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="ล่าสุด (1).mp4" type="video/mp4">
+    </video>
+
+    <div class="page-overlay"></div>
+
+    <div class="hero-content">
+        <div>
+            <h1>THAILOCK<br>FASTENERS</h1>
+            <p>THAILOCK FASTENERS CO., LTD was established in 1991 as a professional lock nuts manufacturer.</p>
+            <p>With over 30 years of experiences in the industry, Thailock Fasteners is now actively supplying a wide variety of nuts to customers worldwide.</p>
+        </div>
+
+        <div class="option">
+            <button onclick="location.href='quote.html'">Get Quote</button>
+            <button onclick="location.href='about.html'">Learn More</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <img src="r_2.png" alt="">
+                <h2>30+</h2>
+                <p>Years Experience</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="stat-item">
+                <img src="002-globe-blue.png" alt="">
+                <h2>50+</h2>
+                <p>Countries Served</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="stat-item">
+                <img src="9784009.png" alt="">
+                <h2>1000+</h2>
+                <p>Satisfied Clients</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 2 / PAGE 3 SLIDER -->
+<section class="page-slider">
+    <div class="pages" id="pages">
+
+        <!-- PAGE 2 -->
+        <div class="page">
+            <video autoplay muted loop playsinline class="about-video">
+                <source src="out.mp4" type="video/mp4">
+            </video>
+
+            <div class="page-overlay"></div>
+
+            <div class="about-content">
+                <h2>GROUP COMPANIES</h2>
+
+                <div class="company-wrapper">
+                    <div class="company-card">
+                        <img src="jingfong-logo.png" class="company-logo" alt="">
+                        <h3>JING FONG INDUSTRY</h3>
+                        <ul>
+                            <li>OEM / Special Nuts</li>
+                            <li>Tainan, Taiwan</li>
+                            <li>Capacity: >1,000 Tons / Month</li>
+                        </ul>
                     </div>
-                    <button class="page-btn next-btn">❯</button>
+
+                    <div class="company-card">
+                        <img src="TL 1.png" class="company-logo" alt="">
+                        <h3>THAILOCK FASTENERS</h3>
+                        <ul>
+                            <li>Standard / OEM Fasteners</li>
+                            <li>2 Plants at Chonburi & Rayong</li>
+                            <li>Area: 70,000 m²</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <img src="thaimax-logo.png" class="company-logo" alt="">
+                        <h3>THAIMAX PLASTICS</h3>
+                        <ul>
+                            <li>Plastic Injection Parts</li>
+                            <li>Compound Material</li>
+                            <li>Rayong, Thailand</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- PAGE 3 -->
-            <div class="page products-page">
-                <section class="history-section">
-                    <h2>COMPANY HISTORY</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-card">
-                                <img src="factory1.jpg">
-                                <h3>1980</h3>
-                                <p>JING FONG INDUSTRY was founded in Taiwan</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-card">
-                                <img src="TL 1.png">
-                                <h3>1991</h3>
-                                <p>THAILOCK FASTENERS established</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-card">
-                                <img src="iso.png">
-                                <h3>2001</h3>
-                                <p>ISO 9001 Certified</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-card">
-                                <img src="iatf.png">
-                                <h3>2012</h3>
-                                <p>IATF16949 Certified</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-card">
-                                <img src="factory2.jpg">
-                                <h3>2020</h3>
-                                <p>Rayong Factory Opened</p>
-                            </div>
+            <button class="page-btn next-btn" aria-label="Next page">❯</button>
+        </div>
+
+        <!-- PAGE 3 -->
+        <div class="page products-page">
+            <section class="history-section">
+                <h2>COMPANY HISTORY</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="factory1.jpg" alt="">
+                            <h3>1980</h3>
+                            <p>JING FONG INDUSTRY was founded in Taiwan</p>
                         </div>
                     </div>
-                </section>
-                <button class="page-btn prev-btn">❮</button>
-            </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="TL 1.png" alt="">
+                            <h3>1991</h3>
+                            <p>THAILOCK FASTENERS established</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="iso.png" alt="">
+                            <h3>2001</h3>
+                            <p>ISO 9001 Certified</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="iatf.png" alt="">
+                            <h3>2012</h3>
+                            <p>IATF16949 Certified</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="factory2.jpg" alt="">
+                            <h3>2020</h3>
+                            <p>Rayong Factory Opened</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <button class="page-btn prev-btn" aria-label="Previous page">❮</button>
         </div>
-    </section>
 
-    <script>
-        // Timeline Animation
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) entry.target.classList.add("show");
-            });
-        }, { threshold: 0.3 });
-        document.querySelectorAll(".timeline-card").forEach(card => observer.observe(card));
+    </div>
+</section>
 
-        // Page Slider
-        const pages = document.getElementById("pages");
-        document.querySelector(".next-btn").addEventListener("click", () => pages.style.transform = "translateX(-100vw)");
-        document.querySelector(".prev-btn").addEventListener("click", () => pages.style.transform = "translateX(0)");
+<script>
+/* Timeline Animation */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.3 });
 
-        // Navbar Scroll Effect
-        let lastScrollTop = 0;
-        const navbar = document.querySelector(".navbar");
-        window.addEventListener("scroll", () => {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            if (currentScroll > 100) {
-                navbar.style.top = currentScroll > lastScrollTop ? "-120px" : "0";
-            } else {
-                navbar.style.top = "0";
-            }
-            lastScrollTop = currentScroll;
-        });
-    </script>
+document.querySelectorAll(".timeline-card").forEach(card => {
+    observer.observe(card);
+});
+
+/* Page Slider */
+const pages = document.getElementById("pages");
+const nextBtn = document.querySelector(".next-btn");
+const prevBtn = document.querySelector(".prev-btn");
+
+nextBtn.addEventListener("click", () => {
+    pages.style.transform = "translateX(-100vw)";
+});
+
+prevBtn.addEventListener("click", () => {
+    pages.style.transform = "translateX(0)";
+});
+
+/* Navbar Scroll Effect */
+let lastScrollTop = 0;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > 100) {
+        navbar.style.top = currentScroll > lastScrollTop ? "-120px" : "0";
+    } else {
+        navbar.style.top = "0";
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+</script>
+
 </body>
 </html>
