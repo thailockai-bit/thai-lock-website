@@ -175,26 +175,14 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; }
     .stats { flex-direction: column; width: 100%; }
     .stat-item { width: 100%; }
     .divider { width: 80px; height: 1px; }
+
     /* ===== MOBILE SLIDER FIX ===== */
 
-.horizontal-slider{
-    height:100vh;
-    overflow:hidden;
-}
+    .horizontal-slider{ height:100vh; overflow:hidden; }
 
-.pages{
-    height:100vh;
-}
+    .pages{ height:100vh;}
 
-.page{
-    height:100vh;
-    min-height:100vh;
-
-    overflow-y:auto;
-    overflow-x:hidden;
-
-    -webkit-overflow-scrolling:touch;
-}
+    .page{ height:100vh; min-height:100vh; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; }
 
     /* Group Companies */
 
@@ -209,19 +197,68 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; }
 
     .company-card li{ font-size:16px; }
 
-    /* History */
+    /* History Mobile Vertical */
 
-    .history-section{ padding:90px 20px 80px; }
+.history-section{
+    padding:120px 25px 100px;
+}
 
-    .history-section h2{ font-size:34px; margin-bottom:40px; }
+.history-section h2{
+    font-size:34px;
+    margin-bottom:45px;
+}
 
-    .timeline{ gap:25px; }
+.timeline{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:35px;
+    padding:20px 0;
+    margin-top:0;
+}
 
-    .timeline-card{width:100%; max-width:280px; padding:25px 15px; }
+.timeline::before{
+    width:4px;
+    height:100%;
+    left:30px;
+    top:0;
+    transform:none;
+}
 
-    .timeline-card img{ width:70px; height:70px; }
+.timeline-item{
+    width:100%;
+    padding-left:80px;
+}
 
-    .timeline-card h3{ font-size:28px; }
+.timeline-item::before{
+    left:30px;
+    top:35px;
+}
+
+.timeline-item:nth-child(even) .timeline-card,
+.timeline-item:nth-child(odd) .timeline-card{
+    margin:0;
+}
+
+.timeline-card{
+    width:100%;
+    max-width:320px;
+    padding:30px 20px;
+    transform:translateX(40px);
+}
+
+.timeline-card.show{
+    transform:translateX(0);
+}
+
+.timeline-card img{
+    width:70px;
+    height:70px;
+}
+
+.timeline-card h3{
+    font-size:32px;
+}
     .product-section { padding: 110px 25px 100px; }
     .product-section h2 { font-size: 38px; margin-bottom: 35px; }
     .product-grid { grid-template-rows: repeat(2, 150px); grid-auto-columns: 150px; gap: 18px; padding: 10px 20px; }
