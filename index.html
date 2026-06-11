@@ -6,20 +6,9 @@
 <title>THAI LOCK</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: Arial, sans-serif; overflow-x: hidden; }
 
 /* NAVBAR */
 .navbar {
@@ -27,914 +16,317 @@ body {
     top: 0;
     left: 0;
     right: 0;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 15px 40px;
-    background: rgba(241, 230, 230, 0.1);
+    background: rgba(0, 20, 60, 0.35);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-
     transition: top 0.4s ease;
     z-index: 1000;
 }
+.nav-left, .nav-center, .nav-right { flex: 1; }
+.nav-logo img { width: 80px; height: auto; display: block; }
+.nav-menu { display: flex; justify-content: center; gap: 30px; list-style: none; }
+.nav-menu a { text-decoration: none; color: white; font-size: clamp(14px, 1vw, 20px); font-weight: bold; transition: 0.3s; white-space: nowrap; }
+.nav-menu a:hover { color: #4da3ff; }
+.nav-right { display: flex; align-items: center; justify-content: flex-end; gap: 20px; }
+.language-switch { display: flex; gap: 8px; align-items: center; }
+.language-switch a { color: white; text-decoration: none; font-size: 20px; font-weight: bold; }
+.language-switch span { color: #4da3ff; }
+.menu-toggle { background: transparent; border: none; color: white; font-size: 50px; cursor: pointer; display: none; }
 
-.nav-left,
-.nav-center,
-.nav-right {
-    flex: 1;
-}
-
-.nav-logo img {
-    width: 80px;
-    height: auto;
-    display: block;
-}
-
-.nav-menu {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    list-style: none;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: white;
-    font-size: clamp(14px, 1vw, 20px);
-    font-weight: bold;
-    transition: 0.3s;
-    white-space: nowrap;
-}
-
-.nav-menu a:hover {
-    color: #2f32f4;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 20px;
-}
-
-.language-switch {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.language-switch a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.language-switch span {
-    color: blue;
-}
-
-.menu-toggle {
-    background: transparent;
-    border: none;
-    color: black;
-    font-size: 50px;
-    cursor: pointer;
-    display: none;
-}
-
-/* HERO */
-.video-container {
+/* PAGE 0 */
+.page-zero {
     position: relative;
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
-
     display: flex;
     align-items: center;
-}
-
-.hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-}
-
-.page-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,.35);
-    z-index: 1;
-}
-
-.video-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -150px;
-    bottom: -150px;
-
-    width: 700%;
-    height: 700px;
-
-    background: rgba(0, 20, 80, 0.3);
-    transform: rotate(-25deg);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-
-    padding-left: 60px;
-    max-width: 800px;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 10, 40, 0.65), rgba(0, 10, 40, 0.75)), url("home-bg.jpg");
+    background-size: cover;
+    background-position: center;
     color: white;
-}
-
-.hero-content h1 {
-    font-size: 48px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-
-.hero-content p {
-    font-size: 22px;
-    line-height: 1.7;
-    margin-bottom: 8px;
-}
-
-.option {
-    display: flex;
-    gap: 20px;
-}
-
-.option button {
-    padding: 12px 30px;
-    font-size: 18px;
-    font-weight: bold;
-
-    border: 2px solid white;
-    border-radius: 30px;
-
-    background: #4169E1;
-    color: white;
-
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.option button:hover {
-    background: white;
-    color: black;
-}
-
-.stats {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.stat-item {
-    width: 140px;
     text-align: center;
 }
+.page-zero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(11,88,216,0.35), transparent 45%); z-index: 1; }
+.zero-content { position: relative; z-index: 2; max-width: 900px; padding: 120px 30px 80px; }
+.zero-content h1 { font-size: clamp(48px, 7vw, 100px); line-height: 1; margin-bottom: 25px; }
+.zero-content p { font-size: clamp(18px, 2vw, 26px); line-height: 1.7; margin-bottom: 0; }
 
-.stat-item img {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 15px;
-    display: block;
-}
+/* PAGE 1-3 HORIZONTAL SLIDER */
+.horizontal-slider { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+.pages { display: flex; width: 300vw; height: 100vh; transition: transform 0.8s ease; }
+.page { position: relative; width: 100vw; height: 100vh; flex-shrink: 0; overflow: hidden; }
 
-.stat-item h2 {
-    font-size: 40px;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 5px;
-}
+/* HERO PAGE 1.1 */
+.video-container { display: flex; align-items: center; }
+.hero-video, .about-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; pointer-events: none; }
+.page-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.35); z-index: 1; pointer-events: none; }
+.video-container::before { content: ""; position: absolute; top: 0; left: -150px; bottom: -150px; width: 700%; height: 700px; background: rgba(0, 20, 80, 0.3); transform: rotate(-25deg); z-index: 1; }
+.hero-content { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 40px; padding-left: 60px; padding-top: 160px; max-width: 800px; color: white; }
+.hero-content h1 { font-size: 48px; line-height: 1.1; margin-bottom: 20px; }
+.hero-content p { font-size: 22px; line-height: 1.7; margin-bottom: 8px; }
+.option { display: flex; gap: 20px; }
+.option button { padding: 12px 30px; font-size: 18px; font-weight: bold; border: 2px solid white; border-radius: 30px; background: #4169E1; color: white; cursor: pointer; transition: 0.3s; }
+.option button:hover { background: white; color: black; }
+.stats { display: flex; align-items: center; gap: 20px; }
+.stat-item { width: 140px; text-align: center; }
+.stat-item img { width: 80px; height: 80px; margin: 0 auto 15px; display: block; }
+.stat-item h2 { font-size: 40px; font-weight: 800; color: white; margin-bottom: 5px; }
+.stat-item p { font-size: 20px; font-weight: 700; color: #000; line-height: 1.4; }
+.divider { width: 1px; height: 80px; background: rgba(255, 255, 255, 0.4); }
 
-.stat-item p {
-    font-size: 20px;
-    font-weight: 700;
-    color: #000;
-    line-height: 1.4;
-}
+/* SLIDE BUTTONS */
+.page-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 70px; height: 70px; border: none; border-radius: 50%; background: rgba(255,255,255,.25); color: white; font-size: 35px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 9999; pointer-events: auto; touch-action: manipulation; transition: 0.3s; }
+.page-btn:hover { background: rgba(255,255,255,.45); color: #00144d; }
+.page-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+.next-btn { right: 35px; }
+.prev-btn { left: 35px; }
 
-.divider {
-    width: 1px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.4);
-}
+/* GROUP COMPANIES PAGE 1.2 */
+.about-content { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 90px 100px; color: white; }
+.about-content h2 { text-align: center; font-size: 60px; margin-bottom: 60px; }
+.company-wrapper { display: flex; justify-content: center; align-items: stretch; gap: 60px; flex-wrap: wrap; }
+.company-card { width: 350px; min-height: 550px; display: flex; flex-direction: column; background: rgba(0,0,0,0.45); backdrop-filter: blur(8px); border-radius: 20px; padding: 30px; transition: 0.3s; }
+.company-card:hover { transform: translateY(-10px); }
+.company-logo { width: 90px; height: 90px; object-fit: contain; margin: 0 auto 20px; display: block; }
+.company-card h3 { text-align: center; margin-bottom: 20px; font-size: 22px; }
+.company-card ul { list-style: none; padding: 0; }
+.company-card li { margin-bottom: 12px; line-height: 1.6; }
+.company-card li::before { content: "• "; color: #4da3ff; font-weight: bold; }
 
-/* PAGE SLIDER */
-.page-slider {
+/* HISTORY PAGE 1.3 */
+.products-page { position: relative; overflow: hidden; min-height: 100vh; background: radial-gradient(circle at 75% 20%, rgba(255,255,255,0.15), transparent 35%), linear-gradient(135deg, #00144d 0%, #002c80 45%, #0b58d8 100%); }
+.history-section { position: relative; z-index: 2; min-height: 100vh; padding: 120px 80px 100px; color: white; }
+.history-section h2 { text-align: center; font-size: 64px; margin-bottom: 80px; }
+.timeline { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 50px 0; margin-top: -120px; }
+.timeline::before { content: ""; position: absolute; left: 0; top: 50%; width: 100%; height: 4px; background: rgba(255, 255, 255, 0.3); transform: translateY(-50%); }
+.timeline-item { position: relative; width: 18%; z-index: 2; }
+.timeline-item::before { content: ""; width: 22px; height: 22px; background: #ffd700; border-radius: 50%; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.timeline-card { background: rgba(255,255,255,.08); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px 25px; text-align: center; width: 220px; margin: 0 auto; opacity: 0; transform: translateX(80px); transition: 1s; }
+.timeline-card.show { opacity: 1; transform: translateX(0); }
+.timeline-item:nth-child(even) .timeline-card { margin-top: 380px; }
+.timeline-item:nth-child(odd) .timeline-card { margin-bottom: 380px; }
+.timeline-card img { width: 90px; height: 90px; object-fit: contain; margin-bottom: 20px; }
+.timeline-card h3 { color: #ffd700; font-size: 36px; margin-bottom: 10px; }
+
+/* PAGE 2 SCROLL DOWN */
+.page-two-down {
     position: relative;
     width: 100%;
-    overflow: hidden;
-}
-
-.pages {
-    display: flex;
-    width: 200vw;
-    transition: transform 0.8s ease;
-}
-
-.page {
-    position: relative;
-    width: 100vw;
     min-height: 100vh;
-    flex-shrink: 0;
     overflow: hidden;
-}
-
-/* ปุ่มเลื่อนหน้า 2 / หน้า 3 แก้ให้ตรงกัน */
-.page-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 70px;
-    height: 70px;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.25);
-    color: white;
-    font-size: 35px;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 20;
-    transition: 0.3s;
-}
-
-.page-btn:hover {
-    background: rgba(255,255,255,.45);
-    color: #00144d;
-}
-
-.next-btn {
-    right: 35px;
-}
-
-.prev-btn {
-    left: 35px;
-}
-
-/* GROUP COMPANIES */
-.about-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.about-content {
-    position: relative;
-    z-index: 2;
-
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 120px 90px 100px;
-    color: white;
-}
-
-.about-content h2 {
-    text-align: center;
-    font-size: 60px;
-    margin-bottom: 60px;
-}
-
-.company-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 60px;
-    flex-wrap: wrap;
-}
-
-.company-card {
-    width: 350px;
-    min-height: 550px;
-
-    display: flex;
-    flex-direction: column;
-
-    background: rgba(0,0,0,0.45);
-    backdrop-filter: blur(8px);
-
-    border-radius: 20px;
-    padding: 30px;
-
-    transition: 0.3s;
-}
-
-.company-card:hover {
-    transform: translateY(-10px);
-}
-
-.company-logo {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-
-    margin: 0 auto 20px;
-    display: block;
-}
-
-.company-card h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 22px;
-}
-
-.company-card ul {
-    list-style: none;
-    padding: 0;
-}
-
-.company-card li {
-    margin-bottom: 12px;
-    line-height: 1.6;
-}
-
-.company-card li::before {
-    content: "• ";
-    color: #4da3ff;
-    font-weight: bold;
-}
-
-/* HISTORY */
-.products-page {
-    position: relative;
-    overflow: hidden;
-    min-height: 100vh;
     background:
-        radial-gradient(circle at 75% 20%, rgba(255,255,255,0.15), transparent 35%),
-        linear-gradient(135deg, #00144d 0%, #002c80 45%, #0b58d8 100%);
+        radial-gradient(circle at 80% 15%, rgba(77,163,255,0.28), transparent 35%),
+        radial-gradient(circle at 15% 80%, rgba(255,255,255,0.08), transparent 30%),
+        linear-gradient(135deg, #00144d 0%, #002c80 48%, #0b58d8 100%);
 }
-
-.products-page::before {
+.page-two-down::before {
     content: "";
     position: absolute;
-    width: 700px;
-    height: 700px;
-    border-radius: 50%;
-    background: rgba(255,255,255,.06);
-    right: -150px;
-    top: -100px;
-    z-index: 0;
+    inset: 0;
+    background:
+        linear-gradient(120deg, rgba(255,255,255,0.07), transparent 35%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 90px);
+    z-index: 1;
+    pointer-events: none;
 }
 
-.products-page::after {
-    content: "";
-    position: absolute;
-    width: 900px;
-    height: 900px;
-    border-radius: 50%;
-    background: rgba(255,255,255,.04);
-    right: -250px;
-    top: -250px;
-    z-index: 0;
-}
-
-.history-section {
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
-    padding: 120px 80px 100px;
-    color: white;
-    background: transparent;
-}
-
-.history-section h2 {
-    text-align: center;
-    font-size: 64px;
-    margin-bottom: 80px;
-}
-
-.timeline {
-    position: relative;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 50px 0;
-}
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-
-    width: 100%;
-    height: 4px;
-
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-50%);
-}
-
-.timeline-item {
-    position: relative;
-    width: 18%;
-    z-index: 2;
-}
-
-.timeline-item::before {
-    content: "";
-    width: 22px;
-    height: 22px;
-
-    background: #ffd700;
-    border-radius: 50%;
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-}
-
-.timeline-card {
-    background: rgba(255,255,255,.08);
-    backdrop-filter: blur(10px);
-
-    border-radius: 20px;
-    padding: 40px 25px;
-
-    text-align: center;
-
-    width: 220px;
-    margin: 0 auto;
-
-    opacity: 0;
-    transform: translateX(80px);
-    transition: 1s;
-}
-
-.timeline-card.show {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.timeline-card:hover {
-    transform: scale(1.05);
-}
-
-.timeline-item:nth-child(even) .timeline-card {
-    margin-top: 380px;
-}
-
-.timeline-item:nth-child(odd) .timeline-card {
-    margin-bottom: 380px;
-}
-
-.timeline-card img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-
-.timeline-card h3 {
-    color: #ffd700;
-    font-size: 36px;
-    margin-bottom: 10px;
-}
+/* PRODUCT PAGE */
+.product-section { position: relative; z-index: 2; min-height: 100vh; padding: 120px 80px 100px; color: white; }
+.product-section h2 { text-align: center; font-size: 60px; margin-bottom: 50px; letter-spacing: 2px; font-weight: 800; }
+.product-scroll { width: 100%; overflow-x: auto; overflow-y: hidden; padding: 20px 0 40px; scroll-behavior: smooth; }
+.product-scroll::-webkit-scrollbar { height: 10px; }
+.product-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.18); border-radius: 20px; }
+.product-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.9); border-radius: 20px; }
+.product-grid { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, 260px); grid-auto-columns: 260px; gap: 45px; width: max-content; padding: 10px 40px; }
+.product-box { width: 260px; height: 260px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.10); color: #ffffff; border: 1px solid rgba(255,255,255,0.22); border-radius: 24px; text-decoration: none; font-size: 24px; font-weight: bold; box-shadow: 0 20px 45px rgba(0,0,0,0.28); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: 0.35s ease; }
+.product-box:hover { transform: translateY(-10px); background: #ffffff; color: #00144d; border-color: #ffffff; box-shadow: 0 28px 60px rgba(0,0,0,0.38); }
+.product-box h3 { font-size: 34px; letter-spacing: 0.5px; }
 
 /* RESPONSIVE */
 @media (max-width: 1200px) {
-    .hero-content {
-        max-width: 65%;
-    }
-
-    .hero-content h1 {
-        font-size: 42px;
-    }
-
-    .hero-content p {
-        font-size: 18px;
-    }
-
-    .company-wrapper {
-        gap: 35px;
-    }
-
-    .company-card {
-        width: 300px;
-        min-height: 500px;
-    }
+    .hero-content { max-width: 65%; }
+    .hero-content h1 { font-size: 42px; }
+    .hero-content p { font-size: 18px; }
+    .company-wrapper { gap: 35px; }
+    .company-card { width: 300px; min-height: 500px; }
 }
-
 @media (max-width: 768px) {
-    .navbar {
-        padding: 10px 15px;
-    }
-
-    .nav-menu {
-        display: none;
-    }
-
-    .nav-logo img {
-        width: 55px;
-    }
-
-    .language-switch a {
-        font-size: 16px;
-    }
-
-    .menu-toggle {
-        display: block;
-        font-size: 40px;
-        margin-left: 10px;
-    }
-
-    .video-container {
-        min-height: auto;
-        padding: 120px 20px 100px;
-        align-items: flex-start;
-    }
-
-    .video-container::before {
-        width: 200%;
-        height: 300px;
-        left: -100px;
-        top: 300px;
-        transform: rotate(-35deg);
-    }
-
-    .hero-content {
-        padding: 120px 0 0;
-        max-width: 100%;
-        width: 100%;
-        gap: 30px;
-    }
-
-    .hero-content h1 {
-        font-size: 38px;
-    }
-
-    .hero-content p {
-        font-size: 17px;
-    }
-
-    .option {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .option button {
-        width: 80%;
-        max-width: 430px;
-    }
-
-    .stats {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .stat-item {
-        width: 100%;
-    }
-
-    .divider {
-        width: 80px;
-        height: 1px;
-    }
-
-    .about-content {
-        padding: 110px 25px 100px;
-    }
-
-    .about-content h2 {
-        font-size: 38px;
-        margin-bottom: 40px;
-    }
-
-    .company-wrapper {
-        gap: 25px;
-    }
-
-    .company-card {
-        width: 100%;
-        max-width: 360px;
-        min-height: auto;
-    }
-
-    .history-section {
-        padding: 110px 25px 100px;
-    }
-
-    .history-section h2 {
-        font-size: 38px;
-        margin-bottom: 50px;
-    }
-
-    .timeline {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 40px;
-        padding: 20px 0;
-    }
-
-    .timeline::before {
-        width: 4px;
-        height: 100%;
-        left: 30px;
-        top: 0;
-        transform: none;
-    }
-
-    .timeline-item {
-        width: 100%;
-        padding-left: 80px;
-    }
-
-    .timeline-item::before {
-        left: 30px;
-        top: 30px;
-    }
-
-    .timeline-item:nth-child(even) .timeline-card,
-    .timeline-item:nth-child(odd) .timeline-card {
-        margin: 0;
-    }
-
-    .timeline-card {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .page-btn {
-        width: 52px;
-        height: 52px;
-        font-size: 28px;
-    }
-
-    .next-btn {
-        right: 15px;
-    }
-
-    .prev-btn {
-        left: 15px;
-    }
+    .navbar { padding: 10px 15px; }
+    .nav-menu { display: none; }
+    .nav-logo img { width: 55px; }
+    .language-switch a { font-size: 16px; }
+    .menu-toggle { display: block; font-size: 40px; margin-left: 10px; }
+    .zero-content h1 { font-size: 48px; }
+    .video-container { align-items: flex-start; }
+    .video-container::before { width: 200%; height: 300px; left: -100px; top: 300px; transform: rotate(-35deg); }
+    .hero-content { padding: 150px 20px 100px; max-width: 100%; width: 100%; gap: 30px; }
+    .hero-content h1 { font-size: 38px; }
+    .hero-content p { font-size: 17px; }
+    .option { flex-direction: column; align-items: center; width: 100%; }
+    .option button { width: 80%; max-width: 430px; }
+    .stats { flex-direction: column; width: 100%; }
+    .stat-item { width: 100%; }
+    .divider { width: 80px; height: 1px; }
+    .horizontal-slider, .pages, .page { height: auto; min-height: 100vh; }
+    .about-content { padding: 110px 25px 100px; }
+    .about-content h2 { font-size: 38px; margin-bottom: 40px; }
+    .company-wrapper { gap: 25px; }
+    .company-card { width: 100%; max-width: 360px; min-height: auto; }
+    .history-section { padding: 110px 25px 100px; }
+    .history-section h2 { font-size: 38px; margin-bottom: 50px; }
+    .timeline { flex-direction: column; align-items: stretch; gap: 40px; padding: 20px 0; margin-top: 0; }
+    .timeline::before { width: 4px; height: 100%; left: 30px; top: 0; transform: none; }
+    .timeline-item { width: 100%; padding-left: 80px; }
+    .timeline-item::before { left: 30px; top: 30px; }
+    .timeline-item:nth-child(even) .timeline-card, .timeline-item:nth-child(odd) .timeline-card { margin: 0; }
+    .timeline-card { width: 100%; max-width: 320px; }
+    .product-section { padding: 110px 25px 100px; }
+    .product-section h2 { font-size: 38px; margin-bottom: 35px; }
+    .product-grid { grid-template-rows: repeat(2, 150px); grid-auto-columns: 150px; gap: 18px; padding: 10px 20px; }
+    .product-box { width: 150px; height: 150px; font-size: 20px; border-radius: 18px; }
+    .product-box h3 { font-size: 20px;}
+    .page-btn { width: 52px; height: 52px; font-size: 28px; }
+    .next-btn { right: 15px; }
+    .prev-btn { left: 15px; }
 }
 </style>
 </head>
-
 <body>
 
 <nav class="navbar">
-    <div class="nav-left">
-        <div class="nav-logo">
-            <a href="#home">
-                <img src="TL 1.png" alt="Logo">
-            </a>
-        </div>
-    </div>
-
+    <div class="nav-left"><div class="nav-logo"><a href="#page0"><img src="TL 1.png" alt="Logo"></a></div></div>
     <div class="nav-center">
         <ul class="nav-menu">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#">ABOUT</a></li>
-            <li><a href="#">PRODUCTS</a></li>
+            <li><a href="#page0">HOME</a></li>
+            <li><a href="#homeSlider" onclick="goToSlide(0)">ABOUT</a></li>
+            <li><a href="#page2down">PRODUCT</a></li>
             <li><a href="#">CAPABILITIES</a></li>
             <li><a href="#">QUALITY</a></li>
             <li><a href="#">RESOURCES</a></li>
             <li><a href="#">CONTACT US</a></li>
         </ul>
     </div>
-
     <div class="nav-right">
-        <div class="language-switch">
-            <a href="#">TH</a>
-            <span>/</span>
-            <a href="#">EN</a>
-            <span>/</span>
-            <a href="#">中文</a>
-        </div>
-
+        <div class="language-switch"><a href="#">TH</a><span>/</span><a href="#">EN</a><span>/</span><a href="#">中文</a></div>
         <button class="menu-toggle">☰</button>
     </div>
 </nav>
 
-<!-- PAGE 1 -->
-<div class="video-container" id="home">
-    <video autoplay muted loop playsinline class="hero-video">
-        <source src="ล่าสุด (1).mp4" type="video/mp4">
-    </video>
+<section class="page-zero" id="page0">
+    <div class="zero-content"><h1>THAI LOCK</h1><p>Professional Fastener Manufacturer<br>Nuts, Screws, Bolts and OEM Fastener Solutions</p></div>
+</section>
 
-    <div class="page-overlay"></div>
-
-    <div class="hero-content">
-        <div>
-            <h1>THAILOCK<br>FASTENERS</h1>
-            <p>THAILOCK FASTENERS CO., LTD was established in 1991 as a professional lock nuts manufacturer.</p>
-            <p>With over 30 years of experiences in the industry, Thailock Fasteners is now actively supplying a wide variety of nuts to customers worldwide.</p>
+<section class="horizontal-slider" id="homeSlider">
+    <div class="pages" id="pages">
+        <div class="page video-container" id="home">
+            <video autoplay muted loop playsinline class="hero-video"><source src="ล่าสุด (1).mp4" type="video/mp4"></video>
+            <div class="page-overlay"></div>
+            <div class="hero-content">
+                <div><h1>THAILOCK<br>FASTENERS</h1><p>THAILOCK FASTENERS CO., LTD was established in 1991 as a professional lock nuts manufacturer.</p><p>With over 30 years of experiences in the industry, Thailock Fasteners is now actively supplying a wide variety of nuts to customers worldwide.</p></div>
+                <div class="option"><button onclick="location.href='quote.html'">Get Quote</button><button onclick="document.getElementById('page2down').scrollIntoView({ behavior: 'smooth' })">Learn More</button></div>
+                <div class="stats">
+                    <div class="stat-item"><img src="r_2.png" alt=""><h2>30+</h2><p>Years Experience</p></div><div class="divider"></div>
+                    <div class="stat-item"><img src="002-globe-blue.png" alt=""><h2>50+</h2><p>Countries Served</p></div><div class="divider"></div>
+                    <div class="stat-item"><img src="9784009.png" alt=""><h2>1000+</h2><p>Satisfied Clients</p></div>
+                </div>
+            </div>
         </div>
-
-        <div class="option">
-            <button onclick="location.href='quote.html'">Get Quote</button>
-            <button onclick="location.href='about.html'">Learn More</button>
+        <div class="page" id="group">
+            <video autoplay muted loop playsinline class="about-video"><source src="out.mp4" type="video/mp4"></video>
+            <div class="page-overlay"></div>
+            <div class="about-content"><h2>GROUP COMPANIES</h2><div class="company-wrapper">
+                <div class="company-card"><img src="jingfong-logo.png" class="company-logo" alt=""><h3>JING FONG INDUSTRY</h3><ul><li>OEM / Special Nuts</li><li>Tainan, Taiwan</li><li>Capacity: &gt;1,000 Tons / Month</li></ul></div>
+                <div class="company-card"><img src="TL 1.png" class="company-logo" alt=""><h3>THAILOCK FASTENERS</h3><ul><li>Standard / OEM Fasteners</li><li>2 Plants at Chonburi & Rayong</li><li>Area: 70,000 m²</li></ul></div>
+                <div class="company-card"><img src="thaimax-logo.png" class="company-logo" alt=""><h3>THAIMAX PLASTICS</h3><ul><li>Plastic Injection Parts</li><li>Compound Material</li><li>Rayong, Thailand</li></ul></div>
+            </div></div>
         </div>
-
-        <div class="stats">
-            <div class="stat-item">
-                <img src="r_2.png" alt="">
-                <h2>30+</h2>
-                <p>Years Experience</p>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="stat-item">
-                <img src="002-globe-blue.png" alt="">
-                <h2>50+</h2>
-                <p>Countries Served</p>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="stat-item">
-                <img src="9784009.png" alt="">
-                <h2>1000+</h2>
-                <p>Satisfied Clients</p>
-            </div>
+        <div class="page products-page" id="history">
+            <section class="history-section"><h2>COMPANY HISTORY</h2><div class="timeline">
+                <div class="timeline-item"><div class="timeline-card"><img src="factory1.jpg" alt=""><h3>1980</h3><p>JING FONG INDUSTRY was founded in Taiwan</p></div></div>
+                <div class="timeline-item"><div class="timeline-card"><img src="TL 1.png" alt=""><h3>1991</h3><p>THAILOCK FASTENERS established</p></div></div>
+                <div class="timeline-item"><div class="timeline-card"><img src="iso.png" alt=""><h3>2001</h3><p>ISO 9001 Certified</p></div></div>
+                <div class="timeline-item"><div class="timeline-card"><img src="iatf.png" alt=""><h3>2012</h3><p>IATF16949 Certified</p></div></div>
+                <div class="timeline-item"><div class="timeline-card"><img src="factory2.jpg" alt=""><h3>2020</h3><p>Rayong Factory Opened</p></div></div>
+            </div></section>
         </div>
     </div>
-</div>
+    <button class="page-btn prev-btn" id="prevBtn" aria-label="Previous page">❮</button>
+    <button class="page-btn next-btn" id="nextBtn" aria-label="Next page">❯</button>
+</section>
 
-<!-- PAGE 2 / PAGE 3 SLIDER -->
-<section class="page-slider">
-    <div class="pages" id="pages">
-
-        <!-- PAGE 2 -->
-        <div class="page">
-            <video autoplay muted loop playsinline class="about-video">
-                <source src="out.mp4" type="video/mp4">
-            </video>
-
-            <div class="page-overlay"></div>
-
-            <div class="about-content">
-                <h2>GROUP COMPANIES</h2>
-
-                <div class="company-wrapper">
-                    <div class="company-card">
-                        <img src="jingfong-logo.png" class="company-logo" alt="">
-                        <h3>JING FONG INDUSTRY</h3>
-                        <ul>
-                            <li>OEM / Special Nuts</li>
-                            <li>Tainan, Taiwan</li>
-                            <li>Capacity: >1,000 Tons / Month</li>
-                        </ul>
-                    </div>
-
-                    <div class="company-card">
-                        <img src="TL 1.png" class="company-logo" alt="">
-                        <h3>THAILOCK FASTENERS</h3>
-                        <ul>
-                            <li>Standard / OEM Fasteners</li>
-                            <li>2 Plants at Chonburi & Rayong</li>
-                            <li>Area: 70,000 m²</li>
-                        </ul>
-                    </div>
-
-                    <div class="company-card">
-                        <img src="thaimax-logo.png" class="company-logo" alt="">
-                        <h3>THAIMAX PLASTICS</h3>
-                        <ul>
-                            <li>Plastic Injection Parts</li>
-                            <li>Compound Material</li>
-                            <li>Rayong, Thailand</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <button class="page-btn next-btn" aria-label="Next page">❯</button>
-        </div>
-
-        <!-- PAGE 3 -->
-        <div class="page products-page">
-            <section class="history-section">
-                <h2>COMPANY HISTORY</h2>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="factory1.jpg" alt="">
-                            <h3>1980</h3>
-                            <p>JING FONG INDUSTRY was founded in Taiwan</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="TL 1.png" alt="">
-                            <h3>1991</h3>
-                            <p>THAILOCK FASTENERS established</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="iso.png" alt="">
-                            <h3>2001</h3>
-                            <p>ISO 9001 Certified</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="iatf.png" alt="">
-                            <h3>2012</h3>
-                            <p>IATF16949 Certified</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="factory2.jpg" alt="">
-                            <h3>2020</h3>
-                            <p>Rayong Factory Opened</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <button class="page-btn prev-btn" aria-label="Previous page">❮</button>
-        </div>
-
+<section class="page-two-down" id="page2down">
+    <div class="product-section">
+        <h2>PRODUCT</h2>
+        <div class="product-scroll"><div class="product-grid">
+            <a href="product-detail.html?product=nut1" class="product-box"><h3>nut1</h3></a>
+            <a href="product-detail.html?product=nut2" class="product-box"><h3>nut2</h3></a>
+            <a href="product-detail.html?product=nut3" class="product-box"><h3>nut3</h3></a>
+            <a href="product-detail.html?product=nut4" class="product-box"><h3>nut4</h3></a>
+            <a href="product-detail.html?product=nut5" class="product-box"><h3>nut5</h3></a>
+            <a href="product-detail.html?product=nut6" class="product-box"><h3>nut6</h3></a>
+            <a href="product-detail.html?product=nut7" class="product-box"><h3>nut7</h3></a>
+            <a href="product-detail.html?product=nut8" class="product-box"><h3>nut8</h3></a>
+            <a href="product-detail.html?product=nut9" class="product-box"><h3>nut9</h3></a>
+            <a href="product-detail.html?product=nut10" class="product-box"><h3>nut10</h3></a>
+            <a href="product-detail.html?product=nut11" class="product-box"><h3>nut11</h3></a>
+            <a href="product-detail.html?product=nut12" class="product-box"><h3>nut12</h3></a>
+            <a href="product-detail.html?product=nut13" class="product-box"><h3>nut13</h3></a>
+            <a href="product-detail.html?product=nut14" class="product-box"><h3>nut14</h3></a>
+            <a href="product-detail.html?product=nut15" class="product-box"><h3>nut15</h3></a>
+            <a href="product-detail.html?product=nut16" class="product-box"><h3>nut16</h3></a>
+            <a href="product-detail.html?product=nut17" class="product-box"><h3>nut17</h3></a>
+            <a href="product-detail.html?product=nut18" class="product-box"><h3>nut18</h3></a>
+            <a href="product-detail.html?product=nut19" class="product-box"><h3>nut19</h3></a>
+            <a href="product-detail.html?product=nut20" class="product-box"><h3>nut20</h3></a>
+        </div></div>
     </div>
 </section>
 
 <script>
-/* Timeline Animation */
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("show");
     });
 }, { threshold: 0.3 });
+document.querySelectorAll(".timeline-card").forEach(card => observer.observe(card));
 
-document.querySelectorAll(".timeline-card").forEach(card => {
-    observer.observe(card);
-});
-
-/* Page Slider */
 const pages = document.getElementById("pages");
-const nextBtn = document.querySelector(".next-btn");
-const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+let currentSlide = 0;
+const totalSlides = 3;
+function goToSlide(index) {
+    if (index < 0) index = 0;
+    if (index > totalSlides - 1) index = totalSlides - 1;
+    currentSlide = index;
+    pages.style.transform = `translateX(-${currentSlide * 100}vw)`;
+    document.getElementById("homeSlider").scrollIntoView({ behavior: "smooth" });
+    updateSlideButtons();
+}
+function nextSlide() { goToSlide(currentSlide + 1); }
+function prevSlide() { goToSlide(currentSlide - 1); }
+function updateSlideButtons() {
+    prevBtn.disabled = currentSlide === 0;
+    nextBtn.disabled = currentSlide === totalSlides - 1;
+}
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
+updateSlideButtons();
 
-nextBtn.addEventListener("click", () => {
-    pages.style.transform = "translateX(-100vw)";
-});
-
-prevBtn.addEventListener("click", () => {
-    pages.style.transform = "translateX(0)";
-});
-
-/* Navbar Scroll Effect */
 let lastScrollTop = 0;
 const navbar = document.querySelector(".navbar");
-
 window.addEventListener("scroll", () => {
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > 100) {
-        navbar.style.top = currentScroll > lastScrollTop ? "-120px" : "0";
-    } else {
-        navbar.style.top = "0";
-    }
-
+    if (currentScroll > 100) navbar.style.top = currentScroll > lastScrollTop ? "-120px" : "0";
+    else navbar.style.top = "0";
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
 </script>
-
 </body>
 </html>
