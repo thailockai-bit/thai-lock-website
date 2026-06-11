@@ -148,6 +148,8 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; }
 .product-box:hover { transform: translateY(-10px); background: #ffffff; color: #00144d; border-color: #ffffff; box-shadow: 0 28px 60px rgba(0,0,0,0.38); }
 .product-box h3 { font-size: 34px; letter-spacing: 0.5px; }
 
+
+
 /* RESPONSIVE */
 @media (max-width: 1200px) {
     .hero-content { max-width: 65%; }
@@ -173,7 +175,9 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; }
     .stats { flex-direction: column; width: 100%; }
     .stat-item { width: 100%; }
     .divider { width: 80px; height: 1px; }
-    .horizontal-slider, .pages, .page { height: auto; min-height: 100vh; }
+    .horizontal-slider { height: 100vh; overflow: hidden; }
+    .pages { height: 100vh;}
+    .page { height: 100vh; min-height: 100vh;}
     .about-content { padding: 110px 25px 100px; }
     .about-content h2 { font-size: 38px; margin-bottom: 40px; }
     .company-wrapper { gap: 25px; }
@@ -191,10 +195,13 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; }
     .product-grid { grid-template-rows: repeat(2, 150px); grid-auto-columns: 150px; gap: 18px; padding: 10px 20px; }
     .product-box { width: 150px; height: 150px; font-size: 20px; border-radius: 18px; }
     .product-box h3 { font-size: 20px;}
-    .page-btn { width: 52px; height: 52px; font-size: 28px; }
+    .page-btn { width: 52px; height: 52px; font-size: 28px; display: none;}
     .next-btn { right: 15px; }
     .prev-btn { left: 15px; }
 }
+
+
+
 </style>
 </head>
 <body>
@@ -327,6 +334,37 @@ window.addEventListener("scroll", () => {
     else navbar.style.top = "0";
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
+
+/* Mobile Swipe Slider */
+let touchStartX = 0;
+let touchEndX = 0;
+
+const slider = document.getElementById("homeSlider");
+
+slider.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+slider.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+
+    const swipeDistance = touchStartX - touchEndX;
+
+    // ปัดซ้าย
+    if (swipeDistance > 50) {
+        nextSlide();
+    }
+
+    // ปัดขวา
+    if (swipeDistance < -50) {
+        prevSlide();
+    }
+}
+
 </script>
 </body>
 </html>
