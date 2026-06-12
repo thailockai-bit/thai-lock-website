@@ -335,6 +335,95 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     font-weight: bold;
 }
 
+/* CAPABILITIES 9 BLOCKS */
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+}
+
+.capability-card {
+    overflow: hidden;
+    padding: 0;
+    min-height: auto;
+}
+
+.capability-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(0,20,77,0.95), rgba(11,88,216,0.95));
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.capability-media::before {
+    content: "IMAGE / VIDEO AREA";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.55);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.capability-media img,
+.capability-media video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.capability-media img {
+    z-index: 2;
+}
+
+.capability-media video {
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.capability-card:hover .capability-media video {
+    opacity: 1;
+}
+
+.capability-body {
+    padding: 26px 28px 30px;
+}
+
+.capability-body h3 {
+    font-size: 24px;
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+.capability-body p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.88);
+}
+
+.media-note {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(77,163,255,0.16);
+    border: 1px solid rgba(77,163,255,0.35);
+    color: rgba(255,255,255,0.82);
+    font-size: 13px;
+    font-weight: bold;
+}
+
 /* QUALITY */
 .quality-row {
     display: grid;
@@ -517,6 +606,7 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     .company-wrapper { gap: 35px; }
     .company-card { width: 300px; min-height: 460px; }
     .card-grid { grid-template-columns: repeat(2, 1fr); }
+    .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
     .quality-row { grid-template-columns: 1fr; }
 }
 
@@ -721,6 +811,7 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         font-size: 16px;
     }
     .card-grid,
+    .capabilities-grid,
     .quality-list,
     .contact-box {
         grid-template-columns: 1fr;
@@ -729,6 +820,18 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     .info-card {
         min-height: auto;
         padding: 28px;
+    }
+    .capability-card {
+        padding: 0;
+    }
+    .capability-body {
+        padding: 24px;
+    }
+    .capability-body h3 {
+        font-size: 22px;
+    }
+    .capability-body p {
+        font-size: 16px;
     }
     .info-icon {
         width: 52px;
@@ -945,23 +1048,115 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         <h2>CAPABILITIES</h2>
         <p class="info-subtitle">Manufacturing capabilities designed for stable quality, consistent production, and custom fastener requirements.</p>
 
-        <div class="card-grid">
-            <div class="info-card">
-                <div class="info-icon">⚙</div>
-                <h3>Cold Forging</h3>
-                <p>High-volume fastener production with strong material structure, stable dimensions, and efficient manufacturing process.</p>
+        <div class="capabilities-grid">
+            <div class="info-card capability-card">
+                <div class="capability-media">
+                    <!-- ใส่รูปภาพได้ที่ src ด้านล่าง เช่น src="images/cold-forging.jpg" -->
+                    <img src="แช่.png" alt="Cold Forging">
+                    <!-- ใส่วิดีโอทีหลังได้ เช่น src="videos/cold-forging.mp4" -->
+                    <video muted loop playsinline><source src="แช่.mp4" type="video/mp4"></video>
+                </div>
+                <div class="capability-body">
+                    <h3>Wire Pickling</h3>
+                    <p>High-volume fastener production with strong material structure, stable dimensions, and efficient manufacturing process.</p>
+                    <span class="media-note">Ready for Image / Video</span>
+                </div>
             </div>
 
-            <div class="info-card">
-                <div class="info-icon">⌀</div>
-                <h3>Threading Process</h3>
-                <p>Precision thread forming for nuts, bolts, and special fastener applications with consistent quality control.</p>
+            <div class="info-card capability-card">
+                <div class="capability-media">
+                    <img src="รีด.png" alt="Threading Process">
+                    <video muted loop playsinline><source src="" type="video/mp4"></video>
+                </div>
+                <div class="capability-body">
+                    <h3>Wire Drawing</h3>
+                    <p>Precision thread forming for nuts, bolts, and special fastener applications with consistent quality control.</p>
+                    <span class="media-note">Ready for Image / Video</span>
+                </div>
             </div>
 
-            <div class="info-card">
-                <div class="info-icon">⌘</div>
-                <h3>OEM Fasteners</h3>
-                <p>Customized fastener solutions based on customer drawings, specifications, materials, and industrial applications.</p>
+            <div class="info-card capability-card">
+                <div class="capability-media">
+                    <img src="forming.png" alt="OEM Fasteners">
+                    <video muted loop playsinline><source src="form.mp4" type="video/mp4"></video>
+                </div>
+                <div class="capability-body">
+                    <h3>Forming</h3>
+                    <p>Customized fastener solutions based on customer drawings, specifications, materials, and industrial applications.</p>
+                    <span class="media-note">Ready for Image / Video</span>
+                </div>
+            </div>
+
+            <div class="info-card capability-card">
+                <div class="capability-media">
+                    <img src="tap.png" alt="Heat Treatment">
+                    <video muted loop playsinline><source src="" type="video/mp4"></video>
+                </div>
+                <div class="capability-body">
+                    <h3>Tapping</h3>
+                    <p>Controlled heat treatment process to improve strength, hardness, and durability for industrial fasteners.</p>
+                    <span class="media-note">Ready for Image / Video</span>
+                </div>
+            </div>
+
+            <div class="info-card capability-card">
+                <div class="capability-media">
+                    <img src="heat.png" alt="Surface Finishing">
+                    <video muted loop playsinline><source src="" type="video/mp4"></video>
+                </div>
+                <div class="capability-body">
+                    <h3>Heat Treatment</h3>
+                    <p>Surface treatment and finishing support for corrosion resistance, appearance, and customer requirements.</p>
+                    <span class="media-note">Ready for Image / Video</span>
+                </div>
+            </div>
+
+            <div class="info-card capability-card">
+                <div class="capability-media">
+                    <img src="assembling.png" alt="Quality Inspection">
+                    <video muted loop playsinline><source src="assy.mp4" type="video/mp4"></video>
+                </div>
+                <div class="capability-body">
+                    <h3>Assembling</h3>
+                    <p>Inspection process for dimensions, thread accuracy, surface condition, and final product reliability.</p>
+                    <span class="media-note">Ready for Image / Video</span>
+                </div>
+            </div>
+
+            <div class="info-card capability-card">
+                <div class="capability-media">
+                    <img src="plating.png" alt="Laboratory Testing">
+                    <video muted loop playsinline><source src="ชุบ.mp4" type="video/mp4"></video>
+                </div>
+                <div class="capability-body">
+                    <h3>Plating</h3>
+                    <p>Testing support for hardness, material verification, mechanical properties, and product performance.</p>
+                    <span class="media-note">Ready for Image / Video</span>
+                </div>
+            </div>
+
+            <div class="info-card capability-card">
+                <div class="capability-media">
+                    <img src="sorting.png" alt="Packaging">
+                    <video muted loop playsinline><source src="" type="video/mp4"></video>
+                </div>
+                <div class="capability-body">
+                    <h3>Sorting</h3>
+                    <p>Flexible packaging solutions for domestic and export shipments according to customer requirements.</p>
+                    <span class="media-note">Ready for Image / Video</span>
+                </div>
+            </div>
+
+            <div class="info-card capability-card">
+                <div class="capability-media">
+                    <img src="packing.png" alt="Production Capacity">
+                    <video muted loop playsinline><source src="" type="video/mp4"></video>
+                </div>
+                <div class="capability-body">
+                    <h3>Packing & Delivery</h3>
+                    <p>Stable manufacturing capacity supported by experienced teams, production planning, and multiple facilities.</p>
+                    <span class="media-note">Ready for Image / Video</span>
+                </div>
             </div>
         </div>
     </div>
@@ -1159,6 +1354,24 @@ function handleSwipe() {
         else prevSlide();
     }
 }
+
+/* Future capability hover video support */
+document.querySelectorAll(".capability-card").forEach(card => {
+    const video = card.querySelector("video");
+    const source = video ? video.querySelector("source") : null;
+
+    card.addEventListener("mouseenter", () => {
+        if (!video || !source || !source.getAttribute("src")) return;
+        video.currentTime = 0;
+        video.play();
+    });
+
+    card.addEventListener("mouseleave", () => {
+        if (!video) return;
+        video.pause();
+        video.currentTime = 0;
+    });
+});
 </script>
 </body>
 </html>
