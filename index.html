@@ -6,58 +6,175 @@
 <title>THAI LOCK</title>
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; }
+/* =========================================================
+   1) RESET / GLOBAL
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* NAVBAR */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background: #f7faff;
+}
+
+/* =========================================================
+   2) NAVBAR
+========================================================= */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 15px 40px;
-    background: rgba(0, 20, 60, 0.35);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 8px 30px rgba(0, 20, 60, 0.08);
+
     transition: top 0.4s ease;
     z-index: 1000;
 }
-.nav-left, .nav-center, .nav-right { flex: 1; }
-.nav-logo img { width: 80px; height: auto; display: block; }
-.nav-menu { display: flex; justify-content: center; gap: 30px; list-style: none; }
-.nav-menu a { text-decoration: none; color: white; font-size: clamp(14px, 1vw, 20px); font-weight: bold; transition: 0.3s; white-space: nowrap; }
-.nav-menu a:hover { color: #4da3ff; }
-.nav-right { display: flex; align-items: center; justify-content: flex-end; gap: 20px; }
-.language-switch { display: flex; gap: 8px; align-items: center; }
-.language-switch a { color: white; text-decoration: none; font-size: 20px; font-weight: bold; }
-.language-switch span { color: #4da3ff; }
-.menu-toggle { background: transparent; border: none; color: white; font-size: 50px; cursor: pointer; display: none; }
 
-/* PAGE 0 */
+.nav-left,
+.nav-center,
+.nav-right {
+    flex: 1;
+}
+
+.nav-logo img {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #1f2a44;
+    font-size: clamp(14px, 1vw, 20px);
+    font-weight: bold;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.nav-menu a:hover {
+    color: #0b58d8;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.language-switch {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.language-switch a {
+    color: #1f2a44;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.language-switch span {
+    color: #0b58d8;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    color: #1f2a44;
+    font-size: 50px;
+    cursor: pointer;
+    display: none;
+}
+
+/* =========================================================
+   3) PAGE 0
+========================================================= */
 .page-zero {
     position: relative;
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0, 10, 40, 0.65), rgba(0, 10, 40, 0.75)), url("home-bg.jpg");
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(245, 248, 255, 0.92) 0%,
+            rgba(245, 248, 255, 0.72) 45%,
+            rgba(245, 248, 255, 0.30) 100%
+        ),
+        url("home-bg.jpg");
     background-size: cover;
     background-position: center;
-    color: white;
+
+    color: #1f2a44;
     text-align: center;
 }
-.page-zero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(11,88,216,0.35), transparent 45%); z-index: 1; }
-.zero-content { position: relative; z-index: 2; max-width: 900px; padding: 120px 30px 80px; }
-.zero-content h1 { font-size: clamp(48px, 7vw, 100px); line-height: 1; margin-bottom: 25px; }
-.zero-content p { font-size: clamp(18px, 2vw, 26px); line-height: 1.7; margin-bottom: 0; }
 
-/* PAGE 1-3 HORIZONTAL SLIDER */
+.page-zero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 72% 42%, rgba(11, 88, 216, 0.18), transparent 42%);
+    z-index: 1;
+}
+
+.zero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 120px 30px 80px;
+}
+
+.zero-content h1 {
+    font-size: clamp(48px, 7vw, 100px);
+    line-height: 1;
+    margin-bottom: 25px;
+    color: #102a63;
+    font-weight: 900;
+}
+
+.zero-content p {
+    font-size: clamp(18px, 2vw, 26px);
+    line-height: 1.7;
+    margin-bottom: 0;
+    color: #3b465f;
+}
+
+/* =========================================================
+   4) HORIZONTAL SLIDER
+========================================================= */
 .horizontal-slider {
     position: relative;
     width: 100%;
@@ -66,6 +183,7 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     overflow: hidden;
     background: #000814;
 }
+
 .pages {
     display: flex;
     width: 300vw;
@@ -73,6 +191,7 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     min-height: 100vh;
     transition: transform 0.8s ease;
 }
+
 .page {
     position: relative;
     width: 100vw;
@@ -83,176 +202,589 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     background: #000814;
 }
 
-/* HERO PAGE 1.1 */
-.video-container { display: flex; align-items: center; min-height: 100vh; overflow: hidden; }
-#group { min-height: 100vh; overflow: hidden; }
-#history { min-height: 100vh; overflow: hidden; }
-.hero-video, .about-video { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 100%; object-fit: cover; z-index: 0; pointer-events: none; }
-.page-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.35); z-index: 1; pointer-events: none; }
-.video-container::before { content: ""; position: absolute; top: 0; left: -150px; bottom: -150px; width: 700%; height: 700px; background: rgba(0, 20, 80, 0.3); transform: rotate(-25deg); z-index: 1; pointer-events: none; }
+#home,
+#group,
+#history {
+    height: 100vh;
+    min-height: 100vh;
+}
+
+/* =========================================================
+   5) HERO PAGE 1.1
+========================================================= */
+.video-container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#group,
+#history {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video,
+.about-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.page-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 24, 55, 0.58) 0%,
+            rgba(10, 24, 55, 0.34) 50%,
+            rgba(255, 255, 255, 0.12) 100%
+        );
+    z-index: 1;
+    pointer-events: none;
+}
+
+#home .page-overlay,
+#group .page-overlay {
+    height: 100%;
+}
+
+.video-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150px;
+    bottom: -150px;
+    width: 700%;
+    height: 700px;
+    background: rgba(255, 255, 255, 0.10);
+    transform: rotate(-25deg);
+    z-index: 1;
+    pointer-events: none;
+}
+
 .hero-content {
     position: relative;
     z-index: 10;
+
     display: flex;
     flex-direction: column;
     gap: clamp(20px, 3vh, 40px);
+
     padding-left: clamp(30px, 5vw, 60px);
     padding-top: clamp(120px, 16vh, 170px);
     padding-bottom: 80px;
+
     max-width: 800px;
     max-height: none;
     overflow: visible;
     -webkit-overflow-scrolling: auto;
+
     color: white;
 }
-.hero-content h1 { font-size: clamp(36px, 4vw, 48px); line-height: 1.1; margin-bottom: 20px; }
-.hero-content p { font-size: clamp(17px, 1.6vw, 22px); line-height: 1.7; margin-bottom: 8px; }
-.option { display: flex; gap: 20px; }
-.option button { padding: 12px 30px; font-size: 18px; font-weight: bold; border: 2px solid white; border-radius: 30px; background: #4169E1; color: white; cursor: pointer; transition: 0.3s; }
-.option button:hover { background: white; color: black; }
-.stats { display: flex; align-items: center; gap: 20px; }
-.stat-item { width: 140px; text-align: center; }
-.stat-item img { width: 80px; height: 80px; margin: 0 auto 15px; display: block; }
-.stat-item h2 { font-size: 40px; font-weight: 800; color: white; margin-bottom: 5px; }
-.stat-item p { font-size: 20px; font-weight: 700; color: #ffffff; line-height: 1.4; }
-.divider { width: 1px; height: 80px; background: rgba(255, 255, 255, 0.4); }
 
-/* SLIDE BUTTONS - show only desktop */
-.page-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 70px; height: 70px; border: none; border-radius: 50%; background: rgba(255,255,255,.25); color: white; font-size: 35px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 9999; pointer-events: auto; touch-action: manipulation; transition: 0.3s; }
-.page-btn:hover { background: rgba(255,255,255,.45); color: #00144d; }
-.page-btn:disabled { opacity: 0.25; cursor: not-allowed; }
-.next-btn { right: 35px; }
-.prev-btn { left: 35px; }
+.hero-content h1 {
+    font-size: clamp(36px, 4vw, 48px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 0 8px 28px rgba(0,0,0,0.35);
+}
 
-/* GROUP COMPANIES PAGE 1.2 */
+.hero-content p {
+    font-size: clamp(17px, 1.6vw, 22px);
+    line-height: 1.7;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.92);
+}
+
+.option {
+    display: flex;
+    gap: 20px;
+}
+
+.option button,
+.map-btn,
+.contact-form button {
+    padding: 12px 30px;
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: 30px;
+    background: linear-gradient(135deg, #0b58d8, #1746b8);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 12px 28px rgba(11,88,216,0.28);
+}
+
+.option button:hover,
+.map-btn:hover,
+.contact-form button:hover {
+    background: #ffffff;
+    color: #102a63;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-item {
+    width: 140px;
+    text-align: center;
+}
+
+.stat-item img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+.stat-item h2 {
+    font-size: 40px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+.divider {
+    width: 1px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================
+   6) SLIDE BUTTONS
+========================================================= */
+.page-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 70px;
+    height: 70px;
+
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.25);
+    color: white;
+
+    font-size: 35px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+    pointer-events: auto;
+    touch-action: manipulation;
+    transition: 0.3s;
+}
+
+.page-btn:hover {
+    background: rgba(255,255,255,.45);
+    color: #00144d;
+}
+
+.page-btn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+.next-btn {
+    right: 35px;
+}
+
+.prev-btn {
+    left: 35px;
+}
+
+/* =========================================================
+   7) GROUP COMPANIES PAGE 1.2
+========================================================= */
 .about-content {
     position: relative;
     z-index: 2;
+
     height: 100vh;
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     padding: clamp(110px, 14vh, 140px) 90px 100px;
     color: white;
+
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
-.about-content h2 { text-align: center; font-size: clamp(42px, 5vw, 60px); margin-bottom: clamp(35px, 6vh, 60px); }
-.company-wrapper { display: flex; justify-content: center; align-items: stretch; gap: clamp(30px, 4vw, 60px); flex-wrap: wrap; }
-.company-card { width: 350px; min-height: 500px; display: flex; flex-direction: column; background: rgba(0,0,0,0.45); backdrop-filter: blur(8px); border-radius: 20px; padding: 30px; transition: 0.3s; }
-.company-card:hover { transform: translateY(-10px); }
-.company-logo { width: 90px; height: 90px; object-fit: contain; margin: 0 auto 20px; display: block; }
-.company-card h3 { text-align: center; margin-bottom: 20px; font-size: 22px; }
-.company-card ul { list-style: none; padding: 0; }
-.company-card li { margin-bottom: 12px; line-height: 1.6; }
-.company-card li::before { content: "• "; color: #4da3ff; font-weight: bold; }
 
-/* HISTORY PAGE 1.3 */
-.products-page { position: relative; overflow-y: auto; overflow-x: hidden; min-height: 100vh; background: radial-gradient(circle at 75% 20%, rgba(255,255,255,0.15), transparent 35%), linear-gradient(135deg, #00144d 0%, #002c80 45%, #0b58d8 100%); }
+.about-content h2 {
+    text-align: center;
+    font-size: clamp(42px, 5vw, 60px);
+    margin-bottom: clamp(35px, 6vh, 60px);
+}
+
+.company-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: clamp(30px, 4vw, 60px);
+    flex-wrap: wrap;
+}
+
+.company-card {
+    width: 350px;
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(20,70,150,0.12);
+    color: #1f2a44;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border-radius: 20px;
+    padding: 30px;
+
+    box-shadow: 0 22px 55px rgba(20, 50, 100, 0.12);
+    transition: 0.3s;
+}
+
+.company-card:hover {
+    transform: translateY(-10px);
+    background: #ffffff;
+    color: #0b2d66;
+    box-shadow: 0 28px 65px rgba(20, 50, 100, 0.18);
+}
+
+.company-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.company-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.company-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.company-card li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.company-card li::before {
+    content: "• ";
+    color: #0b58d8;
+    font-weight: bold;
+}
+
+/* =========================================================
+   😎 HISTORY PAGE 1.3
+========================================================= */
+.products-page {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 82% 18%, rgba(11,88,216,0.14), transparent 34%),
+        radial-gradient(circle at 12% 82%, rgba(100,150,255,0.10), transparent 30%),
+        linear-gradient(180deg, #f7faff 0%, #edf3ff 48%, #ffffff 100%);
+}
+
 .history-section {
     position: relative;
     z-index: 2;
+
     height: 100vh;
     min-height: 100vh;
+
     padding: clamp(110px, 14vh, 140px) 80px 130px;
-    color: white;
+
+    color: #1f2a44;
+
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
-.history-section h2 { text-align: center; font-size: clamp(42px, 5vw, 64px); margin-bottom: clamp(45px, 6vh, 80px); }
+
+.history-section h2 {
+    text-align: center;
+    font-size: clamp(42px, 5vw, 64px);
+    margin-bottom: clamp(45px, 6vh, 80px);
+    color: #102a63;
+}
+
 .timeline {
     position: relative;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 240px 0 240px;
     margin-top: 0;
 }
-.timeline::before { content: ""; position: absolute; left: 0; top: 50%; width: 100%; height: 4px; background: rgba(255, 255, 255, 0.3); transform: translateY(-50%); }
-.timeline-item { position: relative; width: 18%; z-index: 2; }
-.timeline-item::before { content: ""; width: 22px; height: 22px; background: #ffd700; border-radius: 50%; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    width: 100%;
+    height: 4px;
+
+    background: rgba(11,88,216,0.20);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    width: 18%;
+    z-index: 2;
+}
+
+.timeline-item::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+
+    background: #0b58d8;
+    border-radius: 50%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 4;
+}
+
 .timeline-card {
     position: relative;
-    background: rgba(255,255,255,.10);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 32px 22px;
-    text-align: center;
+    z-index: 3;
+
     width: clamp(180px, 15vw, 220px);
     margin: 0 auto;
+    padding: 32px 22px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(20,70,150,0.12);
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 22px 55px rgba(20, 50, 100, 0.12);
+
     opacity: 0;
     transform: translateX(80px);
     transition: 1s;
 }
-.timeline-card.show { opacity: 1; transform: translateX(0); }
-.timeline-item:nth-child(odd) .timeline-card { top: -170px; }
-.timeline-item:nth-child(even) .timeline-card { top: 170px; }
-.timeline-card img { width: 90px; height: 90px; object-fit: contain; margin-bottom: 20px; }
-.timeline-card h3 { color: #ffd700; font-size: 36px; margin-bottom: 10px; }
 
-/* PAGE 2 SCROLL DOWN */
+.timeline-card.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-item:nth-child(odd) .timeline-card {
+    top: -170px;
+}
+
+.timeline-item:nth-child(even) .timeline-card {
+    top: 170px;
+}
+
+.timeline-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.timeline-card h3 {
+    color: #0b58d8;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* =========================================================
+   9) PRODUCT PAGE
+========================================================= */
 .page-two-down {
     position: relative;
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
+
     background:
-        radial-gradient(circle at 80% 15%, rgba(77,163,255,0.28), transparent 35%),
-        radial-gradient(circle at 15% 80%, rgba(255,255,255,0.08), transparent 30%),
-        linear-gradient(135deg, #00144d 0%, #002c80 48%, #0b58d8 100%);
-}
-.page-two-down::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(120deg, rgba(255,255,255,0.07), transparent 35%),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 90px);
-    z-index: 1;
-    pointer-events: none;
+        radial-gradient(circle at 82% 18%, rgba(11,88,216,0.14), transparent 34%),
+        radial-gradient(circle at 12% 82%, rgba(100,150,255,0.10), transparent 30%),
+        linear-gradient(180deg, #f7faff 0%, #edf3ff 48%, #ffffff 100%);
 }
 
-/* PRODUCT PAGE */
-.product-section { position: relative; z-index: 2; min-height: 100vh; padding: 120px 80px 100px; color: white; }
-.product-section h2 { text-align: center; font-size: 60px; margin-bottom: 50px; letter-spacing: 2px; font-weight: 800; }
-.product-scroll { width: 100%; overflow-x: auto; overflow-y: hidden; padding: 20px 0 40px; scroll-behavior: smooth; }
-.product-scroll::-webkit-scrollbar { height: 10px; }
-.product-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.18); border-radius: 20px; }
-.product-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.9); border-radius: 20px; }
-.product-grid { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, 260px); grid-auto-columns: 260px; gap: 45px; width: max-content; padding: 10px 40px; }
-.product-box { width: 260px; height: 260px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.10); color: #ffffff; border: 1px solid rgba(255,255,255,0.22); border-radius: 24px; text-decoration: none; font-size: 24px; font-weight: bold; box-shadow: 0 20px 45px rgba(0,0,0,0.28); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: 0.35s ease; }
-.product-box:hover { transform: translateY(-10px); background: #ffffff; color: #00144d; border-color: #ffffff; box-shadow: 0 28px 60px rgba(0,0,0,0.38); }
-.product-box h3 { font-size: 34px; letter-spacing: 0.5px; }
-
-/* PAGE 3-6 SCROLL DOWN */
-.info-page {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-    padding: 120px 80px 100px;
-    color: white;
-    background:
-        radial-gradient(circle at 80% 18%, rgba(77,163,255,0.24), transparent 36%),
-        radial-gradient(circle at 12% 82%, rgba(255,255,255,0.08), transparent 30%),
-        linear-gradient(135deg, #00144d 0%, #002c80 48%, #0b58d8 100%);
-}
-
+.page-two-down::before,
 .info-page::before {
     content: "";
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(120deg, rgba(255,255,255,0.08), transparent 35%),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 90px);
+        linear-gradient(120deg, rgba(255,255,255,0.55), transparent 35%),
+        repeating-linear-gradient(
+            90deg,
+            rgba(11,88,216,0.035) 0px,
+            rgba(11,88,216,0.035) 1px,
+            transparent 1px,
+            transparent 90px
+        );
     z-index: 1;
     pointer-events: none;
+}
+
+.product-section {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+    padding: 120px 80px 100px;
+    color: #1f2a44;
+}
+
+.product-section h2 {
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: #102a63;
+}
+
+.product-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px 0 40px;
+    scroll-behavior: smooth;
+}
+
+.product-scroll::-webkit-scrollbar {
+    height: 10px;
+}
+
+.product-scroll::-webkit-scrollbar-track {
+    background: rgba(11,88,216,0.10);
+    border-radius: 20px;
+}
+
+.product-scroll::-webkit-scrollbar-thumb {
+    background: rgba(11,88,216,0.70);
+    border-radius: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 260px);
+    grid-auto-columns: 260px;
+    gap: 45px;
+
+    width: max-content;
+    padding: 10px 40px;
+}
+
+.product-box {
+    width: 260px;
+    height: 260px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.72);
+    color: #1f2a44;
+    border: 1px solid rgba(20,70,150,0.12);
+    border-radius: 24px;
+
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+
+    box-shadow: 0 22px 55px rgba(20, 50, 100, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition: 0.35s ease;
+}
+
+.product-box:hover {
+    transform: translateY(-10px);
+    background: #ffffff;
+    color: #0b2d66;
+    box-shadow: 0 28px 65px rgba(20, 50, 100, 0.18);
+}
+
+.product-box h3 {
+    font-size: 34px;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================================
+   10) COMMON INFO SECTIONS
+========================================================= */
+.info-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+
+    padding: 120px 80px 100px;
+
+    color: #1f2a44;
+    background:
+        radial-gradient(circle at 82% 18%, rgba(11,88,216,0.14), transparent 34%),
+        radial-gradient(circle at 12% 82%, rgba(100,150,255,0.10), transparent 30%),
+        linear-gradient(180deg, #f7faff 0%, #edf3ff 48%, #ffffff 100%);
 }
 
 .info-content {
     position: relative;
     z-index: 2;
+
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -262,15 +794,17 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     font-size: clamp(42px, 5vw, 64px);
     margin-bottom: 55px;
     letter-spacing: 2px;
+    color: #102a63;
 }
 
 .info-subtitle {
     max-width: 850px;
     margin: -30px auto 55px;
+
     text-align: center;
     font-size: clamp(17px, 1.5vw, 22px);
     line-height: 1.7;
-    color: rgba(255,255,255,0.88);
+    color: #4b5875;
 }
 
 .card-grid {
@@ -282,43 +816,52 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 .info-card {
     min-height: 270px;
     padding: 35px;
+
     border-radius: 24px;
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(20,70,150,0.12);
+
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+
+    box-shadow: 0 22px 55px rgba(20, 50, 100, 0.12);
     transition: 0.35s ease;
 }
 
 .info-card:hover {
     transform: translateY(-10px);
-    background: rgba(255,255,255,0.18);
+    background: #ffffff;
+    color: #0b2d66;
+    box-shadow: 0 28px 65px rgba(20, 50, 100, 0.18);
 }
 
 .info-icon {
     width: 58px;
     height: 58px;
     border-radius: 16px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     margin-bottom: 22px;
-    background: rgba(255,255,255,0.16);
+
+    background: rgba(11,88,216,0.10);
+    color: #0b58d8;
     font-size: 30px;
 }
 
 .info-card h3 {
     font-size: 26px;
     margin-bottom: 18px;
-    color: #ffffff;
+    color: #102a63;
 }
 
 .info-card p,
 .info-card li {
     font-size: 18px;
     line-height: 1.7;
-    color: rgba(255,255,255,0.9);
+    color: #4b5875;
 }
 
 .info-card ul {
@@ -331,11 +874,13 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 
 .info-card li::before {
     content: "• ";
-    color: #4da3ff;
+    color: #0b58d8;
     font-weight: bold;
 }
 
-/* CAPABILITIES 9 BLOCKS */
+/* =========================================================
+   11) CAPABILITIES
+========================================================= */
 .capabilities-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -353,19 +898,21 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     width: 100%;
     aspect-ratio: 16 / 10;
     overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(0,20,77,0.95), rgba(11,88,216,0.95));
-    border-bottom: 1px solid rgba(255,255,255,0.18);
+
+    background: linear-gradient(135deg, rgba(235,242,255,0.95), rgba(210,226,255,0.95));
+    border-bottom: 1px solid rgba(20,70,150,0.12);
 }
 
 .capability-media::before {
     content: "IMAGE / VIDEO AREA";
     position: absolute;
     inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255,255,255,0.55);
+
+    color: rgba(16,42,99,0.38);
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -376,8 +923,10 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 .capability-media video {
     position: absolute;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 }
 
@@ -403,28 +952,32 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 .capability-body h3 {
     font-size: 24px;
     margin-bottom: 14px;
-    color: #ffffff;
+    color: #102a63;
 }
 
 .capability-body p {
     font-size: 17px;
     line-height: 1.65;
-    color: rgba(255,255,255,0.88);
+    color: #4b5875;
 }
 
 .media-note {
     display: inline-block;
     margin-top: 18px;
     padding: 8px 14px;
+
     border-radius: 999px;
-    background: rgba(77,163,255,0.16);
-    border: 1px solid rgba(77,163,255,0.35);
-    color: rgba(255,255,255,0.82);
+    background: rgba(11,88,216,0.08);
+    border: 1px solid rgba(11,88,216,0.22);
+
+    color: #1746b8;
     font-size: 13px;
     font-weight: bold;
 }
 
-/* QUALITY */
+/* =========================================================
+   12) QUALITY
+========================================================= */
 .quality-row {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
@@ -434,6 +987,7 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 
 .quality-big {
     min-height: 100%;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -445,21 +999,18 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     gap: 24px;
 }
 
-/* REASONS */
-.reason-number {
-    font-size: 58px;
-    font-weight: 900;
-    color: rgba(255,255,255,0.20);
-    margin-bottom: 12px;
-}
-
-/* CONTACT + GOOGLE MAPS */
+/* =========================================================
+   13) CONTACT
+========================================================= */
 #contact {
     min-height: 100vh;
     padding: 110px 80px 40px;
-    background:
+
+    background: 
         radial-gradient(circle at 82% 18%, rgba(77,163,255,0.22), transparent 34%),
         linear-gradient(180deg, #00144d 0%, #000814 100%);
+
+    color: white;
 }
 
 #contact .info-content {
@@ -477,6 +1028,30 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     font-size: clamp(15px, 1.2vw, 18px);
 }
 
+#contact h2,
+#contact .info-subtitle,
+#contact .location-card h3,
+#contact .contact-form h3,
+#contact .location-card p {
+    color: white;
+}
+
+#contact .location-card,
+#contact .contact-form {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+#contact .map-box {
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+#contact .footer-copy {
+    color: rgba(255,255,255,0.65);
+    border-top: 1px solid rgba(255,255,255,0.14);
+}
+
 .contact-box {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
@@ -488,11 +1063,10 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 .contact-form {
     padding: 26px;
     border-radius: 22px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
+
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+
 }
 
 .location-card h3,
@@ -505,16 +1079,16 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 10px;
-    color: rgba(255,255,255,0.9);
 }
 
 .map-box {
     width: 100%;
     height: 300px;
     margin: 18px 0;
+
     overflow: hidden;
     border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(20,70,150,0.12);
 }
 
 .map-box iframe {
@@ -532,19 +1106,9 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 .map-btn {
     display: inline-block;
     padding: 11px 20px;
-    border-radius: 28px;
-    background: #4169E1;
-    color: white;
+
     text-decoration: none;
     font-size: 14px;
-    font-weight: bold;
-    border: 2px solid white;
-    transition: 0.3s;
-}
-
-.map-btn:hover {
-    background: white;
-    color: #00144d;
 }
 
 .contact-form {
@@ -556,10 +1120,12 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
+
     padding: 12px 14px;
-    border: none;
+
+    border: 1px solid rgba(20,70,150,0.14);
     outline: none;
-    border-radius: 10px;
+
     font-size: 14px;
     font-family: Arial, sans-serif;
 }
@@ -572,88 +1138,162 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 .contact-form button {
     align-self: flex-start;
     padding: 11px 24px;
-    border: 2px solid white;
-    border-radius: 28px;
-    background: #4169E1;
-    color: white;
     font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.contact-form button:hover {
-    background: white;
-    color: #00144d;
 }
 
 .footer-copy {
     position: relative;
     z-index: 2;
+
     text-align: center;
     margin-top: 34px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.14);
+
+    border-top: 1px solid rgba(20,70,150,0.12);
+
     font-size: 13px;
-    color: rgba(255,255,255,0.65);
+    color: #6b7488;
 }
 
-/* RESPONSIVE */
+/* =========================================================
+   14) FIX / CLEANUP
+========================================================= */
+#group .about-video {
+    display: block;
+}
+
+#home,
+#group,
+#history,
+.hero-content,
+.about-content,
+.history-section {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#home::-webkit-scrollbar,
+#group::-webkit-scrollbar,
+#history::-webkit-scrollbar,
+.hero-content::-webkit-scrollbar,
+.about-content::-webkit-scrollbar,
+.history-section::-webkit-scrollbar {
+    display: none;
+}
+
+#home {
+    overflow: hidden !important;
+}
+
+#home .hero-content {
+    overflow: visible !important;
+}
+
+/* =========================================================
+   15) RESPONSIVE
+========================================================= */
 @media (max-width: 1200px) {
-    .hero-content { max-width: 65%; }
-    .hero-content h1 { font-size: 42px; }
-    .hero-content p { font-size: 18px; }
-    .company-wrapper { gap: 35px; }
-    .company-card { width: 300px; min-height: 460px; }
-    .card-grid { grid-template-columns: repeat(2, 1fr); }
-    .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
-    .quality-row { grid-template-columns: 1fr; }
+    .hero-content {
+        max-width: 65%;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .company-wrapper {
+        gap: 35px;
+    }
+
+    .company-card {
+        width: 300px;
+        min-height: 460px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .capabilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quality-row {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
-    html, body { width: 100%; overflow-x: hidden; }
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
 
     .navbar {
         padding: 10px 16px;
         min-height: 76px;
-        background: rgba(0, 20, 60, 0.55);
+        background: rgba(255, 255, 255, 0.92);
     }
-    .nav-menu { display: none; }
-    .nav-logo img { width: 58px; }
-    .language-switch a { font-size: 16px; }
-    .menu-toggle { display: block; font-size: 38px; margin-left: 8px; }
 
-    .zero-content h1 { font-size: 48px; }
+    .nav-menu {
+        display: none;
+    }
 
-    /* slider must stay exactly one screen on mobile */
-    .horizontal-slider {
-        height: 100vh;
-        height: 100svh;
-        overflow: hidden;
+    .nav-logo img {
+        width: 58px;
     }
-    .pages {
-        height: 100vh;
-        height: 100svh;
+
+    .language-switch a {
+        font-size: 16px;
     }
+
+    .menu-toggle {
+        display: block;
+        font-size: 38px;
+        margin-left: 8px;
+    }
+
+    .zero-content h1 {
+        font-size: 48px;
+    }
+
+    .horizontal-slider,
+    .pages,
     .page {
         height: 100vh;
         height: 100svh;
+    }
+
+    .horizontal-slider {
+        overflow: hidden;
+    }
+
+    .page {
         min-height: 100vh;
         min-height: 100svh;
         overflow: hidden;
     }
 
-    /* hide slide buttons on mobile */
-    .page-btn { display: none !important; }
+    .page-btn {
+        display: none !important;
+    }
 
-    /* PAGE 1.1 mobile: full-screen video, no outside scroll */
-    .video-container { align-items: flex-start; }
+    .video-container {
+        align-items: flex-start;
+    }
+
     .hero-video,
     .about-video {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+
     .video-container::before {
         width: 220%;
         height: 320px;
@@ -661,49 +1301,75 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         top: 260px;
         transform: rotate(-35deg);
     }
+
     .hero-content {
         width: 100%;
         max-width: 100%;
         height: 100%;
+
         padding: 115px 24px 45px;
         gap: 22px;
+
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
+
     .hero-content h1 {
         font-size: clamp(32px, 10vw, 44px);
         line-height: 1.08;
         margin-bottom: 16px;
     }
+
     .hero-content p {
         font-size: clamp(15px, 4.2vw, 18px);
         line-height: 1.55;
     }
+
     .option {
         flex-direction: column;
         align-items: center;
         gap: 14px;
         width: 100%;
     }
+
     .option button {
         width: 82%;
         max-width: 430px;
         padding: 12px 22px;
         font-size: 17px;
     }
+
     .stats {
         flex-direction: column;
         width: 100%;
         gap: 14px;
         padding-bottom: 20px;
     }
-    .stat-item { width: 100%; }
-    .stat-item img { width: 64px; height: 64px; margin-bottom: 10px; }
-    .stat-item h2 { font-size: 34px; }
-    .stat-item p { font-size: 16px; color: white; }
-    .divider { width: 80px; height: 1px; }
 
-    /* PAGE 1.2 mobile: background full screen, content scrolls over it */
+    .stat-item {
+        width: 100%;
+    }
+
+    .stat-item img {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 10px;
+    }
+
+    .stat-item h2 {
+        font-size: 34px;
+    }
+
+    .stat-item p {
+        font-size: 16px;
+        color: white;
+    }
+
+    .divider {
+        width: 80px;
+        height: 1px;
+    }
+
     .about-content {
         height: 100%;
         min-height: 100%;
@@ -712,14 +1378,17 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
+
     .about-content h2 {
         font-size: 32px;
         margin-bottom: 26px;
     }
+
     .company-wrapper {
         gap: 22px;
         padding-bottom: 20px;
     }
+
     .company-card {
         width: 100%;
         max-width: 330px;
@@ -727,11 +1396,20 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         padding: 24px;
         border-radius: 22px;
     }
-    .company-logo { width: 70px; height: 70px; }
-    .company-card h3 { font-size: 20px; }
-    .company-card li { font-size: 16px; }
 
-    /* PAGE 1.3 mobile: vertical timeline */
+    .company-logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .company-card h3 {
+        font-size: 20px;
+    }
+
+    .company-card li {
+        font-size: 16px;
+    }
+
     .history-section {
         height: 100%;
         min-height: 100%;
@@ -739,18 +1417,22 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
+
     .history-section h2 {
         font-size: 32px;
         margin-bottom: 45px;
     }
+
     .timeline {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 34px;
+
         padding: 10px 0 25px;
         margin-top: 0;
     }
+
     .timeline::before {
         width: 4px;
         height: 100%;
@@ -758,18 +1440,22 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         top: 0;
         transform: none;
     }
+
     .timeline-item {
         width: 100%;
         padding-left: 80px;
     }
+
     .timeline-item::before {
         left: 30px;
         top: 35px;
     }
+
     .timeline-item:nth-child(even) .timeline-card,
     .timeline-item:nth-child(odd) .timeline-card {
         margin: 0;
     }
+
     .timeline-card {
         width: 100%;
         max-width: 320px;
@@ -777,39 +1463,61 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         transform: translateX(40px);
         top: auto !important;
     }
-    .timeline-card.show { transform: translateX(0); }
-    .timeline-card img { width: 70px; height: 70px; }
-    .timeline-card h3 { font-size: 32px; }
 
-    /* Product mobile */
-    .product-section { padding: 110px 25px 100px; }
-    .product-section h2 { font-size: 38px; margin-bottom: 35px; }
+    .timeline-card.show {
+        transform: translateX(0);
+    }
+
+    .timeline-card img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .timeline-card h3 {
+        font-size: 32px;
+    }
+
+    .product-section {
+        padding: 110px 25px 100px;
+    }
+
+    .product-section h2 {
+        font-size: 38px;
+        margin-bottom: 35px;
+    }
+
     .product-grid {
         grid-template-rows: repeat(2, 150px);
         grid-auto-columns: 150px;
         gap: 18px;
         padding: 10px 20px;
     }
+
     .product-box {
         width: 150px;
         height: 150px;
         font-size: 20px;
         border-radius: 18px;
     }
-    .product-box h3 { font-size: 20px; }
 
-    /* Page 3-6 mobile */
+    .product-box h3 {
+        font-size: 20px;
+    }
+
     .info-page {
         padding: 110px 25px 80px;
     }
+
     .info-content h2 {
         font-size: 34px;
         margin-bottom: 38px;
     }
+
     .info-subtitle {
         margin: -18px auto 35px;
         font-size: 16px;
     }
+
     .card-grid,
     .capabilities-grid,
     .quality-list,
@@ -817,30 +1525,38 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         grid-template-columns: 1fr;
         gap: 24px;
     }
+
     .info-card {
         min-height: auto;
         padding: 28px;
     }
+
     .capability-card {
         padding: 0;
     }
+
     .capability-body {
         padding: 24px;
     }
+
     .capability-body h3 {
         font-size: 22px;
     }
+
     .capability-body p {
         font-size: 16px;
     }
+
     .info-icon {
         width: 52px;
         height: 52px;
         font-size: 26px;
     }
+
     .info-card h3 {
         font-size: 23px;
     }
+
     .info-card p,
     .info-card li {
         font-size: 16px;
@@ -892,71 +1608,17 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         margin-top: 18px;
     }
 }
-
-/* FIX: PAGE 1.1 / 1.2 / 1.3 STABLE VIEWPORT */
-#home,
-#group,
-#history {
-    height: 100vh;
-    min-height: 100vh;
-}
-
-#home .page-overlay,
-#group .page-overlay {
-    height: 100%;
-}
-
-#group .about-video {
-    display: block;
-}
-
-/* keep timeline line behind dots only, not through cards */
-.timeline::before {
-    z-index: 1;
-}
-.timeline-item::before {
-    z-index: 4;
-}
-.timeline-card {
-    z-index: 3;
-}
-
-
-/* FINAL FIX: REMOVE MIDDLE SCROLLBAR LINE */
-#home,
-#group,
-#history,
-.hero-content,
-.about-content,
-.history-section {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-#home::-webkit-scrollbar,
-#group::-webkit-scrollbar,
-#history::-webkit-scrollbar,
-.hero-content::-webkit-scrollbar,
-.about-content::-webkit-scrollbar,
-.history-section::-webkit-scrollbar {
-    display: none;
-}
-
-#home {
-    overflow: hidden !important;
-}
-
-#home .hero-content {
-    overflow: visible !important;
-}
-
 </style>
 </head>
 
 <body>
-
 <nav class="navbar">
-    <div class="nav-left"><div class="nav-logo"><a href="#page0"><img src="TL 1.png" alt="Logo"></a></div></div>
+    <div class="nav-left">
+        <div class="nav-logo">
+            <a href="#page0"><img src="TL 1.png" alt="Logo"></a>
+        </div>
+    </div>
+
     <div class="nav-center">
         <ul class="nav-menu">
             <li><a href="#page0">HOME</a></li>
@@ -964,54 +1626,165 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
             <li><a href="#page2down">PRODUCT</a></li>
             <li><a href="#capabilities">CAPABILITIES</a></li>
             <li><a href="#quality">QUALITY</a></li>
-            <li><a href="#reasons">REASONS</a></li>
             <li><a href="#contact">CONTACT US</a></li>
         </ul>
     </div>
+
     <div class="nav-right">
-        <div class="language-switch"><a href="#">TH</a><span>/</span><a href="#">EN</a><span>/</span><a href="#">中文</a></div>
+        <div class="language-switch">
+            <a href="#">TH</a><span>/</span><a href="#">EN</a><span>/</span><a href="#">中文</a>
+        </div>
         <button class="menu-toggle">☰</button>
     </div>
 </nav>
 
 <section class="page-zero" id="page0">
-    <div class="zero-content"><h1>THAI LOCK</h1><p>Professional Fastener Manufacturer<br>Nuts, Screws, Bolts and OEM Fastener Solutions</p></div>
+    <div class="zero-content">
+        <h1>THAI LOCK</h1>
+        <p>Professional Fastener Manufacturer<br>Nuts, Screws, Bolts and OEM Fastener Solutions</p>
+    </div>
 </section>
 
 <section class="horizontal-slider" id="homeSlider">
     <div class="pages" id="pages">
         <div class="page video-container" id="home">
-            <video autoplay muted loop playsinline class="hero-video"><source src="ล่าสุด (1).mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="ล่าสุด (1).mp4" type="video/mp4">
+            </video>
+
             <div class="page-overlay"></div>
+
             <div class="hero-content">
-                <div><h1>THAILOCK<br>FASTENERS</h1><p>THAILOCK FASTENERS CO., LTD was established in 1991 as a professional lock nuts manufacturer.</p><p>With over 30 years of experiences in the industry, Thailock Fasteners is now actively supplying a wide variety of nuts to customers worldwide.</p></div>
-                <div class="option"><button onclick="location.href='quote.html'">Get Quote</button><button onclick="document.getElementById('page2down').scrollIntoView({ behavior: 'smooth' })">Learn More</button></div>
+                <div>
+                    <h1>THAILOCK<br>FASTENERS</h1>
+                    <p>THAILOCK FASTENERS CO., LTD was established in 1991 as a professional lock nuts manufacturer.</p>
+                    <p>With over 30 years of experiences in the industry, Thailock Fasteners is now actively supplying a wide variety of nuts to customers worldwide.</p>
+                </div>
+
+                <div class="option">
+                    <button onclick="location.href='quote.html'">Get Quote</button>
+                    <button onclick="document.getElementById('page2down').scrollIntoView({ behavior: 'smooth' })">Learn More</button>
+                </div>
+
                 <div class="stats">
-                    <div class="stat-item"><img src="r_2.png" alt=""><h2>30+</h2><p>Years Experience</p></div><div class="divider"></div>
-                    <div class="stat-item"><img src="002-globe-blue.png" alt=""><h2>50+</h2><p>Countries Served</p></div><div class="divider"></div>
-                    <div class="stat-item"><img src="9784009.png" alt=""><h2>1000+</h2><p>Satisfied Clients</p></div>
+                    <div class="stat-item">
+                        <img src="r_2.png" alt="">
+                        <h2>30+</h2>
+                        <p>Years Experience</p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="stat-item">
+                        <img src="002-globe-blue.png" alt="">
+                        <h2>50+</h2>
+                        <p>Countries Served</p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="stat-item">
+                        <img src="9784009.png" alt="">
+                        <h2>1000+</h2>
+                        <p>Satisfied Clients</p>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="page" id="group">
-            <video autoplay muted loop playsinline class="about-video"><source src="out.mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline class="about-video">
+                <source src="out.mp4" type="video/mp4">
+            </video>
+
             <div class="page-overlay"></div>
-            <div class="about-content"><h2>GROUP COMPANIES</h2><div class="company-wrapper">
-                <div class="company-card"><img src="jingfong-logo.png" class="company-logo" alt=""><h3>JING FONG INDUSTRY</h3><ul><li>OEM / Special Nuts</li><li>Tainan, Taiwan</li><li>Capacity: &gt;1,000 Tons / Month</li></ul></div>
-                <div class="company-card"><img src="TL 1.png" class="company-logo" alt=""><h3>THAILOCK FASTENERS</h3><ul><li>Standard / OEM Fasteners</li><li>2 Plants at Chonburi & Rayong</li><li>Area: 70,000 m²</li></ul></div>
-                <div class="company-card"><img src="thaimax-logo.png" class="company-logo" alt=""><h3>THAIMAX PLASTICS</h3><ul><li>Plastic Injection Parts</li><li>Compound Material</li><li>Rayong, Thailand</li></ul></div>
-            </div></div>
+
+            <div class="about-content">
+                <h2>GROUP COMPANIES</h2>
+
+                <div class="company-wrapper">
+                    <div class="company-card">
+                        <img src="jingfong-logo.png" class="company-logo" alt="">
+                        <h3>JING FONG INDUSTRY</h3>
+                        <ul>
+                            <li>OEM / Special Nuts</li>
+                            <li>Tainan, Taiwan</li>
+                            <li>Capacity: &gt;1,000 Tons / Month</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <img src="TL 1.png" class="company-logo" alt="">
+                        <h3>THAILOCK FASTENERS</h3>
+                        <ul>
+                            <li>Standard / OEM Fasteners</li>
+                            <li>2 Plants at Chonburi & Rayong</li>
+                            <li>Area: 70,000 m²</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <img src="thaimax-logo.png" class="company-logo" alt="">
+                        <h3>THAIMAX PLASTICS</h3>
+                        <ul>
+                            <li>Plastic Injection Parts</li>
+                            <li>Compound Material</li>
+                            <li>Rayong, Thailand</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="page products-page" id="history">
-            <section class="history-section"><h2>COMPANY HISTORY</h2><div class="timeline">
-                <div class="timeline-item"><div class="timeline-card"><img src="factory1.jpg" alt=""><h3>1980</h3><p>JING FONG INDUSTRY was founded in Taiwan</p></div></div>
-                <div class="timeline-item"><div class="timeline-card"><img src="TL 1.png" alt=""><h3>1991</h3><p>THAILOCK FASTENERS established</p></div></div>
-                <div class="timeline-item"><div class="timeline-card"><img src="iso.png" alt=""><h3>2001</h3><p>ISO 9001 Certified</p></div></div>
-                <div class="timeline-item"><div class="timeline-card"><img src="iatf.png" alt=""><h3>2012</h3><p>IATF16949 Certified</p></div></div>
-                <div class="timeline-item"><div class="timeline-card"><img src="factory2.jpg" alt=""><h3>2020</h3><p>Rayong Factory Opened</p></div></div>
-            </div></section>
+            <section class="history-section">
+                <h2>COMPANY HISTORY</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="factory1.jpg" alt="">
+                            <h3>1980</h3>
+                            <p>JING FONG INDUSTRY was founded in Taiwan</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="TL 1.png" alt="">
+                            <h3>1991</h3>
+                            <p>THAILOCK FASTENERS established</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="iso.png" alt="">
+                            <h3>2001</h3>
+                            <p>ISO 9001 Certified</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="iatf.png" alt="">
+                            <h3>2012</h3>
+                            <p>IATF16949 Certified</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <img src="factory2.jpg" alt="">
+                            <h3>2020</h3>
+                            <p>Rayong Factory Opened</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
+
     <button class="page-btn prev-btn" id="prevBtn" aria-label="Previous page">❮</button>
     <button class="page-btn next-btn" id="nextBtn" aria-label="Next page">❯</button>
 </section>
@@ -1019,28 +1792,31 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 <section class="page-two-down" id="page2down">
     <div class="product-section">
         <h2>PRODUCT</h2>
-        <div class="product-scroll"><div class="product-grid">
-            <a href="product-detail.html?product=nut1" class="product-box"><h3>nut1</h3></a>
-            <a href="product-detail.html?product=nut2" class="product-box"><h3>nut2</h3></a>
-            <a href="product-detail.html?product=nut3" class="product-box"><h3>nut3</h3></a>
-            <a href="product-detail.html?product=nut4" class="product-box"><h3>nut4</h3></a>
-            <a href="product-detail.html?product=nut5" class="product-box"><h3>nut5</h3></a>
-            <a href="product-detail.html?product=nut6" class="product-box"><h3>nut6</h3></a>
-            <a href="product-detail.html?product=nut7" class="product-box"><h3>nut7</h3></a>
-            <a href="product-detail.html?product=nut8" class="product-box"><h3>nut8</h3></a>
-            <a href="product-detail.html?product=nut9" class="product-box"><h3>nut9</h3></a>
-            <a href="product-detail.html?product=nut10" class="product-box"><h3>nut10</h3></a>
-            <a href="product-detail.html?product=nut11" class="product-box"><h3>nut11</h3></a>
-            <a href="product-detail.html?product=nut12" class="product-box"><h3>nut12</h3></a>
-            <a href="product-detail.html?product=nut13" class="product-box"><h3>nut13</h3></a>
-            <a href="product-detail.html?product=nut14" class="product-box"><h3>nut14</h3></a>
-            <a href="product-detail.html?product=nut15" class="product-box"><h3>nut15</h3></a>
-            <a href="product-detail.html?product=nut16" class="product-box"><h3>nut16</h3></a>
-            <a href="product-detail.html?product=nut17" class="product-box"><h3>nut17</h3></a>
-            <a href="product-detail.html?product=nut18" class="product-box"><h3>nut18</h3></a>
-            <a href="product-detail.html?product=nut19" class="product-box"><h3>nut19</h3></a>
-            <a href="product-detail.html?product=nut20" class="product-box"><h3>nut20</h3></a>
-        </div></div>
+
+        <div class="product-scroll">
+            <div class="product-grid">
+                <a href="product-detail.html?product=nut1" class="product-box"><h3>nut1</h3></a>
+                <a href="product-detail.html?product=nut2" class="product-box"><h3>nut2</h3></a>
+                <a href="product-detail.html?product=nut3" class="product-box"><h3>nut3</h3></a>
+                <a href="product-detail.html?product=nut4" class="product-box"><h3>nut4</h3></a>
+                <a href="product-detail.html?product=nut5" class="product-box"><h3>nut5</h3></a>
+                <a href="product-detail.html?product=nut6" class="product-box"><h3>nut6</h3></a>
+                <a href="product-detail.html?product=nut7" class="product-box"><h3>nut7</h3></a>
+                <a href="product-detail.html?product=nut8" class="product-box"><h3>nut8</h3></a>
+                <a href="product-detail.html?product=nut9" class="product-box"><h3>nut9</h3></a>
+                <a href="product-detail.html?product=nut10" class="product-box"><h3>nut10</h3></a>
+                <a href="product-detail.html?product=nut11" class="product-box"><h3>nut11</h3></a>
+                <a href="product-detail.html?product=nut12" class="product-box"><h3>nut12</h3></a>
+                <a href="product-detail.html?product=nut13" class="product-box"><h3>nut13</h3></a>
+                <a href="product-detail.html?product=nut14" class="product-box"><h3>nut14</h3></a>
+                <a href="product-detail.html?product=nut15" class="product-box"><h3>nut15</h3></a>
+                <a href="product-detail.html?product=nut16" class="product-box"><h3>nut16</h3></a>
+                <a href="product-detail.html?product=nut17" class="product-box"><h3>nut17</h3></a>
+                <a href="product-detail.html?product=nut18" class="product-box"><h3>nut18</h3></a>
+                <a href="product-detail.html?product=nut19" class="product-box"><h3>nut19</h3></a>
+                <a href="product-detail.html?product=nut20" class="product-box"><h3>nut20</h3></a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -1052,9 +1828,7 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
         <div class="capabilities-grid">
             <div class="info-card capability-card">
                 <div class="capability-media">
-                    <!-- ใส่รูปภาพได้ที่ src ด้านล่าง เช่น src="images/cold-forging.jpg" -->
                     <img src="แช่.png" alt="Cold Forging">
-                    <!-- ใส่วิดีโอทีหลังได้ เช่น src="videos/cold-forging.mp4" -->
                     <video muted loop playsinline><source src="แช่.mp4" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
@@ -1216,40 +1990,12 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
     </div>
 </section>
 
-<section class="info-page" id="reasons">
-    <div class="info-content">
-        <h2>REASONS TO CHOOSE US</h2>
-        <p class="info-subtitle">A reliable manufacturing partner for customers who need stable supply, technical support, and long-term cooperation.</p>
-
-        <div class="card-grid">
-            <div class="info-card">
-                <div class="reason-number">01</div>
-                <h3>30+ Years Experience</h3>
-                <p>Long experience in fastener manufacturing and global supply for industrial customers worldwide.</p>
-            </div>
-
-            <div class="info-card">
-                <div class="reason-number">02</div>
-                <h3>Global Supply</h3>
-                <p>Export experience with customers in many countries and support for international industrial requirements.</p>
-            </div>
-
-            <div class="info-card">
-                <div class="reason-number">03</div>
-                <h3>Reliable Production</h3>
-                <p>Strong manufacturing capability with multiple plants, experienced teams, and monthly production capacity.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="info-page" id="contact">
     <div class="info-content">
         <h2>CONTACT US</h2>
         <p class="info-subtitle">Contact our team for quotation requests, OEM fasteners, and business cooperation.</p>
 
         <div class="contact-box">
-
             <div class="location-card">
                 <h3>STRATEGIC LOCATION</h3>
                 <p><strong>THAILOCK FASTENERS CO., LTD.</strong></p>
@@ -1284,7 +2030,6 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
                 <textarea placeholder="Message"></textarea>
                 <button type="button">Send Message</button>
             </form>
-
         </div>
 
         <div class="footer-copy">© 2026 THAILOCK FASTENERS CO., LTD. All Rights Reserved.</div>
@@ -1292,83 +2037,123 @@ body { font-family: Arial, sans-serif; overflow-x: hidden; background: #000814; 
 </section>
 
 <script>
+/* =========================================================
+   1) TIMELINE ANIMATION
+========================================================= */
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add("show");
     });
 }, { threshold: 0.3 });
+
 document.querySelectorAll(".timeline-card").forEach(card => observer.observe(card));
 
+/* =========================================================
+   2) HORIZONTAL SLIDER
+========================================================= */
 const pages = document.getElementById("pages");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
+
 let currentSlide = 0;
 const totalSlides = 3;
 
 function goToSlide(index) {
     if (index < 0) index = 0;
     if (index > totalSlides - 1) index = totalSlides - 1;
+
     currentSlide = index;
-    pages.style.transform = `translateX(-${currentSlide * 100}vw)`;
+    pages.style.transform = translateX(-${currentSlide * 100}vw);
+
     document.getElementById("homeSlider").scrollIntoView({ behavior: "smooth" });
+
     updateSlideButtons();
 }
-function nextSlide() { goToSlide(currentSlide + 1); }
-function prevSlide() { goToSlide(currentSlide - 1); }
+
+function nextSlide() {
+    goToSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    goToSlide(currentSlide - 1);
+}
+
 function updateSlideButtons() {
     prevBtn.disabled = currentSlide === 0;
     nextBtn.disabled = currentSlide === totalSlides - 1;
 }
+
 nextBtn.addEventListener("click", nextSlide);
 prevBtn.addEventListener("click", prevSlide);
+
 updateSlideButtons();
 
+/* =========================================================
+   3) NAVBAR HIDE / SHOW ON SCROLL
+========================================================= */
 let lastScrollTop = 0;
 const navbar = document.querySelector(".navbar");
+
 window.addEventListener("scroll", () => {
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScroll > 100) navbar.style.top = currentScroll > lastScrollTop ? "-120px" : "0";
-    else navbar.style.top = "0";
+
+    if (currentScroll > 100) {
+        navbar.style.top = currentScroll > lastScrollTop ? "-120px" : "0";
+    } else {
+        navbar.style.top = "0";
+    }
+
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
 
-/* Mobile Swipe Slider */
+/* =========================================================
+   4) MOBILE SWIPE SLIDER
+========================================================= */
 let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let touchEndY = 0;
+
 const slider = document.getElementById("homeSlider");
+
 slider.addEventListener("touchstart", (e) => {
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
 });
+
 slider.addEventListener("touchend", (e) => {
     touchEndX = e.changedTouches[0].screenX;
     touchEndY = e.changedTouches[0].screenY;
     handleSwipe();
 });
+
 function handleSwipe() {
     const distanceX = touchStartX - touchEndX;
     const distanceY = touchStartY - touchEndY;
+
     if (Math.abs(distanceX) > Math.abs(distanceY) && Math.abs(distanceX) > 50) {
         if (distanceX > 0) nextSlide();
         else prevSlide();
     }
 }
 
-/* Future capability hover video support */
+/* =========================================================
+   5) CAPABILITY HOVER VIDEO
+========================================================= */
 document.querySelectorAll(".capability-card").forEach(card => {
     const video = card.querySelector("video");
     const source = video ? video.querySelector("source") : null;
 
     card.addEventListener("mouseenter", () => {
         if (!video || !source || !source.getAttribute("src")) return;
+
         video.currentTime = 0;
         video.play();
     });
 
     card.addEventListener("mouseleave", () => {
         if (!video) return;
+
         video.pause();
         video.currentTime = 0;
     });
