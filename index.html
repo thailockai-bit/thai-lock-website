@@ -5,6 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THAI LOCK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 
 <style>
 /* =========================================================
@@ -973,10 +977,10 @@ body {
 /* =========================================================
    9) CONTACT
 ========================================================= */
+
 #contact {
     position: relative;
-    min-height: 100vh;
-    padding: 110px 80px 40px;
+    padding: 35px 80px 20px;
 
     background:
         linear-gradient(
@@ -997,11 +1001,10 @@ body {
     pointer-events: none;
 
     background:
-        linear-gradient(120deg, rgba(255,255,255,.55), transparent 35%),
         repeating-linear-gradient(
             90deg,
-            rgba(11,88,216,.035) 0,
-            rgba(11,88,216,.035) 1px,
+            rgba(255,255,255,.035) 0,
+            rgba(255,255,255,.035) 1px,
             transparent 1px,
             transparent 90px
         );
@@ -1010,64 +1013,74 @@ body {
 #contact .info-content {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 #contact h2 {
     text-align: center;
-    font-size: clamp(36px,4vw,52px);
-    margin-bottom: 16px;
+    font-size: clamp(34px,4vw,50px);
+    margin-bottom: 6px;
     color: #ffffff;
 }
 
 #contact .info-subtitle {
     max-width: 760px;
-    margin: 0 auto 36px;
+    margin: 0 auto 18px;
     text-align: center;
     font-size: clamp(15px,1.2vw,18px);
-    color: #4b5875;
+    color: rgba(255,255,255,.78);
 }
 
 .contact-box {
     display: grid;
-    grid-template-columns: 1.15fr .85fr;
-    gap: 28px;
-    align-items: stretch;
+    grid-template-columns: 1.25fr 0.85fr 0.65fr;
+    gap: 20px;
+
+    align-items: start;
 }
 
 #contact .location-card,
-#contact .contact-form {
-    padding: 26px;
-    border-radius: 22px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 22px 55px rgba(20,50,100,.12);
+#contact .contact-form,
+#contact .contact-info {
+    padding: 20px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.16);
+
+    box-shadow: 0 18px 40px rgba(0,0,0,.20);
+
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 #contact .location-card h3,
-#contact .contact-form h3 {
-    font-size: 22px;
-    margin-bottom: 14px;
-    color: #102a63;
+#contact .contact-form h3,
+#contact .contact-info h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #ffffff;
 }
 
-#contact .location-card p {
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    color: #4b5875;
+#contact .location-card p,
+#contact .contact-info p {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,.82);
 }
 
 .map-box {
     width: 100%;
-    height: 300px;
-    margin: 18px 0;
+    height: 160px;
+
+    margin: 12px 0;
+
     overflow: hidden;
-    border-radius: 18px;
-    border: 1px solid rgba(20,70,150,.12);
+    border-radius: 14px;
+
+    border: 1px solid rgba(255,255,255,.16);
 }
 
 .map-box iframe {
@@ -1079,52 +1092,63 @@ body {
 .map-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px;
 }
 
 .map-btn {
-    display: inline-block;
-    padding: 11px 20px;
+    padding: 9px 14px;
+    font-size: 12px;
     text-decoration: none;
-    font-size: 14px;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 12px 14px;
-    border: 1px solid rgba(20,70,150,.14);
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,.18);
+
+    background: rgba(255,255,255,.08);
+    color: #ffffff;
+
     outline: none;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
 }
 
 .contact-form textarea {
-    min-height: 120px;
+    min-height: 100px;
     resize: vertical;
 }
 
 .contact-form button {
     align-self: flex-start;
-    padding: 11px 24px;
-    font-size: 14px;
+    padding: 10px 20px;
+}
+
+#contact .contact-info {
+    height: fit-content;
 }
 
 .footer-copy {
     position: relative;
     z-index: 2;
+
     text-align: center;
-    margin-top: 34px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(20,70,150,.12);
-    font-size: 13px;
-    color: #6b7488;
+
+    margin-top: 15px;
+    padding-top: 12px;
+
+    border-top: 1px solid rgba(255,255,255,.14);
+
+    font-size: 12px;
+    color: rgba(255,255,255,.65);
 }
 
 /* =========================================================
@@ -1572,172 +1596,345 @@ body {
     }
 }
 
+
+
 /* =========================================================
-   FINAL THEME OVERRIDE - MATCH REFERENCE STYLE
+   FINAL MANUS-INSPIRED THEME V2
+   Keep original layout / slider / hover / sections.
 ========================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 :root{
-    --dark: #071426;
-    --navy: #0b1f3a;
-    --blue: #0f4c81;
-    --light: #f4f7fb;
-    --text: #1b2433;
-    --muted: #5f6b7a;
-    --white: #ffffff;
+    --tl-dark: #071426;
+    --tl-navy: #0b1f3a;
+    --tl-ink: #0f172a;
+    --tl-blue: #2563eb;
+    --tl-blue-deep: #1d4ed8;
+    --tl-light: #f8fafc;
+    --tl-soft: #f1f5f9;
+    --tl-line: #e5e7eb;
+    --tl-muted: #5f6b7a;
+    --tl-white: #ffffff;
 }
 
-body{
-    font-family: 'Inter', Arial, sans-serif;
-    background: var(--light);
-    color: var(--text);
+html, body{
+    font-family: 'Inter', Arial, sans-serif !important;
+    background: var(--tl-light);
+    color: var(--tl-ink);
 }
 
-/* NAVBAR */
-.navbar{
-    background: rgba(255,255,255,.96);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 8px 28px rgba(7,20,38,.08);
-}
-
-.nav-menu a,
-.language-switch a{
-    color: var(--dark);
-    font-family: 'Inter', Arial, sans-serif;
-    font-weight: 800;
-    letter-spacing: .3px;
-}
-
-.nav-menu a:hover,
-.language-switch span{
-    color: var(--blue);
-}
-
-/* HEADINGS */
+/* Keep corporate typography similar to reference */
 .zero-content h1,
 .hero-content h1,
 .about-content h2,
 .history-section h2,
 .product-section h2,
 .info-content h2,
-#contact h2{
-    font-family: 'Inter', Arial, sans-serif;
-    font-weight: 900;
-    letter-spacing: 1px;
+#contact h2,
+.company-card h3,
+.category-title,
+.capability-body h3,
+.info-card h3,
+.location-card h3,
+.contact-form h3{
+    font-family: 'Barlow Condensed', 'Inter', Arial, sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: .2px;
 }
 
-/* MAIN BUTTONS */
+p, li, a, button, input, textarea, span{
+    font-family: 'Inter', Arial, sans-serif !important;
+}
+
+/* Navbar: white, clean, Manus-like */
+.navbar{
+    padding: 14px 48px;
+    background: rgba(255,255,255,.96) !important;
+    border-bottom: 1px solid rgba(7,20,38,.08);
+    box-shadow: 0 8px 26px rgba(7,20,38,.06) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.nav-logo img{
+    width: 76px;
+}
+
+.nav-menu{
+    gap: 32px;
+}
+
+.nav-menu a,
+.language-switch a{
+    color: #1f2937 !important;
+    font-size: clamp(13px, .95vw, 16px);
+    font-weight: 700 !important;
+    letter-spacing: .1px;
+}
+
+.nav-menu a:hover,
+.language-switch span{
+    color: var(--tl-blue) !important;
+}
+
+/* Page 0 keeps same background image, but tone cleaner */
+.page-zero{
+    background:
+        linear-gradient(90deg, rgba(248,250,252,.94) 0%, rgba(248,250,252,.78) 48%, rgba(248,250,252,.32) 100%),
+        url("home-bg.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.zero-content h1{
+    color: var(--tl-ink) !important;
+}
+
+.zero-content p{
+    color: #475569 !important;
+}
+
+/* Hero / video pages keep original operation */
+.page-overlay{
+    background:
+        linear-gradient(90deg, rgba(7,20,38,.76) 0%, rgba(7,20,38,.54) 48%, rgba(7,20,38,.18) 100%) !important;
+}
+
+.hero-content h1{
+    color: #ffffff;
+    font-size: clamp(44px, 5.5vw, 76px);
+    line-height: 1.05;
+}
+
+.hero-content p{
+    color: rgba(255,255,255,.88) !important;
+    font-weight: 400;
+}
+
+/* Buttons */
 .option button,
 .map-btn,
 .contact-form button{
-    background: var(--blue);
-    border: 1px solid rgba(255,255,255,.28);
-    color: #ffffff;
-    box-shadow: 0 14px 30px rgba(15,76,129,.25);
+    background: var(--tl-blue) !important;
+    border: 1px solid rgba(255,255,255,.20) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 12px 28px rgba(37,99,235,.22) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
 }
 
 .option button:hover,
 .map-btn:hover,
 .contact-form button:hover{
-    background: #ffffff;
-    color: var(--dark);
+    background: var(--tl-blue-deep) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
 }
 
-/* LIGHT SECTIONS */
+/* Light sections match reference: plain white/soft gray, no glassy blue fog */
+.products-page,
 .page-two-down,
 .info-page{
-    background:
-        linear-gradient(180deg, #f7f9fc 0%, #eef3f8 100%);
+    background: #ffffff !important;
 }
 
-/* CARDS */
+.page-two-down::before,
+.info-page::before{
+    background:
+        repeating-linear-gradient(90deg, rgba(37,99,235,.035) 0, rgba(37,99,235,.035) 1px, transparent 1px, transparent 96px) !important;
+}
+
+.product-section h2,
+.info-content h2,
+.history-section h2{
+    color: var(--tl-ink) !important;
+}
+
+.product-intro,
+.info-subtitle,
+.product-note{
+    color: #4b5563 !important;
+    font-weight: 400;
+}
+
+/* Cards: clean rectangular style but original layout remains */
 .company-card,
 .category-card,
 .info-card{
-    background: rgba(255,255,255,.92);
-    border: 1px solid rgba(7,20,38,.10);
-    box-shadow: 0 20px 50px rgba(7,20,38,.10);
-    color: var(--text);
+    background: rgba(255,255,255,.96) !important;
+    border: 1px solid var(--tl-line) !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    color: var(--tl-ink) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
-/* QUALITY */
+.company-card:hover,
+.category-card:hover,
+.info-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 38px rgba(7,20,38,.08) !important;
+}
+
+.company-card h3,
+.category-title,
+.info-card h3,
+.capability-body h3{
+    color: var(--tl-ink) !important;
+}
+
+.company-card li,
+.info-card p,
+.info-card li,
+.capability-body p{
+    color: #4b5563 !important;
+}
+
+.company-card li::before,
+.info-card li::before{
+    color: var(--tl-blue) !important;
+}
+
+.info-icon,
+.media-note{
+    background: rgba(37,99,235,.08) !important;
+    border-color: rgba(37,99,235,.12) !important;
+    color: var(--tl-blue) !important;
+}
+
+.category-image,
+.capability-media{
+    background: #f1f5f9 !important;
+}
+
+/* QUALITY: preserve section layout, use image layer that scrolls with section */
 .quality-page{
+    position: relative !important;
+    overflow: hidden !important;
+    background: var(--tl-dark) !important;
+    color: #ffffff !important;
+}
+
+.quality-page::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
     background:
-        linear-gradient(
-            rgba(7,20,38,.78),
-            rgba(7,20,38,.86)
-        ),
-        url("quality-bg.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+        linear-gradient(rgba(7,20,38,.78), rgba(7,20,38,.86)),
+        url("quality-bg.png") center center / cover no-repeat;
+    transform: none;
+}
+
+.quality-page::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1 !important;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0, rgba(255,255,255,.035) 1px, transparent 1px, transparent 96px) !important;
+}
+
+.quality-page .info-content{
+    position: relative !important;
+    z-index: 2 !important;
 }
 
 .quality-page .info-content h2,
 .quality-page .info-subtitle{
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .quality-page .info-card{
-    background: rgba(255,255,255,.90);
-    border: 1px solid rgba(255,255,255,.35);
-    box-shadow: 0 22px 55px rgba(0,0,0,.25);
+    background: rgba(255,255,255,.94) !important;
+    border: 1px solid rgba(255,255,255,.35) !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,.22) !important;
 }
 
 .quality-page .info-card h3,
 .quality-page .info-card p,
 .quality-page .info-card li{
-    color: var(--dark);
+    color: var(--tl-ink) !important;
 }
 
-.quality-page .info-card:hover{
-    background: #ffffff;
+.quality-page .info-card li::before{
+    color: var(--tl-blue) !important;
 }
 
-/* CONTACT */
+/* CONTACT: dark footer-like section but keep current contact layout */
 #contact{
-    background:
-        linear-gradient(
-            180deg,
-            #071426 0%,
-            #0b1f3a 100%
-        );
-    color: #ffffff;
+    position: relative !important;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #071426 0%, #0b1f3a 100%) !important;
+    color: #ffffff !important;
+    overflow: hidden;
 }
 
 #contact::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
     background:
-        repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,.035) 0,
-            rgba(255,255,255,.035) 1px,
-            transparent 1px,
-            transparent 90px
-        );
+        repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0, rgba(255,255,255,.035) 1px, transparent 1px, transparent 96px) !important;
+}
+
+#contact .info-content{
+    position: relative !important;
+    z-index: 2 !important;
 }
 
 #contact h2,
-#contact .info-subtitle{
-    color: #ffffff;
+#contact .info-subtitle,
+#contact .location-card h3,
+#contact .contact-form h3,
+#contact .location-card p{
+    color: #ffffff !important;
+}
+
+#contact .info-subtitle,
+#contact .location-card p{
+    color: rgba(255,255,255,.72) !important;
 }
 
 #contact .location-card,
 #contact .contact-form{
-    background: rgba(255,255,255,.10);
-    border: 1px solid rgba(255,255,255,.16);
-    box-shadow: 0 24px 55px rgba(0,0,0,.28);
+    background: rgba(255,255,255,.10) !important;
+    border: 1px solid rgba(255,255,255,.16) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 24px 55px rgba(0,0,0,.22) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
 }
 
-#contact .location-card h3,
-#contact .contact-form h3,
-#contact .location-card p{
-    color: #ffffff;
+#contact .map-box{
+    border: 1px solid rgba(255,255,255,.16) !important;
+    border-radius: 10px !important;
+}
+
+#contact input,
+#contact textarea{
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    background: rgba(255,255,255,.92);
+    color: var(--tl-ink);
 }
 
 #contact .footer-copy{
-    color: rgba(255,255,255,.65);
-    border-top: 1px solid rgba(255,255,255,.14);
+    color: rgba(255,255,255,.60) !important;
+    border-top: 1px solid rgba(255,255,255,.14) !important;
+}
+
+@media (max-width: 768px){
+    .navbar{
+        padding: 10px 16px;
+    }
+
+    .hero-content h1{
+        font-size: clamp(36px, 12vw, 52px);
+    }
 }
 
 </style>
@@ -2184,7 +2381,18 @@ body{
                 <input type="text" placeholder="Subject">
                 <textarea placeholder="Message"></textarea>
                 <button type="button">Send Message</button>
+
             </form>
+
+            <div class="contact-info">
+                <h3>CONTACT INFO</h3>
+                <p><strong>Head Office / Plant:</strong></p>
+                <p>Chonburi Plant, Thailand</p>
+                <p>Rayong Plant, Thailand</p>
+                <p><strong>Email:</strong> sales@thailock.com</p>
+                <p><strong>Tel:</strong> +66 xxx xxxx</p>
+                <p><strong>Website:</strong> www.thailock.com</p>
+            </div>
         </div>
 
         <div class="footer-copy">© 2026 THAILOCK FASTENERS CO., LTD. All Rights Reserved.</div>
