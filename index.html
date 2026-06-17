@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1937,6 +1936,393 @@ p, li, a, button, input, textarea, span{
     }
 }
 
+
+/* =========================================================
+   11) CAPABILITIES PREMIUM + EQUIPMENT POPUP
+========================================================= */
+.equipment-capacity{
+    position: relative;
+    margin: 0 auto 48px;
+    padding: 30px;
+    border: 1px solid rgba(15,23,42,.10);
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,.98), rgba(248,250,252,.94));
+    box-shadow: 0 22px 60px rgba(15,23,42,.08);
+    overflow: hidden;
+}
+
+.equipment-capacity::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(37,99,235,.10), transparent 32%),
+        repeating-linear-gradient(90deg, rgba(37,99,235,.035) 0, rgba(37,99,235,.035) 1px, transparent 1px, transparent 90px);
+}
+
+.equipment-head,
+.equipment-grid{
+    position: relative;
+    z-index: 2;
+}
+
+.equipment-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:30px;
+    margin-bottom:24px;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(15,23,42,.08);
+}
+
+.equipment-head span{
+    font-family:'Barlow Condensed','Inter',Arial,sans-serif !important;
+    font-size: clamp(28px,3vw,42px);
+    font-weight:600;
+    color:#0f172a;
+    letter-spacing:.4px;
+}
+
+.equipment-head p{
+    max-width:520px;
+    text-align:right;
+    color:#64748b;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.equipment-grid{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap:16px;
+}
+
+.equipment-item{
+    min-height:150px;
+    padding:22px 16px;
+    border:1px solid rgba(15,23,42,.09);
+    border-radius:14px;
+    background:rgba(255,255,255,.88);
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.35s ease;
+    color:#0f172a;
+}
+
+button.equipment-item{
+    cursor:pointer;
+    font:inherit;
+}
+
+.equipment-item:hover{
+    transform:translateY(-6px);
+    border-color:rgba(37,99,235,.28);
+    box-shadow:0 18px 35px rgba(15,23,42,.10);
+}
+
+.equipment-label{
+    font-size:13px;
+    font-weight:800;
+    color:#64748b;
+    letter-spacing:.7px;
+    text-transform:uppercase;
+    line-height:1.35;
+}
+
+.equipment-item strong{
+    margin:18px 0 10px;
+    font-family:'Barlow Condensed','Inter',Arial,sans-serif !important;
+    font-size: clamp(34px,3.1vw,54px);
+    line-height:1;
+    color:#1d4ed8;
+    font-weight:700;
+}
+
+.equipment-item small{
+    font-size:13px;
+    line-height:1.45;
+    color:#64748b;
+}
+
+.equipment-clickable small::after{
+    content:" →";
+    color:#1d4ed8;
+    font-weight:800;
+}
+
+.capabilities-grid{
+    gap:28px !important;
+}
+
+.capability-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px !important;
+    background:#ffffff !important;
+    border:1px solid rgba(15,23,42,.08) !important;
+    box-shadow:0 18px 45px rgba(15,23,42,.08) !important;
+}
+
+.capability-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    border-radius:18px;
+    background:linear-gradient(180deg, transparent 62%, rgba(15,23,42,.035));
+}
+
+.capability-card:hover{
+    transform:translateY(-10px) !important;
+    border-color:rgba(37,99,235,.22) !important;
+    box-shadow:0 26px 60px rgba(15,23,42,.14) !important;
+}
+
+.capability-media{
+    aspect-ratio: 16 / 11 !important;
+    border-bottom:none !important;
+    background:#e2e8f0 !important;
+}
+
+.capability-media::before{
+    display:none !important;
+}
+
+.capability-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:4;
+    pointer-events:none;
+    background:linear-gradient(180deg, rgba(7,20,38,.02) 0%, rgba(7,20,38,.28) 100%);
+    transition:.35s ease;
+}
+
+.capability-card:hover .capability-media::after{
+    background:linear-gradient(180deg, rgba(7,20,38,.02) 0%, rgba(7,20,38,.12) 100%);
+}
+
+.capability-media img{
+    transition:transform .65s ease, opacity .35s ease;
+}
+
+.capability-card:hover .capability-media img{
+    transform:scale(1.07);
+}
+
+.capability-card:hover .capability-media video{
+    opacity:1;
+}
+
+.capability-body{
+    position:relative;
+    z-index:2;
+    padding:26px 26px 30px !important;
+}
+
+.process-no{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:12px;
+    color:#2563eb;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+}
+
+.process-no::before{
+    content:"";
+    width:28px;
+    height:2px;
+    background:#2563eb;
+    display:inline-block;
+}
+
+.capability-body h3{
+    margin-bottom:12px !important;
+    font-size:26px !important;
+}
+
+.capability-body p{
+    font-size:16px !important;
+    line-height:1.75 !important;
+}
+
+.machine-modal{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+}
+
+.machine-modal.active{
+    display:flex;
+}
+
+.machine-modal-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(7,20,38,.62);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+.machine-modal-panel{
+    position:relative;
+    z-index:2;
+    width:min(920px, 100%);
+    max-height:82vh;
+    overflow:hidden;
+    border-radius:20px;
+    background:#ffffff;
+    box-shadow:0 30px 90px rgba(0,0,0,.32);
+    border:1px solid rgba(255,255,255,.40);
+}
+
+.machine-modal-close{
+    position:absolute;
+    top:18px;
+    right:18px;
+    z-index:3;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#f1f5f9;
+    color:#0f172a;
+    font-size:30px;
+    line-height:1;
+    cursor:pointer;
+}
+
+.machine-modal-head{
+    padding:34px 38px 24px;
+    border-bottom:1px solid #e5e7eb;
+    background:
+        linear-gradient(135deg, rgba(248,250,252,1), rgba(239,246,255,1));
+}
+
+.machine-modal-head span{
+    color:#2563eb;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.machine-modal-head h3{
+    margin:8px 0 8px;
+    font-family:'Barlow Condensed','Inter',Arial,sans-serif !important;
+    font-size:42px;
+    color:#0f172a;
+}
+
+.machine-modal-head p{
+    color:#64748b;
+    line-height:1.6;
+    max-width:650px;
+}
+
+.machine-list{
+    max-height:52vh;
+    overflow:auto;
+    padding:26px 38px 36px;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:12px;
+}
+
+.machine-list-item{
+    padding:14px 14px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    background:#ffffff;
+    color:#0f172a;
+    font-weight:700;
+    font-size:14px;
+}
+
+.machine-list-item span{
+    display:block;
+    margin-top:4px;
+    color:#64748b;
+    font-size:12px;
+    font-weight:600;
+}
+
+body.modal-open{
+    overflow:hidden;
+}
+
+@media (max-width: 1200px){
+    .equipment-grid{
+        grid-template-columns:repeat(3, 1fr);
+    }
+
+    .machine-list{
+        grid-template-columns:repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px){
+    .equipment-capacity{
+        padding:22px;
+        margin-bottom:34px;
+    }
+
+    .equipment-head{
+        display:block;
+    }
+
+    .equipment-head p{
+        margin-top:10px;
+        text-align:left;
+    }
+
+    .equipment-grid{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+    }
+
+    .equipment-item{
+        min-height:132px;
+        padding:18px 14px;
+    }
+
+    .equipment-item strong{
+        font-size:34px;
+    }
+
+    .machine-modal{
+        padding:14px;
+    }
+
+    .machine-modal-head{
+        padding:28px 24px 20px;
+    }
+
+    .machine-modal-head h3{
+        font-size:32px;
+        padding-right:40px;
+    }
+
+    .machine-list{
+        grid-template-columns:1fr 1fr;
+        padding:20px 24px 28px;
+    }
+}
+
 </style>
 </head>
 
@@ -2178,6 +2564,51 @@ p, li, a, button, input, textarea, span{
         <h2>CAPABILITIES</h2>
         <p class="info-subtitle">Manufacturing capabilities designed for stable quality, consistent production, and custom fastener requirements.</p>
 
+        <div class="equipment-capacity">
+            <div class="equipment-head">
+                <span>Equipment & Capacity</span>
+                <p>Production capability overview for fastener manufacturing and OEM requirements.</p>
+            </div>
+
+            <div class="equipment-grid">
+                <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('forming')">
+                    <span class="equipment-label">Forming Machines</span>
+                    <strong>47</strong>
+                    <small>Click to view machine list</small>
+                </button>
+
+                <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('tapping')">
+                    <span class="equipment-label">Tapping Machines</span>
+                    <strong>91</strong>
+                    <small>Click to view machine list</small>
+                </button>
+
+                <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('assembling')">
+                    <span class="equipment-label">Assembling Machines</span>
+                    <strong>37</strong>
+                    <small>Click to view machine list</small>
+                </button>
+
+                <div class="equipment-item">
+                    <span class="equipment-label">Monthly Capacity</span>
+                    <strong>1,000+</strong>
+                    <small>Tons / Month</small>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="equipment-label">Size Range</span>
+                    <strong>M3-M24</strong>
+                    <small>#4 - 1"</small>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="equipment-label">Materials</span>
+                    <strong>SAE</strong>
+                    <small>1010 / 1015 / 10B21 / S50C</small>
+                </div>
+            </div>
+        </div>
+
         <div class="capabilities-grid">
             <div class="info-card capability-card">
                 <div class="capability-media">
@@ -2185,9 +2616,9 @@ p, li, a, button, input, textarea, span{
                     <video muted loop playsinline><source src="แช่.mp4" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
+                    <div class="process-no">PROCESS 01</div>
                     <h3>Wire Pickling</h3>
                     <p>High-volume fastener production with strong material structure, stable dimensions, and efficient manufacturing process.</p>
-                    <span class="media-note">Ready for Image / Video</span>
                 </div>
             </div>
 
@@ -2197,9 +2628,9 @@ p, li, a, button, input, textarea, span{
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
+                    <div class="process-no">PROCESS 02</div>
                     <h3>Wire Drawing</h3>
                     <p>Precision thread forming for nuts, bolts, and special fastener applications with consistent quality control.</p>
-                    <span class="media-note">Ready for Image / Video</span>
                 </div>
             </div>
 
@@ -2209,9 +2640,9 @@ p, li, a, button, input, textarea, span{
                     <video muted loop playsinline><source src="form.mp4" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
+                    <div class="process-no">PROCESS 03</div>
                     <h3>Forming</h3>
                     <p>Customized fastener solutions based on customer drawings, specifications, materials, and industrial applications.</p>
-                    <span class="media-note">Ready for Image / Video</span>
                 </div>
             </div>
 
@@ -2221,9 +2652,9 @@ p, li, a, button, input, textarea, span{
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
+                    <div class="process-no">PROCESS 04</div>
                     <h3>Tapping</h3>
                     <p>Controlled heat treatment process to improve strength, hardness, and durability for industrial fasteners.</p>
-                    <span class="media-note">Ready for Image / Video</span>
                 </div>
             </div>
 
@@ -2233,9 +2664,9 @@ p, li, a, button, input, textarea, span{
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
+                    <div class="process-no">PROCESS 05</div>
                     <h3>Heat Treatment</h3>
                     <p>Surface treatment and finishing support for corrosion resistance, appearance, and customer requirements.</p>
-                    <span class="media-note">Ready for Image / Video</span>
                 </div>
             </div>
 
@@ -2245,9 +2676,9 @@ p, li, a, button, input, textarea, span{
                     <video muted loop playsinline><source src="assy.mp4" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
+                    <div class="process-no">PROCESS 06</div>
                     <h3>Assembling</h3>
                     <p>Inspection process for dimensions, thread accuracy, surface condition, and final product reliability.</p>
-                    <span class="media-note">Ready for Image / Video</span>
                 </div>
             </div>
 
@@ -2257,9 +2688,9 @@ p, li, a, button, input, textarea, span{
                     <video muted loop playsinline><source src="ชุบ.mp4" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
+                    <div class="process-no">PROCESS 07</div>
                     <h3>Plating</h3>
                     <p>Testing support for hardness, material verification, mechanical properties, and product performance.</p>
-                    <span class="media-note">Ready for Image / Video</span>
                 </div>
             </div>
 
@@ -2269,9 +2700,9 @@ p, li, a, button, input, textarea, span{
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
+                    <div class="process-no">PROCESS 08</div>
                     <h3>Sorting</h3>
                     <p>Flexible packaging solutions for domestic and export shipments according to customer requirements.</p>
-                    <span class="media-note">Ready for Image / Video</span>
                 </div>
             </div>
 
@@ -2281,9 +2712,9 @@ p, li, a, button, input, textarea, span{
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
                 </div>
                 <div class="capability-body">
+                    <div class="process-no">PROCESS 09</div>
                     <h3>Packing & Delivery</h3>
                     <p>Stable manufacturing capacity supported by experienced teams, production planning, and multiple facilities.</p>
-                    <span class="media-note">Ready for Image / Video</span>
                 </div>
             </div>
         </div>
@@ -2398,6 +2829,19 @@ p, li, a, button, input, textarea, span{
         <div class="footer-copy">© 2026 THAILOCK FASTENERS CO., LTD. All Rights Reserved.</div>
     </div>
 </section>
+
+<div class="machine-modal" id="machineModal" aria-hidden="true">
+    <div class="machine-modal-backdrop" onclick="closeMachinePopup()"></div>
+    <div class="machine-modal-panel" role="dialog" aria-modal="true" aria-labelledby="machineModalTitle">
+        <button class="machine-modal-close" type="button" onclick="closeMachinePopup()" aria-label="Close popup">×</button>
+        <div class="machine-modal-head">
+            <span>Machine List</span>
+            <h3 id="machineModalTitle">Machine List</h3>
+            <p id="machineModalSubtitle">Machine names and numbers can be updated later according to the actual factory list.</p>
+        </div>
+        <div class="machine-list" id="machineList"></div>
+    </div>
+</div>
 
 <script>
 /* =========================================================
@@ -2521,6 +2965,73 @@ document.querySelectorAll(".capability-card").forEach(card => {
         video.currentTime = 0;
     });
 });
+
+/* =========================================================
+   6) EQUIPMENT MACHINE POPUP
+========================================================= */
+const machineData = {
+    forming: {
+        title: "Forming Machines",
+        subtitle: "47 forming machines. Replace these sample machine numbers with the actual factory machine list when available.",
+        prefix: "F",
+        count: 47,
+        label: "Forming Machine"
+    },
+    tapping: {
+        title: "Tapping Machines",
+        subtitle: "91 tapping machines. Replace these sample machine numbers with the actual factory machine list when available.",
+        prefix: "T",
+        count: 91,
+        label: "Tapping Machine"
+    },
+    assembling: {
+        title: "Assembling Machines",
+        subtitle: "37 assembling machines. Replace these sample machine numbers with the actual factory machine list when available.",
+        prefix: "A",
+        count: 37,
+        label: "Assembling Machine"
+    }
+};
+
+function openMachinePopup(type) {
+    const data = machineData[type];
+    const modal = document.getElementById("machineModal");
+    const title = document.getElementById("machineModalTitle");
+    const subtitle = document.getElementById("machineModalSubtitle");
+    const list = document.getElementById("machineList");
+
+    if (!data || !modal || !title || !subtitle || !list) return;
+
+    title.textContent = data.title;
+    subtitle.textContent = data.subtitle;
+    list.innerHTML = "";
+
+    for (let i = 1; i <= data.count; i++) {
+        const number = String(i).padStart(2, "0");
+        const item = document.createElement("div");
+        item.className = "machine-list-item";
+        item.innerHTML = `${data.prefix}-${number}<span>${data.label}</span>`;
+        list.appendChild(item);
+    }
+
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+}
+
+function closeMachinePopup() {
+    const modal = document.getElementById("machineModal");
+    if (!modal) return;
+
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+}
+
+window.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeMachinePopup();
+});
+
 </script>
 
 <script>
