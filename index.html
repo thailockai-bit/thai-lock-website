@@ -497,15 +497,15 @@ body {
     position: relative;
     z-index: 2;
     height: 100vh;
-    padding: clamp(110px,14vh,140px) 80px 130px;
+    padding: 60px 70px 80px;
     color: #1f2a44;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .history-section h2 {
     text-align: center;
-    font-size: clamp(42px,5vw,64px);
-    margin-bottom: clamp(45px,6vh,80px);
+    font-size: clamp(38px,4vw,54px);
+    margin-bottom: 90px;
     color: #102a63;
 }
 
@@ -514,7 +514,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 240px 0;
+    padding: 150px 0;
 }
 
 .timeline::before {
@@ -579,11 +579,11 @@ body {
 }
 
 .timeline-item:nth-child(odd) .timeline-card {
-    top: -170px;
+    top: -135px;
 }
 
 .timeline-item:nth-child(even) .timeline-card {
-    top: 170px;
+    top: 135px;
 }
 
 .timeline-card img {
@@ -2323,6 +2323,199 @@ body.modal-open{
     }
 }
 
+
+
+/* =========================================================
+   FIX ONLY HOME SLIDER 1.3: COMPACT COMPANY HISTORY
+   ทำให้ Timeline อยู่ในหน้าเดียว และไม่ทับเส้น
+========================================================= */
+#homeSlider #history,
+#homeSlider #history.products-page{
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden !important;
+}
+
+#homeSlider #history .history-section{
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden !important;
+
+    padding: clamp(120px, 15vh, 150px) clamp(48px, 5vw, 80px) 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#homeSlider #history .history-section h2{
+    font-size: clamp(38px, 3.6vw, 54px);
+    line-height: 1;
+    margin: 0 0 90px;
+}
+
+#homeSlider #history .timeline{
+    height: clamp(330px, 44vh, 410px);
+    min-height: 330px;
+    padding: 0;
+    align-items: center;
+}
+
+#homeSlider #history .timeline::before{
+    height: 3px;
+}
+
+#homeSlider #history .timeline-item::before{
+    width: 18px;
+    height: 18px;
+}
+
+#homeSlider #history .timeline-card{
+    width: clamp(150px, 14vw, 190px);
+    min-height: 150px;
+    padding: 20px 16px 18px;
+    border-radius: 16px;
+    box-shadow: 0 16px 38px rgba(20,50,100,.10);
+}
+
+#homeSlider #history .timeline-card img{
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+}
+
+#homeSlider #history .timeline-card h3{
+    font-size: clamp(28px, 2.4vw, 34px);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+#homeSlider #history .timeline-card p{
+    font-size: clamp(12px, .95vw, 15px);
+    line-height: 1.25;
+    margin: 0;
+}
+
+#homeSlider #history .timeline-item:nth-child(odd) .timeline-card{
+    top: -112px;
+}
+
+#homeSlider #history .timeline-item:nth-child(even) .timeline-card{
+    top: 112px;
+}
+
+@media (max-width: 1100px){
+    #homeSlider #history .history-section{
+        padding-top: 72px;
+        padding-bottom: 42px;
+    }
+
+    #homeSlider #history .timeline{
+        height: 360px;
+        min-height: 360px;
+    }
+
+    #homeSlider #history .timeline-card{
+        width: 158px;
+        min-height: 142px;
+        padding: 17px 13px 15px;
+    }
+
+    #homeSlider #history .timeline-card img{
+        width: 40px;
+        height: 40px;
+    }
+
+    #homeSlider #history .timeline-item:nth-child(odd) .timeline-card{
+        top: -100px;
+    }
+
+    #homeSlider #history .timeline-item:nth-child(even) .timeline-card{
+        top: 100px;
+    }
+}
+
+@media (max-width: 768px){
+    #homeSlider #history,
+    #homeSlider #history.products-page,
+    #homeSlider #history .history-section{
+        height: auto;
+        min-height: 100vh;
+        overflow: visible !important;
+    }
+
+    #homeSlider #history .history-section{
+        padding: 86px 22px 44px;
+        justify-content: flex-start;
+    }
+
+    #homeSlider #history .history-section h2{
+        font-size: 34px;
+        margin-bottom: 26px;
+    }
+
+    #homeSlider #history .timeline{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        height: auto;
+        min-height: 0;
+        padding: 0 0 0 24px;
+    }
+
+    #homeSlider #history .timeline::before{
+        left: 10px;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        transform: none;
+    }
+
+    #homeSlider #history .timeline-item{
+        width: 100%;
+    }
+
+    #homeSlider #history .timeline-item::before{
+        left: -14px;
+        top: 50%;
+        width: 14px;
+        height: 14px;
+        transform: translateY(-50%);
+    }
+
+    #homeSlider #history .timeline-item:nth-child(odd) .timeline-card,
+    #homeSlider #history .timeline-item:nth-child(even) .timeline-card{
+        top: 0;
+    }
+
+    #homeSlider #history .timeline-card{
+        width: 100%;
+        min-height: 0;
+        padding: 16px;
+        display: grid;
+        grid-template-columns: 42px 72px 1fr;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+    }
+
+    #homeSlider #history .timeline-card img{
+        width: 42px;
+        height: 42px;
+        margin: 0;
+    }
+
+    #homeSlider #history .timeline-card h3{
+        font-size: 28px;
+        margin: 0;
+    }
+
+    #homeSlider #history .timeline-card p{
+        font-size: 13px;
+        line-height: 1.25;
+    }
+}
+
 </style>
 </head>
 
@@ -2597,14 +2790,12 @@ body.modal-open{
 
                 <div class="equipment-item">
                     <span class="equipment-label">Size Range</span>
-                    <strong>M3-M24</strong>
-                    <small>#4 - 1"</small>
+                    <p>M3-M24, #4 - 1"</p>
                 </div>
 
                 <div class="equipment-item">
                     <span class="equipment-label">Materials</span>
-                    <strong>SAE</strong>
-                    <small>1010 / 1015 / 10B21 / S50C</small>
+                    <p>SAE1010, 1015, 10B21, S50C</p>
                 </div>
             </div>
         </div>
@@ -3001,13 +3192,12 @@ function openMachinePopup(type) {
     subtitle.textContent = data.subtitle;
     list.innerHTML = "";
 
-    for (let i = 1; i <= data.count; i++) {
-        const number = String(i).padStart(2, "0");
+    data.machines.forEach(machine => {
         const item = document.createElement("div");
         item.className = "machine-list-item";
-        item.innerHTML = `${data.prefix}-${number}<span>${data.label}</span>`;
+        item.textContent = machine;
         list.appendChild(item);
-    }
+    });
 
     modal.classList.add("active");
     modal.setAttribute("aria-hidden", "false");
