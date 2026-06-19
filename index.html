@@ -1184,18 +1184,19 @@ body {
 }
 
 .footer-copy {
-    position: relative;
-    z-index: 2;
+    width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 50px;
+
+    padding: 22px 20px;
+
+    background: #071426;
+    color: #ffffff;
 
     text-align: center;
-
-    margin-top: 15px;
-    padding-top: 12px;
-
-    border-top: 1px solid rgba(255,255,255,.14);
-
-    font-size: 12px;
-    color: rgba(255,255,255,.65);
+    font-size: 13px;
 }
 
 /* =========================================================
@@ -2623,6 +2624,245 @@ body.modal-open{
     }
 }
 
+
+/* =========================================================
+   CONTACT CLEAN STYLE - FINAL OVERRIDE
+   White layout, no CONTACT US heading block, no card boxes.
+========================================================= */
+#contact.contact-clean {
+    position: relative !important;
+    min-height: auto !important;
+    padding: 90px 0 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    overflow: hidden !important;
+}
+
+#contact.contact-clean::before,
+#contact.contact-clean::after {
+    display: none !important;
+    content: none !important;
+}
+
+#contact.contact-clean .contact-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr .8fr;
+    gap: 44px;
+    align-items: start;
+}
+
+#contact.contact-clean .contact-column {
+    padding: 0 28px;
+    min-height: 0;
+    height: auto !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+#contact.contact-clean .contact-column + .contact-column {
+    border-left: 1px solid #e5e7eb !important;
+}
+
+#contact.contact-clean .contact-column h3 {
+    font-family: 'Barlow Condensed', 'Inter', Arial, sans-serif !important;
+    font-size: 30px !important;
+    line-height: 1 !important;
+    margin: 0 0 28px !important;
+    color: #102a63 !important;
+    font-weight: 600 !important;
+    letter-spacing: .5px !important;
+    text-transform: uppercase !important;
+}
+
+#contact.contact-clean .contact-column h3::after {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 2px;
+    margin-top: 14px;
+    background: #0b58d8;
+}
+
+#contact.contact-clean .contact-column p,
+#contact.contact-clean .contact-column strong,
+#contact.contact-clean .info-row p,
+#contact.contact-clean .info-row strong {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+    color: #111827 !important;
+}
+
+#contact.contact-clean .company-name {
+    font-weight: 800 !important;
+    margin-bottom: 8px !important;
+}
+
+#contact.contact-clean .location-column > p {
+    margin-bottom: 8px !important;
+}
+
+#contact.contact-clean .map-box {
+    width: 100% !important;
+    height: 190px !important;
+    margin: 16px 0 14px !important;
+    border-radius: 6px !important;
+    border: 1px solid #d1d5db !important;
+    overflow: hidden !important;
+}
+
+#contact.contact-clean .map-box iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+}
+
+#contact.contact-clean .map-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px !important;
+}
+
+#contact.contact-clean .map-btn {
+    height: 44px !important;
+    padding: 0 18px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    background: #ffffff !important;
+    color: #0b58d8 !important;
+    border: 1px solid #0b58d8 !important;
+    border-radius: 6px !important;
+
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+#contact.contact-clean .map-btn:hover {
+    background: #0b58d8 !important;
+    color: #ffffff !important;
+}
+
+#contact.contact-clean .contact-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    justify-content: flex-start !important;
+}
+
+#contact.contact-clean .contact-form input,
+#contact.contact-clean .contact-form textarea {
+    width: 100% !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    padding: 14px 16px !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    outline: none !important;
+}
+
+#contact.contact-clean .contact-form input:focus,
+#contact.contact-clean .contact-form textarea:focus {
+    border-color: #0b58d8 !important;
+    box-shadow: 0 0 0 3px rgba(11,88,216,.10) !important;
+}
+
+#contact.contact-clean .contact-form textarea {
+    min-height: 150px !important;
+    resize: vertical !important;
+}
+
+#contact.contact-clean .contact-form button {
+    align-self: flex-start !important;
+    width: fit-content !important;
+    height: 48px !important;
+    padding: 0 26px !important;
+
+    background: #0b58d8 !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    border: none !important;
+
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+#contact.contact-clean .contact-form button:hover {
+    background: #1746b8 !important;
+    color: #ffffff !important;
+}
+
+#contact.contact-clean .info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 28px;
+}
+
+#contact.contact-clean .info-row strong {
+    font-weight: 800 !important;
+}
+
+#contact.contact-clean .footer-copy {
+    position: relative !important;
+    z-index: 2 !important;
+
+    margin: 70px 0 0 !important;
+    padding: 22px 20px !important;
+
+    background: #071426 !important;
+    color: rgba(255,255,255,.85) !important;
+    border: none !important;
+
+    text-align: center !important;
+    font-size: 13px !important;
+}
+
+@media (max-width: 900px) {
+    #contact.contact-clean {
+        padding: 70px 24px 0 !important;
+    }
+
+    #contact.contact-clean .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    #contact.contact-clean .contact-column {
+        padding: 0;
+    }
+
+    #contact.contact-clean .contact-column + .contact-column {
+        border-left: none !important;
+        border-top: 1px solid #e5e7eb !important;
+        padding-top: 36px;
+    }
+
+    #contact.contact-clean .contact-column h3 {
+        font-size: 28px !important;
+    }
+
+    #contact.contact-clean .map-box {
+        height: 240px !important;
+    }
+}
+
 </style>
 </head>
 
@@ -3072,64 +3312,77 @@ body.modal-open{
     </div>
 </section>
 
-<section class="info-page" id="contact">
-    <div class="info-content">
+<section id="contact" class="contact-clean">
+    <div class="contact-inner">
 
-        <div class="contact-box">
-            <div class="location-card">
-                <div class="location-layout">
-                    <div class="location-text">
-                        <h3>STRATEGIC LOCATION</h3>
-                        <p><strong>THAILOCK FASTENERS CO., LTD.</strong></p>
-                        <p>Located in Thailand's Eastern Economic Corridor (EEC), near Laem Chabang Port and major industrial zones.</p>
-                        <p><strong>Chonburi Plant:</strong> Near Laem Chabang Port</p>
-                        <p><strong>Rayong Plant:</strong> New Production Plant</p>
-                    </div>
+        <div class="contact-column location-column">
+            <h3>STRATEGIC LOCATION</h3>
 
-                    <div class="location-map">
-                        <div class="map-box">
-                            <iframe
-                                src="https://www.google.com/maps?q=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand&output=embed"
-                                loading="lazy"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
+            <p class="company-name">THAILOCK FASTENERS CO., LTD.</p>
+            <p>
+                Located in Thailand's Eastern Economic Corridor (EEC), near Laem Chabang Port and major industrial zones.
+            </p>
 
-                        <div class="map-buttons">
-                            <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand" target="_blank">
-                                View Chonburi Plant
-                            </a>
-                            <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20Rayong%20Thailand" target="_blank">
-                                View Rayong Plant
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <p><strong>Chonburi Plant:</strong> Near Laem Chabang Port</p>
+            <p><strong>Rayong Plant:</strong> New Production Plant</p>
+
+            <div class="map-box">
+                <iframe
+                    src="https://www.google.com/maps?q=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand&output=embed"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
             </div>
 
-
-            <form class="contact-form">
-                <h3>SEND MESSAGE</h3>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
-                <input type="text" placeholder="Subject">
-                <textarea placeholder="Message"></textarea>
-                <button type="button">Send Message</button>
-
-            </form>
-
-            <div class="contact-info">
-                <h3>CONTACT INFO</h3>
-                <p><strong>Head Office / Plant:</strong></p>
-                <p>Chonburi Plant, Thailand</p>
-                <p>Rayong Plant, Thailand</p>
-                <p><strong>Email:</strong> thailock.Ai@gmail.com</p>
-                <p><strong>Tel:</strong> +66 xxx xxxx</p>
-                <p><strong>Website:</strong> www.thailock.com</p>
+            <div class="map-buttons">
+                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand" target="_blank">
+                    View Chonburi Plant →
+                </a>
+                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20Rayong%20Thailand" target="_blank">
+                    View Rayong Plant →
+                </a>
             </div>
         </div>
 
-        <div class="footer-copy">© 2026 THAILOCK FASTENERS CO., LTD. All Rights Reserved.</div>
+        <form class="contact-column contact-form">
+            <h3>SEND MESSAGE</h3>
+
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <input type="text" placeholder="Subject">
+            <textarea placeholder="Message"></textarea>
+
+            <button type="submit">Send Message →</button>
+        </form>
+
+        <div class="contact-column contact-info">
+            <h3>CONTACT INFO</h3>
+
+            <div class="info-row">
+                <strong>Head Office / Plant:</strong>
+                <p>Chonburi Plant, Thailand<br>Rayong Plant, Thailand</p>
+            </div>
+
+            <div class="info-row">
+                <strong>Email:</strong>
+                <p>thailock.Ai@gmail.com</p>
+            </div>
+
+            <div class="info-row">
+                <strong>Tel:</strong>
+                <p>+66 xxx xxxx</p>
+            </div>
+
+            <div class="info-row">
+                <strong>Website:</strong>
+                <p>www.thailock.com</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-copy">
+        © 2026 THAILOCK FASTENERS CO., LTD. All Rights Reserved.
     </div>
 </section>
 
