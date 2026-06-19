@@ -1033,10 +1033,24 @@ body {
 
 .contact-box {
     display: grid;
-    grid-template-columns: 1.25fr 0.85fr 0.65fr;
+    grid-template-columns: minmax(520px, 1.35fr) minmax(300px, .85fr) minmax(240px, .65fr);
     gap: 20px;
 
     align-items: start;
+}
+
+#contact .location-card {
+    min-width: 0;
+}
+
+.location-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+}
+
+@media (max-width: 980px) {
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
 }
 
 #contact .location-card,
@@ -2516,6 +2530,56 @@ body.modal-open{
     }
 }
 
+/* CONTACT: location card text left / map right */
+#contact .location-card {
+    grid-column: span 1;
+}
+
+.location-layout {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 18px;
+    align-items: start;
+}
+
+.location-text h3 {
+    margin-bottom: 14px;
+}
+
+.location-map .map-box {
+    height: 220px;
+    margin: 0 0 12px;
+}
+
+.location-map .map-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.location-map .map-btn {
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .location-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .location-text {
+        order: 1;
+    }
+
+    .location-map {
+        order: 2;
+    }
+
+    .location-map .map-box {
+        height: 260px;
+    }
+}
+
 </style>
 </head>
 
@@ -2972,29 +3036,36 @@ body.modal-open{
 
         <div class="contact-box">
             <div class="location-card">
-                <h3>STRATEGIC LOCATION</h3>
-                <p><strong>THAILOCK FASTENERS CO., LTD.</strong></p>
-                <p>Located in Thailand's Eastern Economic Corridor (EEC), near Laem Chabang Port and major industrial zones.</p>
-                <p><strong>Chonburi Plant:</strong> Near Laem Chabang Port</p>
-                <p><strong>Rayong Plant:</strong> New Production Plant</p>
+                <div class="location-layout">
+                    <div class="location-text">
+                        <h3>STRATEGIC LOCATION</h3>
+                        <p><strong>THAILOCK FASTENERS CO., LTD.</strong></p>
+                        <p>Located in Thailand's Eastern Economic Corridor (EEC), near Laem Chabang Port and major industrial zones.</p>
+                        <p><strong>Chonburi Plant:</strong> Near Laem Chabang Port</p>
+                        <p><strong>Rayong Plant:</strong> New Production Plant</p>
+                    </div>
 
-                <div class="map-box">
-                    <iframe
-                        src="https://www.google.com/maps?q=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand&output=embed"
-                        loading="lazy"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+                    <div class="location-map">
+                        <div class="map-box">
+                            <iframe
+                                src="https://www.google.com/maps?q=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand&output=embed"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
 
-                <div class="map-buttons">
-                    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand" target="_blank">
-                        View Chonburi Plant
-                    </a>
-                    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20Rayong%20Thailand" target="_blank">
-                        View Rayong Plant
-                    </a>
+                        <div class="map-buttons">
+                            <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand" target="_blank">
+                                View Chonburi Plant
+                            </a>
+                            <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20Rayong%20Thailand" target="_blank">
+                                View Rayong Plant
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+</div>
 
             <form class="contact-form">
                 <h3>SEND MESSAGE</h3>
