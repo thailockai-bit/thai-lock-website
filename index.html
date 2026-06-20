@@ -2863,6 +2863,51 @@ body.modal-open{
     }
 }
 
+/* MOBILE DROPDOWN MENU */
+@media (max-width: 768px) {
+    .nav-center {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+    }
+
+    .nav-menu {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0;
+
+        max-height: 0;
+        overflow: hidden;
+
+        background: rgba(255,255,255,.98);
+        border-bottom: 1px solid rgba(7,20,38,.10);
+        box-shadow: 0 18px 35px rgba(7,20,38,.12);
+
+        transition: max-height .35s ease;
+    }
+
+    .nav-menu.active {
+        max-height: 420px;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 16px 24px;
+        font-size: 15px;
+        color: #0f172a !important;
+    }
+
+    .menu-toggle.active {
+        color: #0b58d8;
+    }
+}
+
 </style>
 </head>
 
@@ -3400,6 +3445,28 @@ body.modal-open{
 </div>
 
 <script>
+
+/* =========================================================
+   MOBILE MENU TOGGLE
+========================================================= */
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav-menu");
+
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+
+    menuToggle.textContent = navMenu.classList.contains("active") ? "×" : "☰";
+});
+
+document.querySelectorAll(".nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        menuToggle.classList.remove("active");
+        menuToggle.textContent = "☰";
+    });
+});
+
 /* =========================================================
    1) TIMELINE ANIMATION
 ========================================================= */
