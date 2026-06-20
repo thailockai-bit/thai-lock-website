@@ -2863,48 +2863,224 @@ body.modal-open{
     }
 }
 
-/* MOBILE DROPDOWN MENU */
+/* MOBILE SLIDE MENU - FIXED */
+.mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 998;
+    background: rgba(7, 20, 38, .42);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.mobile-menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
 @media (max-width: 768px) {
+    .navbar {
+        z-index: 1001 !important;
+    }
+
+    .nav-left,
+    .nav-right {
+        position: relative;
+        z-index: 1003;
+    }
+
     .nav-center {
-        position: absolute;
-        top: 76px;
-        left: 0;
-        width: 100%;
+        position: fixed !important;
+        top: 0;
+        right: 0;
+        left: auto;
+        z-index: 1002;
+        width: min(82vw, 340px);
+        height: 100vh;
+        height: 100svh;
+        padding-top: 88px;
+        background: rgba(255,255,255,.98);
+        box-shadow: -20px 0 45px rgba(7,20,38,.18);
+        transform: translateX(105%);
+        transition: transform .35s ease;
+        pointer-events: none;
+    }
+
+    .nav-center.active {
+        transform: translateX(0);
+        pointer-events: auto;
     }
 
     .nav-menu {
         display: flex !important;
         flex-direction: column;
+        justify-content: flex-start;
         gap: 0;
-
-        max-height: 0;
-        overflow: hidden;
-
-        background: rgba(255,255,255,.98);
-        border-bottom: 1px solid rgba(7,20,38,.10);
-        box-shadow: 0 18px 35px rgba(7,20,38,.12);
-
-        transition: max-height .35s ease;
+        width: 100%;
+        height: 100%;
+        max-height: none !important;
+        overflow-y: auto;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        list-style: none;
     }
 
     .nav-menu.active {
-        max-height: 420px;
+        max-height: none !important;
     }
 
     .nav-menu li {
         width: 100%;
-        border-top: 1px solid #e5e7eb;
+        border-bottom: 1px solid #e5e7eb;
     }
 
     .nav-menu a {
-        display: block;
-        padding: 16px 24px;
-        font-size: 15px;
+        display: flex !important;
+        align-items: center;
+        min-height: 58px;
+        padding: 0 26px;
+        font-size: 15px !important;
+        font-weight: 800 !important;
         color: #0f172a !important;
+        text-decoration: none;
+        letter-spacing: .5px;
+    }
+
+    .nav-menu a:hover {
+        background: #f1f5f9;
+        color: #0b58d8 !important;
+    }
+
+    .menu-toggle {
+        position: relative;
+        z-index: 1004;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        line-height: 1;
+        font-size: 34px !important;
+        color: #0f172a !important;
+        pointer-events: auto;
+        touch-action: manipulation;
     }
 
     .menu-toggle.active {
-        color: #0b58d8;
+        color: #0b58d8 !important;
+    }
+
+    body.mobile-menu-open {
+        overflow: hidden;
+    }
+}
+
+/* EQUIPMENT & CAPACITY - LAYOUT C */
+.equipment-layout-c {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.capacity-card,
+.spec-card {
+    min-height: 190px;
+    padding: 26px;
+    border: 1px solid rgba(15,23,42,.09);
+    border-radius: 16px;
+    background: rgba(255,255,255,.92);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.capacity-card strong {
+    margin: 20px 0 8px;
+    font-family: 'Barlow Condensed','Inter',Arial,sans-serif !important;
+    font-size: clamp(58px,6vw,88px);
+    line-height: .9;
+    color: #1d4ed8;
+}
+
+.capacity-card small {
+    font-size: 16px;
+    color: #64748b;
+    font-weight: 700;
+}
+
+.spec-line {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.spec-line:last-child {
+    border-bottom: none;
+}
+
+.spec-line b {
+    color: #0f172a;
+    font-size: 14px;
+}
+
+.spec-line p {
+    margin: 0;
+    color: #1d4ed8;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.material-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.material-tags span {
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(37,99,235,.08);
+    border: 1px solid rgba(37,99,235,.18);
+    color: #1d4ed8;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.equipment-machine-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 900px) {
+    .equipment-layout-c,
+    .equipment-machine-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .capacity-card,
+    .spec-card {
+        min-height: auto;
+    }
+
+    .capacity-card strong {
+        font-size: 58px;
     }
 }
 
@@ -2942,6 +3118,7 @@ body.modal-open{
         <button class="menu-toggle">☰</button>
     </div>
 </nav>
+<div class="mobile-menu-backdrop" aria-hidden="true"></div>
 
 <section class="page-zero" id="page0">
     <div class="zero-content">
@@ -3155,41 +3332,56 @@ body.modal-open{
                 <p>Production capability overview for fastener manufacturing and OEM requirements.</p>
             </div>
 
-            <div class="equipment-grid">
-                <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('forming')">
-                    <span class="equipment-label">Forming Machines</span>
-                    <strong>47</strong>
-                    <small>Click to view machine list</small>
-                </button>
-
-                <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('tapping')">
-                    <span class="equipment-label">Tapping Machines</span>
-                    <strong>91</strong>
-                    <small>Click to view machine list</small>
-                </button>
-
-                <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('assembling')">
-                    <span class="equipment-label">Assembling Machines</span>
-                    <strong>37</strong>
-                    <small>Click to view machine list</small>
-                </button>
-
-                <div class="equipment-item">
+            <div class="equipment-layout-c">
+                <div class="capacity-card">
                     <span class="equipment-label">Monthly Capacity</span>
                     <strong>1,000+</strong>
                     <small>Tons / Month</small>
                 </div>
 
-                <div class="equipment-item">
+                <div class="spec-card">
                     <span class="equipment-label">Size Range</span>
-                    <p>M3-M24, #4 - 1"</p>
-                </div>
-
-                <div class="equipment-item">
-                    <span class="equipment-label">Materials</span>
-                    <p>SAE1010, 1015, 10B21, S50C</p>
+                    <div class="spec-line">
+                        <b>Metric</b>
+                        <p>M3 – M24</p>
+                    </div>
+                    <div class="spec-line">
+                        <b>Inch</b>
+                        <p>#4 – 1"</p>
+                    </div>
                 </div>
             </div>
+
+            <div class="spec-card">
+                <span class="equipment-label">Materials</span>
+                <div class="material-tags">
+                    <span>SAE1010</span>
+                    <span>SAE1015</span>
+                    <span>10B21</span>
+                    <span>S50C</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="equipment-machine-grid">
+            <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('forming')">
+                <span class="equipment-label">Forming Machines</span>
+                <strong>47</strong>
+                <small>Click to view machine list</small>
+            </button>
+
+            <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('tapping')">
+                <span class="equipment-label">Tapping Machines</span>
+                <strong>91</strong>
+                <small>Click to view machine list</small>
+            </button>
+
+            <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('assembling')">
+                <span class="equipment-label">Assembling Machines</span>
+                <strong>37</strong>
+                <small>Click to view machine list</small>
+            </button>
+        </div>
         </div>
 
         <div class="capabilities-grid">
@@ -3447,25 +3639,63 @@ body.modal-open{
 <script>
 
 /* =========================================================
-   MOBILE MENU TOGGLE
+   MOBILE MENU TOGGLE - FIXED
 ========================================================= */
 const menuToggle = document.querySelector(".menu-toggle");
+const navCenter = document.querySelector(".nav-center");
 const navMenu = document.querySelector(".nav-menu");
+const mobileMenuBackdrop = document.querySelector(".mobile-menu-backdrop");
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    menuToggle.classList.toggle("active");
+function openMobileMenu() {
+    navCenter.classList.add("active");
+    navMenu.classList.add("active");
+    menuToggle.classList.add("active");
+    mobileMenuBackdrop.classList.add("active");
+    document.body.classList.add("mobile-menu-open");
+    menuToggle.textContent = "×";
+    menuToggle.setAttribute("aria-expanded", "true");
+}
 
-    menuToggle.textContent = navMenu.classList.contains("active") ? "×" : "☰";
-});
+function closeMobileMenu() {
+    navCenter.classList.remove("active");
+    navMenu.classList.remove("active");
+    menuToggle.classList.remove("active");
+    mobileMenuBackdrop.classList.remove("active");
+    document.body.classList.remove("mobile-menu-open");
+    menuToggle.textContent = "☰";
+    menuToggle.setAttribute("aria-expanded", "false");
+}
 
-document.querySelectorAll(".nav-menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-        menuToggle.classList.remove("active");
-        menuToggle.textContent = "☰";
+if (menuToggle && navCenter && navMenu && mobileMenuBackdrop) {
+    menuToggle.setAttribute("type", "button");
+    menuToggle.setAttribute("aria-label", "Open menu");
+    menuToggle.setAttribute("aria-expanded", "false");
+
+    menuToggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (navCenter.classList.contains("active")) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
     });
-});
+
+    mobileMenuBackdrop.addEventListener("click", closeMobileMenu);
+
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+        link.addEventListener("click", closeMobileMenu);
+    });
+
+    window.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeMobileMenu();
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) closeMobileMenu();
+    });
+}
 
 /* =========================================================
    1) TIMELINE ANIMATION
