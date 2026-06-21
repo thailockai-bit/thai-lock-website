@@ -3102,6 +3102,307 @@ body.modal-open{
     }
 }
 
+/* =========================================================
+   FINAL FIX: HOME SLIDER 1.1 / 1.2 / 1.3 RESPONSIVE BALANCE
+========================================================= */
+
+/* Desktop: make slider pages more balanced */
+#homeSlider .page {
+    height: 100vh;
+    min-height: 760px;
+}
+
+#homeSlider #home {
+    overflow: hidden !important;
+}
+
+#homeSlider #home .hero-content {
+    max-width: 720px;
+    padding-top: clamp(120px, 14vh, 145px);
+    padding-bottom: 55px;
+    gap: 20px;
+}
+
+#homeSlider #home .hero-content h1 {
+    font-size: clamp(48px, 5vw, 68px);
+    line-height: .98;
+    margin-bottom: 12px;
+}
+
+#homeSlider #home .hero-content p {
+    max-width: 680px;
+    font-size: clamp(17px, 1.35vw, 20px);
+    line-height: 1.6;
+}
+
+#homeSlider #home .option {
+    gap: 16px;
+    margin-top: 4px;
+}
+
+#homeSlider #home .option button {
+    min-width: 180px;
+    height: 48px;
+    padding: 0 26px;
+    font-size: 16px;
+}
+
+#homeSlider #home .stats {
+    margin-top: 6px;
+    gap: 18px;
+}
+
+#homeSlider #home .stat-item img {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 8px;
+}
+
+#homeSlider #home .stat-item h2 {
+    font-size: 34px;
+}
+
+#homeSlider #home .stat-item p {
+    font-size: 15px;
+}
+
+/* 1.2 Group Companies */
+#homeSlider #group .about-content {
+    padding: clamp(105px, 12vh, 130px) 70px 70px;
+}
+
+#homeSlider #group .about-content h2 {
+    font-size: clamp(40px, 4vw, 56px);
+    margin-bottom: 34px;
+}
+
+#homeSlider #group .company-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(260px, 330px));
+    justify-content: center;
+    gap: 24px;
+}
+
+#homeSlider #group .company-card {
+    width: 100%;
+    min-height: 390px;
+    padding: 26px 24px;
+}
+
+#homeSlider #group .company-logo {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 18px;
+}
+
+#homeSlider #group .company-card h3 {
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+#homeSlider #group .company-card li {
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+/* 1.3 History desktop */
+#homeSlider #history .history-section {
+    padding-top: clamp(105px, 12vh, 130px);
+}
+
+#homeSlider #history .history-section h2 {
+    font-size: clamp(42px, 4vw, 58px);
+    margin-bottom: 55px;
+}
+
+#homeSlider #history .timeline {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    #homeSlider #group .company-wrapper {
+        grid-template-columns: repeat(3, minmax(220px, 1fr));
+        gap: 18px;
+    }
+
+    #homeSlider #group .company-card {
+        padding: 22px 18px;
+        min-height: 360px;
+    }
+
+    #homeSlider #group .company-card li {
+        font-size: 15px;
+    }
+}
+
+/* Mobile: allow content to scroll inside each slide */
+@media (max-width: 768px) {
+    #homeSlider,
+    #homeSlider .pages,
+    #homeSlider .page {
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+    #homeSlider .page {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+
+    #homeSlider #home {
+        overflow-y: auto !important;
+    }
+
+    #homeSlider #home .hero-content {
+        height: auto !important;
+        min-height: 100svh;
+        padding: 92px 22px 38px;
+        gap: 16px;
+        overflow: visible !important;
+    }
+
+    #homeSlider #home .hero-content h1 {
+        font-size: clamp(42px, 12vw, 56px);
+        line-height: 1.02;
+        margin-bottom: 12px;
+    }
+
+    #homeSlider #home .hero-content p {
+        font-size: 16px;
+        line-height: 1.52;
+        margin-bottom: 4px;
+    }
+
+    #homeSlider #home .option {
+        width: 100%;
+        gap: 12px;
+        margin-top: 8px;
+    }
+
+    #homeSlider #home .option button {
+        width: 100%;
+        max-width: none;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    #homeSlider #home .stats {
+        margin-top: 10px;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    #homeSlider #home .stat-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #homeSlider #home .stat-item h2 {
+        font-size: 32px;
+    }
+
+    #homeSlider #home .stat-item p {
+        font-size: 15px;
+    }
+
+    /* Group mobile */
+    #homeSlider #group .about-content {
+        height: auto;
+        min-height: 100svh;
+        padding: 96px 22px 44px;
+        overflow: visible !important;
+    }
+
+    #homeSlider #group .about-content h2 {
+        font-size: 36px;
+        margin-bottom: 24px;
+    }
+
+    #homeSlider #group .company-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-bottom: 0;
+    }
+
+    #homeSlider #group .company-card {
+        max-width: none;
+        width: 100%;
+        min-height: auto;
+        padding: 22px;
+    }
+
+    #homeSlider #group .company-logo {
+        width: 64px;
+        height: 64px;
+    }
+
+    #homeSlider #group .company-card h3 {
+        font-size: 24px;
+    }
+
+    #homeSlider #group .company-card li {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    /* History mobile: cleaner compact cards */
+    #homeSlider #history .history-section {
+        height: auto;
+        min-height: 100svh;
+        padding: 96px 18px 44px;
+        overflow: visible !important;
+    }
+
+    #homeSlider #history .history-section h2 {
+        font-size: 38px;
+        margin-bottom: 28px;
+    }
+
+    #homeSlider #history .timeline {
+        padding-left: 22px;
+        gap: 14px;
+    }
+
+    #homeSlider #history .timeline::before {
+        left: 9px;
+    }
+
+    #homeSlider #history .timeline-item {
+        padding-left: 0;
+    }
+
+    #homeSlider #history .timeline-item::before {
+        left: -19px;
+        width: 13px;
+        height: 13px;
+    }
+
+    #homeSlider #history .timeline-card {
+        max-width: none;
+        grid-template-columns: 44px 78px 1fr;
+        gap: 12px;
+        padding: 16px 14px;
+        border-radius: 18px;
+    }
+
+    #homeSlider #history .timeline-card img {
+        width: 44px;
+        height: 44px;
+    }
+
+    #homeSlider #history .timeline-card h3 {
+        font-size: 30px;
+    }
+
+    #homeSlider #history .timeline-card p {
+        font-size: 14px;
+        line-height: 1.25;
+    }
+}
+
 </style>
 </head>
 
