@@ -3403,6 +3403,16 @@ body.modal-open{
     }
 }
 
+/* REMOVE BACKGROUND GRID LINES */
+.page-two-down::before,
+.info-page::before,
+.quality-page::before,
+#contact::before,
+.equipment-capacity::before {
+    display: none !important;
+    background: none !important;
+}
+
 </style>
 </head>
 
@@ -3463,8 +3473,8 @@ body.modal-open{
                 </div>
 
                 <div class="option">
-                    <button onclick="location.href='quote.html'">Get Quote</button>
-                    <button onclick="document.getElementById('page2down').scrollIntoView({ behavior: 'smooth' })">Learn More</button>
+                    <button onclick="goToSlide(1)">COMPANIES</button>
+                    <button onclick="goToSlide(2)">HISTORY</button>
                 </div>
 
                 <div class="stats">
@@ -3586,8 +3596,6 @@ body.modal-open{
         </div>
     </div>
 
-    <button class="page-btn prev-btn" id="prevBtn" aria-label="Previous page">❮</button>
-    <button class="page-btn next-btn" id="nextBtn" aria-label="Next page">❯</button>
 </section>
 
 <section class="page-two-down" id="page2down">
@@ -4069,12 +4077,15 @@ function prevSlide() {
 }
 
 function updateSlideButtons() {
+    if (!prevBtn || !nextBtn) return;
+
     prevBtn.disabled = currentSlide === 0;
     nextBtn.disabled = currentSlide === totalSlides - 1;
 }
 
-nextBtn.addEventListener("click", nextSlide);
-prevBtn.addEventListener("click", prevSlide);
+if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+
 
 updateSlideButtons();
 
