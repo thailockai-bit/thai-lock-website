@@ -130,21 +130,22 @@ body {
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(245, 248, 255, 0.92) 0%,
-            rgba(245, 248, 255, 0.72) 45%,
-            rgba(245, 248, 255, 0.30) 100%
-        ),
-        url("home-bg.jpg");
-    background-size: cover;
-    background-position: center;
+    color: #ffffff;
+    text-align: left;
+    background: #000814;
+}
 
-    color: #1f2a44;
-    text-align: center;
+.zero-video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
 }
 
 .page-zero::before {
@@ -152,28 +153,30 @@ body {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: radial-gradient(circle at 72% 42%, rgba(11, 88, 216, 0.18), transparent 42%);
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        rgba(7,20,38,.78) 0%,
+        rgba(7,20,38,.52) 45%,
+        rgba(7,20,38,.16) 100%
+    );
 }
 
 .zero-content {
     position: relative;
     z-index: 2;
-    max-width: 900px;
-    padding: 120px 30px 80px;
+
+    max-width: 760px;
+    margin-left: 8vw;
+    padding-top: 120px;
 }
 
 .zero-content h1 {
-    font-size: clamp(48px, 7vw, 100px);
-    line-height: 1;
-    margin-bottom: 25px;
-    color: #102a63;
-    font-weight: 900;
-}
-
-.zero-content p {
-    font-size: clamp(18px, 2vw, 26px);
-    line-height: 1.7;
-    color: #3b465f;
+    font-size: clamp(58px, 7vw, 110px);
+    line-height: .95;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 /* =========================================================
@@ -3413,6 +3416,83 @@ body.modal-open{
     background: none !important;
 }
 
+/* =========================================================
+   SLIDER NAV BUTTONS - HOME / COMPANIES / HISTORY
+   เพิ่มปุ่มย้อนกลับในหน้า 1.2 และ 1.3 + ซ่อนปุ่มลูกศรข้างจอ
+========================================================= */
+.page-btn {
+    display: none !important;
+}
+
+.slide-nav {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin: -24px 0 34px;
+}
+
+.slide-nav button {
+    min-width: 132px;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .4px;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(37,99,235,.22);
+    transition: .3s ease;
+}
+
+.slide-nav button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.slide-nav-light button {
+    border: 1px solid rgba(255,255,255,.22);
+}
+
+.slide-nav-dark {
+    margin: -58px 0 42px;
+}
+
+.slide-nav-dark button {
+    background: #ffffff;
+    color: #1d4ed8;
+    border: 1px solid rgba(37,99,235,.22);
+    box-shadow: 0 12px 28px rgba(15,23,42,.08);
+}
+
+.slide-nav-dark button:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .slide-nav {
+        margin: 0 0 24px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .slide-nav button {
+        min-width: 0;
+        flex: 1 1 140px;
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    #homeSlider #history .slide-nav-dark {
+        margin: 0 0 24px;
+    }
+}
+
 </style>
 </head>
 
@@ -3450,9 +3530,15 @@ body.modal-open{
 <div class="mobile-menu-backdrop" aria-hidden="true"></div>
 
 <section class="page-zero" id="page0">
+    <video class="zero-video" autoplay muted loop playsinline>
+        <source src="out.mp4" type="video/mp4">
+    </video>
+
     <div class="zero-content">
-        <h1>THAI LOCK</h1>
-        <p>Professional Fastener Manufacturer<br>Nuts, Screws, Bolts and OEM Fastener Solutions</p>
+        <h1>
+            YOUR TRUSTED<br>
+            FASTENER SPECIALIST
+        </h1>
     </div>
 </section>
 
@@ -3513,6 +3599,11 @@ body.modal-open{
             <div class="about-content">
                 <h2>GROUP COMPANIES</h2>
 
+                <div class="slide-nav slide-nav-light">
+                    <button onclick="goToSlide(0)">← HOME</button>
+                    <button onclick="goToSlide(2)">HISTORY →</button>
+                </div>
+
                 <div class="company-wrapper">
                     <div class="company-card">
                         <img src="jingfong-logo.png" class="company-logo" alt="">
@@ -3550,6 +3641,11 @@ body.modal-open{
         <div class="page products-page" id="history">
             <section class="history-section">
                 <h2>COMPANY HISTORY</h2>
+
+                <div class="slide-nav slide-nav-dark">
+                    <button onclick="goToSlide(0)">← HOME</button>
+                    <button onclick="goToSlide(1)">← COMPANIES</button>
+                </div>
 
                 <div class="timeline">
                     <div class="timeline-item">
