@@ -470,6 +470,16 @@ button {
     font-size: 22px;
 }
 
+.company-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.company-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
 .company-card ul,
 .info-card ul {
     list-style: none;
@@ -553,113 +563,141 @@ button {
     background: var(--tl-white);
 }
 
-.history-section {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    padding: 105px 70px 70px;
-    color: var(--tl-ink);
-    overflow: hidden;
+/* ===== COMPANY HISTORY NEW ===== */
+
+.history-split{
+    display:grid;
+    grid-template-columns:420px 1fr;
+    height:100%;
+    min-height:100vh;
 }
 
-.history-section h2 {
-    text-align: center;
-    color: var(--tl-ink);
-    font-size: clamp(38px, 4vw, 54px);
-    margin-bottom: 85px;
+.history-left{
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(4,20,48,.75) 0%,
+        rgba(4,20,48,.55) 50%,
+        rgba(4,20,48,.35) 100%
+    ),
+    url("หน้าโรงงานลบสายไฟแล้ว.png");
+
+    background-size:cover;
+    background-position:center;
+
+    justify-content:flex-start;
+
+    color:#fff;
+    padding:70px 50px;
+
+    display:flex;
+    flex-direction:column;
 }
 
-.timeline {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1180px;
-    min-height: 420px;
-    margin: 0 auto;
-    padding: 0;
+.history-left span{
+    font-size:14px;
+    letter-spacing:3px;
+    font-weight:700;
+    color:#60a5fa;
 }
 
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    z-index: 1;
-    width: 100%;
-    height: 3px;
-    background: rgba(37,99,235,.18);
-    transform: translateY(-50%);
+.history-left h2{
+    margin:20px 0 30px;
+    font-size:72px;
+    line-height:.9;
+    color:#fff;
+    text-align:left;
 }
 
-.timeline-item {
-    position: relative;
-    width: 18%;
-    z-index: 2;
+.history-left p{
+    color:rgba(255,255,255,.85);
+    line-height:1.8;
+
+    max-width:320px;
+    margin-bottom:30px;
 }
 
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 4;
-    width: 18px;
-    height: 18px;
-    background: var(--tl-blue);
-    border-radius: 50%;
-    transform: translate(-50%,-50%);
+.history-left img{
+    margin-top:auto;
+    width:100%;
+    border-radius:12px;
 }
 
-.timeline-card {
-    position: relative;
-    z-index: 3;
-    width: clamp(170px, 15vw, 220px);
-    min-height: 150px;
-    margin: 0 auto;
-    padding: 20px 16px 18px;
-    text-align: center;
-    background: rgba(255,255,255,.96);
-    border: 1px solid var(--tl-line);
-    border-radius: 16px;
-    box-shadow: 0 16px 38px rgba(20,50,100,.10);
-    opacity: 0;
-    transform: translateX(80px);
-    transition: 1s ease;
+.history-right{
+    background:#fff;
+    padding:60px;
+    overflow-y:auto;
 }
 
-.timeline-card.show {
-    opacity: 1;
-    transform: translateX(0);
+.history-row{
+    display:grid;
+    grid-template-columns:140px 1fr 180px;
+    gap:30px;
+
+    align-items:center;
+
+    padding:30px 0;
+    border-bottom:1px solid #e5e7eb;
 }
 
-.timeline-item:nth-child(odd) .timeline-card {
-    top: -130px;
+.history-year{
+    font-size:52px;
+    font-weight:500;
+    color:#194fa5;
+    letter-spacing:-1px;
+    font-family:'Barlow Condensed', sans-serif;
 }
 
-.timeline-item:nth-child(even) .timeline-card {
-    top: 130px;
+.history-text h3{
+    margin:0;
+    font-size:24px;
+    color:#263d72;
 }
 
-.timeline-card img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    margin-bottom: 12px;
+.history-row img{
+    width:180px;
+    height:110px;
+    object-fit:cover;
+    border-radius:10px;
 }
 
-.timeline-card h3 {
-    color: var(--tl-blue-deep);
-    font-size: clamp(28px, 2.4vw, 32px);
-    line-height: 1;
-    margin-bottom: 8px;
+.history-left{
+    padding: 62px 44px;
 }
 
-.timeline-card p {
-    margin: 0;
-    color: var(--tl-muted);
-    font-size: clamp(12px, .95vw, 15px);
-    line-height: 1.28;
+.history-left h2{
+    font-size: 58px;
+}
+
+.history-left p{
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.history-right{
+    padding: 42px 55px;
+}
+
+.history-row{
+    grid-template-columns: 115px 1fr 150px;
+    gap: 24px;
+    padding: 18px 0;
+}
+
+.history-year{
+    font-size: 46px;
+}
+
+.history-text h3{
+    font-size: 24px;
+}
+
+.history-row img{
+    width: 150px;
+    height: 82px;
 }
 
 /* =========================================================
@@ -1039,6 +1077,142 @@ button.equipment-item {
     background: var(--tl-blue);
 }
 
+
+/* Manufacturing process slider */
+.process-section {
+    margin-top: 34px;
+    padding: 30px;
+    border: 1px solid rgba(15,23,42,.10);
+    border-radius: 24px;
+    background: rgba(255,255,255,.92);
+    box-shadow: 0 22px 60px rgba(15,23,42,.08);
+}
+
+.process-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(15,23,42,.08);
+}
+
+.process-head span {
+    font-family: 'Barlow Condensed','Inter',Arial,sans-serif;
+    font-size: clamp(28px,3vw,42px);
+    font-weight: 600;
+    color: var(--tl-ink);
+}
+
+.process-head p {
+    max-width: 560px;
+    text-align: right;
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.process-slider {
+    position: relative;
+}
+
+.process-slide {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    animation: processFade .45s ease;
+}
+
+.process-slide.active {
+    display: grid;
+}
+
+@keyframes processFade {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.process-section .capability-card {
+    min-height: 0;
+}
+
+.process-section .capability-media {
+    aspect-ratio: 16 / 10;
+}
+
+.process-section .capability-body {
+    min-height: 116px;
+    padding: 22px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.process-section .capability-body h3 {
+    margin-bottom: 0;
+    font-size: clamp(24px,2.1vw,32px);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.process-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 26px;
+}
+
+.process-arrow {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(37,99,235,.22);
+    border-radius: 50%;
+    background: var(--tl-white);
+    color: var(--tl-blue);
+    font-size: 22px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(15,23,42,.08);
+    transition: .3s ease;
+}
+
+.process-arrow:hover {
+    background: var(--tl-blue);
+    color: var(--tl-white);
+    transform: translateY(-2px);
+}
+
+.process-dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.process-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.process-dot.active {
+    width: 28px;
+    border-radius: 999px;
+    background: var(--tl-blue);
+}
+
 /* Quality */
 .quality-white-section{
     background:#ffffff;
@@ -1382,6 +1556,92 @@ button.equipment-item {
     line-height: 1.35;
 }
 
+#group{
+    background:
+        radial-gradient(circle at 12% 18%, rgba(37,99,235,.10), transparent 32%),
+        radial-gradient(circle at 88% 78%, rgba(37,99,235,.08), transparent 30%),
+        linear-gradient(180deg,#ffffff 0%,#f7fbff 100%) !important;
+}
+
+.group-network{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 1.25fr 1fr;
+    gap:70px;
+    align-items:center;
+    max-width:1180px;
+    margin:0 auto;
+}
+
+.group-network::before{
+    content:"";
+    position:absolute;
+    left:15%;
+    right:15%;
+    top:50%;
+    height:2px;
+    background:rgba(37,99,235,.28);
+    z-index:0;
+}
+
+.group-card{
+    position:relative;
+    z-index:2;
+    min-height:280px;
+    padding:34px 28px;
+    text-align:center;
+    background:#ffffff;
+    border:1px solid rgba(37,99,235,.14);
+    border-radius:18px;
+    box-shadow:0 20px 45px rgba(15,23,42,.08);
+    transition:.35s ease;
+}
+
+.group-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 26px 60px rgba(15,23,42,.12);
+}
+
+.group-card h3{
+    margin:16px 0 8px;
+    color:#0f172a;
+    font-size:18px;
+    line-height:1.25;
+    font-weight:700;
+}
+
+.group-card span{
+    display:block;
+    margin-bottom:18px;
+    color:var(--tl-blue);
+    font-size:14px;
+    font-weight:800;
+}
+
+.group-card p{
+    color:#475569;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.group-main{
+    min-height:330px;
+    padding:42px 34px;
+    background:linear-gradient(180deg,#0b58d8 0%,#102a63 100%);
+    color:#ffffff;
+    transform:translateY(-10px);
+}
+
+.group-main h3,
+.group-main p{
+    color:#ffffff;
+}
+
+.group-main span{
+    color:#bfdbfe;
+}
+
+
 @media (max-width: 1100px) {
     .cert-grid,
     .inspection-grid,
@@ -1414,6 +1674,54 @@ button.equipment-item {
     .cert-card img {
         width: 112px;
         height: 112px;
+    }
+
+    .history-split{
+        grid-template-columns:1fr;
+    }
+
+    .history-left{
+        min-height:380px;
+    }
+
+    .history-left h2{
+        font-size:48px;
+    }
+
+    .history-right{
+        padding:25px;
+    }
+
+    .history-row{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .history-year{
+        font-size:42px;
+    }
+
+    .history-row img{
+        width:100%;
+        height:180px;
+    }
+
+    .group-network{
+        grid-template-columns:1fr;
+        gap:22px;
+    }
+
+    .group-network::before{
+        display:none;
+    }
+
+    .group-main{
+        transform:none;
+    }
+
+    .group-card{
+        min-height:auto;
+        padding:26px 22px;
     }
 }
 
@@ -1846,6 +2154,19 @@ body.modal-open {
         grid-template-columns: 1fr;
     }
 
+    .process-head {
+        display: block;
+    }
+
+    .process-head p {
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .process-slide {
+        grid-template-columns: 1fr;
+    }
+
     .capacity-card,
     .spec-card {
         min-height: auto;
@@ -2236,6 +2557,280 @@ body.modal-open {
     }
 }
 
+
+
+/* =========================================================
+   GROUP NETWORK - FINAL POLISH
+========================================================= */
+#group.group-bg,
+#group {
+    background:
+        radial-gradient(circle at -8% -12%, rgba(37,99,235,.16), transparent 34%),
+        radial-gradient(circle at 92% 18%, rgba(37,99,235,.10), transparent 28%),
+        radial-gradient(circle at 86% 88%, rgba(96,165,250,.12), transparent 32%),
+        linear-gradient(180deg,#ffffff 0%,#f7fbff 100%) !important;
+}
+
+.group-content {
+    justify-content: flex-start;
+    align-items: center;
+    padding: 118px 70px 70px;
+    overflow: hidden;
+}
+
+.group-kicker {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--tl-blue);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+    text-align: center;
+}
+
+.group-content h2 {
+    margin-bottom: 20px;
+    font-size: clamp(46px, 4.8vw, 68px);
+    line-height: .95;
+    color: #0f172a;
+    text-align: center;
+}
+
+.group-subtitle {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto 58px;
+    text-align: center;
+    color: #334155;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.group-subtitle::after {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 3px;
+    margin: 18px auto 0;
+    background: var(--tl-blue);
+    border-radius: 999px;
+}
+
+.group-network {
+    position: relative;
+    width: min(1120px, 100%);
+    display: grid;
+    grid-template-columns: .92fr 1.2fr .92fr;
+    gap: 70px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.group-network::before {
+    content: "";
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    top: 50%;
+    height: 2px;
+    background: rgba(37,99,235,.42);
+    z-index: 0;
+}
+
+.group-network::after {
+    content: "";
+    position: absolute;
+    left: 17%;
+    right: 17%;
+    top: -34px;
+    height: 34px;
+    border: 2px solid rgba(37,99,235,.32);
+    border-bottom: 0;
+    border-radius: 14px 14px 0 0;
+    z-index: 0;
+}
+
+.group-card {
+    position: relative;
+    z-index: 2;
+    min-height: 260px;
+    padding: 30px 26px;
+    text-align: center;
+    background: rgba(255,255,255,.96);
+    border: 1px solid rgba(37,99,235,.15);
+    border-radius: 18px;
+    box-shadow: 0 18px 42px rgba(15,23,42,.08);
+    transition: .35s ease;
+}
+
+.group-card::before,
+.group-card::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--tl-blue);
+    box-shadow: 0 0 0 5px rgba(37,99,235,.10);
+    transform: translateY(-50%);
+}
+
+.group-card::before { left: -7px; }
+.group-card::after { right: -7px; }
+.group-side:first-child::before,
+.group-side:last-child::after { display: none; }
+
+.group-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 26px 60px rgba(15,23,42,.12);
+}
+
+.group-card .company-logo {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 22px;
+    object-fit: contain;
+}
+
+.group-card h3 {
+    margin: 0 0 8px;
+    color: #0f172a;
+    font-size: 18px;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.group-card span {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--tl-blue);
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.group-card p {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.group-logo-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.visit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    color: #0f172a;
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: .4px;
+}
+
+.visit-link:hover { color: var(--tl-blue); }
+
+.group-main {
+    min-height: 304px;
+    padding: 0;
+    overflow: hidden;
+    background: #ffffff;
+    color: #0f172a;
+    transform: translateY(-6px);
+}
+
+.group-main .group-main-top {
+    min-height: 118px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 24px;
+    background: linear-gradient(180deg,#0b58d8 0%,#102a63 100%);
+    color: #ffffff;
+}
+
+.group-main .group-main-top .company-logo {
+    width: 58px;
+    height: 58px;
+    margin: 0;
+    filter: brightness(0) invert(1);
+}
+
+.group-main .group-main-top strong {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.group-main .group-main-body {
+    padding: 28px 32px 34px;
+}
+
+.group-main h3,
+.group-main p { color: #0f172a; }
+.group-main span { color: var(--tl-blue); }
+
+@media (max-width: 1100px) {
+    .group-network {
+        gap: 36px;
+        grid-template-columns: 1fr 1.1fr 1fr;
+    }
+
+    .group-card {
+        min-height: 250px;
+        padding: 26px 20px;
+    }
+
+    .group-card h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .group-content {
+        justify-content: flex-start;
+        padding: 96px 22px 44px;
+        overflow: visible;
+    }
+
+    .group-content h2 {
+        font-size: 38px;
+    }
+
+    .group-subtitle {
+        margin-bottom: 28px;
+        font-size: 14px;
+    }
+
+    .group-network {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .group-network::before,
+    .group-network::after,
+    .group-card::before,
+    .group-card::after {
+        display: none;
+    }
+
+    .group-main {
+        transform: none;
+    }
+
+    .group-card {
+        min-height: auto;
+        padding: 26px 22px;
+    }
+}
+
 </style>
 </head>
 
@@ -2335,40 +2930,48 @@ body.modal-open {
             
             <div class="page-overlay"></div>
 
-            <div class="about-content">
+            <div class="about-content group-content">
+                <span class="group-kicker">OUR GROUP</span>
                 <h2>GROUP COMPANIES</h2>
+                <p class="group-subtitle">
+                    A strong network of companies working together<br>
+                    to deliver quality, innovation, and value to our customers worldwide.
+                </p>
 
+                <div class="group-network">
 
-                <div class="company-wrapper">
-                    <div class="company-card">
-                        <img src="jingfong-logo.png" class="company-logo" alt="">
-                        <h3>JING FONG INDUSTRY</h3>
-                        <ul>
-                            <li>OEM / Special Nuts</li>
-                            <li>Tainan, Taiwan</li>
-                            <li>Capacity: &gt;1,000 Tons / Month</li>
-                        </ul>
+                    <div class="group-card group-side">
+                        <a href="https://www.jingfong.com/en/" target="_blank" rel="noopener noreferrer" class="group-logo-link">
+                            <img src="jingfong.jpg" class="company-logo" alt="JING FONG INDUSTRY CO., LTD.">
+                        </a>
+                        <h3>
+                            <a href="https://www.jingfong.com/en/" target="_blank" rel="noopener noreferrer" class="company-link">
+                                JING FONG INDUSTRY<br>CO., LTD.
+                            </a>
+                        </h3>
+                        <span>Taiwan</span>
+                        <p>Parent company and the origin of our quality commitment since 1980.</p>
                     </div>
 
-                    <div class="company-card">
-                        <img src="TL 1.png" class="company-logo" alt="">
-                        <h3>THAILOCK FASTENERS</h3>
-                        <ul>
-                            <li>Standard / OEM Fasteners</li>
-                            <li>2 Plants at Chonburi & Rayong</li>
-                            <li>Area: 70,000 m²</li>
-                        </ul>
+                    <div class="group-card group-main">
+                        <div class="group-main-top">
+                            <img src="TL 1.png" class="company-logo" alt="THAI LOCK CO., LTD.">
+                            <strong>THAI LOCK</strong>
+                        </div>
+                        <div class="group-main-body">
+                            <h3>THAI LOCK CO., LTD.</h3>
+                            <span>Thailand</span>
+                            <p>Manufacturer of high-quality fasteners for industrial applications worldwide.</p>
+                        </div>
                     </div>
 
-                    <div class="company-card">
-                        <img src="thaimax-logo.png" class="company-logo" alt="">
-                        <h3>THAIMAX PLASTICS</h3>
-                        <ul>
-                            <li>Plastic Injection Parts</li>
-                            <li>Compound Material</li>
-                            <li>Rayong, Thailand</li>
-                        </ul>
+                    <div class="group-card group-side">
+                        <img src="thaimax-logo.png" class="company-logo" alt="THAIMAX CO., LTD.">
+                        <h3>THAIMAX CO., LTD.</h3>
+                        <span>Thailand</span>
+                        <p>Manufacturer of high-quality plastic components and related products.</p>
                     </div>
+
                 </div>
             </div>
 
@@ -2379,57 +2982,85 @@ body.modal-open {
         </div>
 
         <div class="page products-page history-bg" id="history">
-            <section class="history-section">
-                <h2>COMPANY HISTORY</h2>
 
+        <div class="history-split">
 
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="factory1.jpg" alt="">
-                            <h3>1980</h3>
-                            <p>JING FONG INDUSTRY was founded in Taiwan</p>
-                        </div>
-                    </div>
+            <div class="history-left">
 
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="TL 1.png" alt="">
-                            <h3>1991</h3>
-                            <p>THAILOCK FASTENERS established</p>
-                        </div>
-                    </div>
+                <span>OUR JOURNEY</span>
 
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="iso.png" alt="">
-                            <h3>2001</h3>
-                            <p>ISO 9001 Certified</p>
-                        </div>
-                    </div>
+                <h2>
+                    COMPANY<br>
+                    HISTORY
+                </h2>
 
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="iatf.png" alt="">
-                            <h3>2012</h3>
-                            <p>IATF16949 Certified</p>
-                        </div>
-                    </div>
+                <p>
+                    From our humble beginning in 1980 to becoming a leading fastener manufacturer today.
+                </p>
 
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <img src="factory2.jpg" alt="">
-                            <h3>2020</h3>
-                            <p>Rayong Factory Opened</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="loop-nav">
-                <button class="loop-arrow" onclick="goToSlide(1)">❮</button>
-                <button class="loop-arrow" onclick="goToSlide(0)">❯</button>
             </div>
+
+            <div class="history-right">
+
+                <div class="history-row">
+                    <div class="history-year">1980</div>
+
+                    <div class="history-text">
+                        <h3>JING FONG INDUSTRY</h3>
+                    </div>
+
+                    <img src="factory1.jpg" alt="Factory Image">
+                </div>
+
+                <div class="history-row">
+                    <div class="history-year">1991</div>
+
+                    <div class="history-text">
+                        <h3>THAILOCK ESTABLISHED</h3>
+                    </div>
+
+                    <img src="TL 1.png" alt="Factory Image">
+                </div>
+
+                <div class="history-row">
+                    <div class="history-year">2001</div>
+
+                    <div class="history-text">
+                        <h3>ISO 9001 CERTIFIED</h3>
+                    </div>
+
+                    <img src="iso.png" alt="">
+                </div>
+
+                <div class="history-row">
+                    <div class="history-year">2012</div>
+
+                    <div class="history-text">
+                        <h3>IATF16949 CERTIFIED</h3>
+                    </div>
+
+                    <img src="iatf.png" alt="">
+                </div>
+
+                <div class="history-row">
+                    <div class="history-year">2020</div>
+
+                    <div class="history-text">
+                        <h3>RAYONG FACTORY OPENED</h3>
+                    </div>
+
+                    <img src="factory2.jpg" alt="">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="loop-nav">
+            <button class="loop-arrow" onclick="goToSlide(1)">❮</button>
+            <button class="loop-arrow" onclick="goToSlide(0)">❯</button>
+        </div>
+
         </div>
     </div>
 
@@ -2559,8 +3190,15 @@ body.modal-open {
         </div>
 
 
-        <div class="capabilities-grid">
-            <div class="info-card capability-card">
+        <div class="process-section">
+            <div class="process-head">
+                <span>Manufacturing Process</span>
+                <p>Controlled production flow from raw material preparation to packing and delivery.</p>
+            </div>
+
+            <div class="process-slider">
+            <div class="process-slide active">
+<div class="info-card capability-card">
                 <div class="capability-media">
                     <img src="แช่.png" alt="Cold Forging">
                     <video muted loop playsinline><source src="แช่.mp4" type="video/mp4"></video>
@@ -2568,11 +3206,10 @@ body.modal-open {
                 <div class="capability-body">
                     <div class="process-no">PROCESS 01</div>
                     <h3>Wire Pickling</h3>
-                    <p>High-volume fastener production with strong material structure, stable dimensions, and efficient manufacturing process.</p>
                 </div>
             </div>
 
-            <div class="info-card capability-card">
+<div class="info-card capability-card">
                 <div class="capability-media">
                     <img src="รีด.png" alt="Threading Process">
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
@@ -2580,11 +3217,10 @@ body.modal-open {
                 <div class="capability-body">
                     <div class="process-no">PROCESS 02</div>
                     <h3>Wire Drawing</h3>
-                    <p>Precision thread forming for nuts, bolts, and special fastener applications with consistent quality control.</p>
                 </div>
             </div>
 
-            <div class="info-card capability-card">
+<div class="info-card capability-card">
                 <div class="capability-media">
                     <img src="forming.png" alt="OEM Fasteners">
                     <video muted loop playsinline><source src="form.mp4" type="video/mp4"></video>
@@ -2592,11 +3228,12 @@ body.modal-open {
                 <div class="capability-body">
                     <div class="process-no">PROCESS 03</div>
                     <h3>Forming</h3>
-                    <p>Customized fastener solutions based on customer drawings, specifications, materials, and industrial applications.</p>
                 </div>
             </div>
+            </div>
 
-            <div class="info-card capability-card">
+            <div class="process-slide">
+<div class="info-card capability-card">
                 <div class="capability-media">
                     <img src="tap.png" alt="Heat Treatment">
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
@@ -2604,11 +3241,10 @@ body.modal-open {
                 <div class="capability-body">
                     <div class="process-no">PROCESS 04</div>
                     <h3>Tapping</h3>
-                    <p>Controlled heat treatment process to improve strength, hardness, and durability for industrial fasteners.</p>
                 </div>
             </div>
 
-            <div class="info-card capability-card">
+<div class="info-card capability-card">
                 <div class="capability-media">
                     <img src="heat.png" alt="Surface Finishing">
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
@@ -2616,11 +3252,10 @@ body.modal-open {
                 <div class="capability-body">
                     <div class="process-no">PROCESS 05</div>
                     <h3>Heat Treatment</h3>
-                    <p>Surface treatment and finishing support for corrosion resistance, appearance, and customer requirements.</p>
                 </div>
             </div>
 
-            <div class="info-card capability-card">
+<div class="info-card capability-card">
                 <div class="capability-media">
                     <img src="assembling.png" alt="Quality Inspection">
                     <video muted loop playsinline><source src="assy.mp4" type="video/mp4"></video>
@@ -2628,11 +3263,12 @@ body.modal-open {
                 <div class="capability-body">
                     <div class="process-no">PROCESS 06</div>
                     <h3>Assembling</h3>
-                    <p>Inspection process for dimensions, thread accuracy, surface condition, and final product reliability.</p>
                 </div>
             </div>
+            </div>
 
-            <div class="info-card capability-card">
+            <div class="process-slide">
+<div class="info-card capability-card">
                 <div class="capability-media">
                     <img src="plating.png" alt="Laboratory Testing">
                     <video muted loop playsinline><source src="ชุบ.mp4" type="video/mp4"></video>
@@ -2640,11 +3276,10 @@ body.modal-open {
                 <div class="capability-body">
                     <div class="process-no">PROCESS 07</div>
                     <h3>Plating</h3>
-                    <p>Testing support for hardness, material verification, mechanical properties, and product performance.</p>
                 </div>
             </div>
 
-            <div class="info-card capability-card">
+<div class="info-card capability-card">
                 <div class="capability-media">
                     <img src="sorting.png" alt="Packaging">
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
@@ -2652,11 +3287,10 @@ body.modal-open {
                 <div class="capability-body">
                     <div class="process-no">PROCESS 08</div>
                     <h3>Sorting</h3>
-                    <p>Flexible packaging solutions for domestic and export shipments according to customer requirements.</p>
                 </div>
             </div>
 
-            <div class="info-card capability-card">
+<div class="info-card capability-card">
                 <div class="capability-media">
                     <img src="packing.png" alt="Production Capacity">
                     <video muted loop playsinline><source src="" type="video/mp4"></video>
@@ -2664,8 +3298,21 @@ body.modal-open {
                 <div class="capability-body">
                     <div class="process-no">PROCESS 09</div>
                     <h3>Packing & Delivery</h3>
-                    <p>Stable manufacturing capacity supported by experienced teams, production planning, and multiple facilities.</p>
                 </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="process-controls">
+                <button type="button" class="process-arrow" onclick="changeProcessSlide(-1)">❮</button>
+
+                <div class="process-dots">
+                    <button type="button" class="process-dot active" onclick="showProcessSlide(0)" aria-label="Process slide 1"></button>
+                    <button type="button" class="process-dot" onclick="showProcessSlide(1)" aria-label="Process slide 2"></button>
+                    <button type="button" class="process-dot" onclick="showProcessSlide(2)" aria-label="Process slide 3"></button>
+                </div>
+
+                <button type="button" class="process-arrow" onclick="changeProcessSlide(1)">❯</button>
             </div>
         </div>
     </div>
@@ -3096,7 +3743,37 @@ function handleSwipe() {
 }
 
 /* =========================================================
-   5) CAPABILITY HOVER VIDEO
+   5) MANUFACTURING PROCESS SLIDER
+========================================================= */
+let processCurrentSlide = 0;
+const processSlides = document.querySelectorAll(".process-slide");
+const processDots = document.querySelectorAll(".process-dot");
+
+function showProcessSlide(index) {
+    if (!processSlides.length) return;
+
+    if (index < 0) index = processSlides.length - 1;
+    if (index >= processSlides.length) index = 0;
+
+    processCurrentSlide = index;
+
+    processSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === processCurrentSlide);
+    });
+
+    processDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === processCurrentSlide);
+    });
+}
+
+function changeProcessSlide(direction) {
+    showProcessSlide(processCurrentSlide + direction);
+}
+
+showProcessSlide(0);
+
+/* =========================================================
+   6) CAPABILITY HOVER VIDEO
 ========================================================= */
 document.querySelectorAll(".capability-card").forEach(card => {
     const video = card.querySelector("video");
