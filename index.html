@@ -1742,6 +1742,62 @@ body.modal-open {
     background: var(--tl-white) !important;
 }
 
+
+/* ABOUT LOOP ARROWS */
+.loop-nav {
+    position: absolute;
+    right: 40px;
+    bottom: 35px;
+    z-index: 60;
+
+    display: flex;
+    gap: 12px;
+}
+
+.loop-arrow {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(37,99,235,.22);
+
+    background: rgba(255,255,255,.55);
+    color: #2563eb;
+
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 30px rgba(15,23,42,.08);
+
+    transition: .3s ease;
+}
+
+.loop-arrow:hover {
+    background: #2563eb;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .loop-nav {
+        right: 18px;
+        bottom: 18px;
+        gap: 10px;
+    }
+
+    .loop-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 23px;
+    }
+}
+
 /* =========================================================
    13) RESPONSIVE
 ========================================================= */
@@ -2243,10 +2299,6 @@ body.modal-open {
                     <p>With over 30 years of experiences in the industry, Thailock Fasteners is now actively supplying a wide variety of nuts to customers worldwide.</p>
                 </div>
 
-                <div class="option">
-                    <button onclick="goToSlide(1)">COMPANIES</button>
-                    <button onclick="goToSlide(2)">HISTORY</button>
-                </div>
 
                 <div class="stats">
                     <div class="stat-item">
@@ -2272,6 +2324,11 @@ body.modal-open {
                     </div>
                 </div>
             </div>
+
+            <div class="loop-nav">
+                <button class="loop-arrow" onclick="goToSlide(2)">❮</button>
+                <button class="loop-arrow" onclick="goToSlide(1)">❯</button>
+            </div>
         </div>
 
         <div class="page image-container group-bg" id="group">
@@ -2281,10 +2338,6 @@ body.modal-open {
             <div class="about-content">
                 <h2>GROUP COMPANIES</h2>
 
-                <div class="slide-nav slide-nav-light">
-                    <button onclick="goToSlide(0)">← HOME</button>
-                    <button onclick="goToSlide(2)">HISTORY →</button>
-                </div>
 
                 <div class="company-wrapper">
                     <div class="company-card">
@@ -2318,16 +2371,17 @@ body.modal-open {
                     </div>
                 </div>
             </div>
+
+            <div class="loop-nav">
+                <button class="loop-arrow" onclick="goToSlide(0)">❮</button>
+                <button class="loop-arrow" onclick="goToSlide(2)">❯</button>
+            </div>
         </div>
 
         <div class="page products-page history-bg" id="history">
             <section class="history-section">
                 <h2>COMPANY HISTORY</h2>
 
-                <div class="slide-nav slide-nav-dark">
-                    <button onclick="goToSlide(0)">← HOME</button>
-                    <button onclick="goToSlide(1)">← COMPANIES</button>
-                </div>
 
                 <div class="timeline">
                     <div class="timeline-item">
@@ -2371,6 +2425,11 @@ body.modal-open {
                     </div>
                 </div>
             </section>
+
+            <div class="loop-nav">
+                <button class="loop-arrow" onclick="goToSlide(1)">❮</button>
+                <button class="loop-arrow" onclick="goToSlide(0)">❯</button>
+            </div>
         </div>
     </div>
 
@@ -2962,8 +3021,6 @@ function goToSlide(index) {
 
     currentSlide = index;
     pages.style.transform = `translateX(-${currentSlide * 100}vw)`;
-
-    document.getElementById("homeSlider").scrollIntoView({ behavior: "smooth" });
 
     updateSlideButtons();
 }
