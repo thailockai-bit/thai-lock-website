@@ -312,8 +312,13 @@ button {
 .hero-content h1 {
     margin-bottom: 24px;
     color: var(--tl-ink);
-    font-size: clamp(44px, 4.5vw, 62px);
-    line-height: 1.02;
+
+    font-size: clamp(40px, 3.8vw, 56px);
+
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    
+    line-height: .95;
 }
 
 .hero-content p {
@@ -2597,8 +2602,8 @@ body.modal-open {
 .group-content {
     justify-content: flex-start;
     align-items: center;
-    padding: 118px 70px 70px;
-    overflow: hidden;
+    padding: 92px 70px 40px;
+    overflow: visible;
 }
 
 .group-kicker {
@@ -2622,7 +2627,7 @@ body.modal-open {
 .group-subtitle {
     position: relative;
     max-width: 720px;
-    margin: 0 auto 58px;
+    margin: 0 auto 36px;
     text-align: center;
     color: #334155;
     font-size: 16px;
@@ -2782,7 +2787,7 @@ body.modal-open {
     width: 58px;
     height: 58px;
     margin: 0;
-    filter: brightness(0) invert(1);
+    filter: none;
 }
 
 .group-main .group-main-top strong {
@@ -2901,6 +2906,8 @@ body.modal-open {
 
 .narrative-hero h1 {
     margin-top:16px;
+    font-weight: 700;
+    letter-spacing: -1px;
 }
 
 .story-bridge {
@@ -2942,7 +2949,7 @@ body.modal-open {
 }
 
 .group-story-bridge {
-    margin:34px auto 0;
+    margin:24px auto 0;
 }
 
 .history-story-bridge {
@@ -3015,6 +3022,588 @@ body.modal-open {
     .product-kicker {
         font-size:11px;
         letter-spacing:1.8px;
+    }
+}
+
+/* =========================================================
+   14) HERO 1.1 - FINAL PREMIUM LAYOUT
+   Cleaned and consolidated from previous hero test blocks.
+   Keep this as the only final override block for Page 1.1.
+========================================================= */
+
+/* Page background and content column */
+#home {
+    position: relative;
+    overflow: hidden;
+    background: #ffffff !important;
+}
+
+#home .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 690px;
+    padding-left: clamp(45px, 5.5vw, 90px);
+    padding-right: 0;
+    padding-top: 120px;
+    gap: 34px;
+}
+
+/* Text styling */
+#home .hero-content .section-kicker {
+    color: #1d4ed8;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3.2px;
+}
+
+#home .hero-content .section-kicker::before {
+    width: 44px;
+    height: 3px;
+}
+
+#home .hero-content h1 {
+    margin-top: 18px;
+    margin-bottom: 30px;
+    color: #071426;
+    font-size: clamp(64px, 6.4vw, 104px);
+    line-height: .84;
+    letter-spacing: -1.2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: 0 14px 36px rgba(15, 23, 42, .06);
+}
+
+#home .hero-content h1::after {
+    content: "";
+    display: block;
+    width: 72px;
+    height: 3px;
+    margin-top: 26px;
+    background: linear-gradient(90deg, #2563eb, rgba(37, 99, 235, .08));
+    border-radius: 999px;
+}
+
+#home .hero-content p {
+    max-width: 640px;
+    color: #334155;
+    font-size: clamp(17px, 1.14vw, 20px);
+    line-height: 1.72;
+    letter-spacing: .1px;
+}
+
+#home .hero-content p:nth-of-type(1) {
+    font-weight: 500;
+}
+
+/* Stats */
+#home .stats {
+    gap: 0;
+    width: min(680px, 100%);
+    margin-top: 2px;
+    padding: 20px 0 6px;
+}
+
+#home .stat-item {
+    position: relative;
+    width: 33.333%;
+    min-width: 150px;
+    transition: transform .35s ease, filter .35s ease;
+}
+
+#home .stat-item:hover {
+    transform: translateY(-6px);
+    filter: drop-shadow(0 12px 18px rgba(37, 99, 235, .12));
+}
+
+#home .stat-item img {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 12px;
+}
+
+#home .stat-item h2 {
+    margin-bottom: 6px;
+    color: #0b58d8;
+    font-size: clamp(36px, 3vw, 48px);
+    line-height: .9;
+    font-weight: 800;
+    letter-spacing: -1.1px;
+}
+
+#home .stat-item p {
+    color: #1f2937;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+#home .divider {
+    height: 82px;
+    margin: 0 26px;
+    background: linear-gradient(180deg, transparent, #d7e2f2, transparent);
+}
+
+/* Bottom story pill */
+#home .story-bridge {
+    margin-top: 4px;
+    padding: 12px 18px 12px 12px;
+    border: 1px solid rgba(37, 99, 235, .12);
+    background: rgba(255, 255, 255, .82);
+    box-shadow: 0 18px 46px rgba(15, 23, 42, .08);
+}
+
+#home .story-bridge span {
+    width: 42px;
+    height: 42px;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, .22);
+}
+
+#home .story-bridge p {
+    color: #1f2937;
+    font-size: 14px;
+    letter-spacing: .05px;
+}
+
+/* Right hero image */
+.hero-visual {
+    position: absolute;
+    top: 0;
+    right: -5vw;
+    width: 60vw;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-visual-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden;
+}
+
+.hero-visual-inner img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 44% 56%;
+    transform: scale(1.02);
+    filter: brightness(.98) contrast(1.08) saturate(.95);
+    animation: heroImageBreath 9s ease-in-out infinite;
+}
+
+.hero-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, .20) 0%,
+        rgba(255, 255, 255, .08) 16%,
+        rgba(255, 255, 255, 0) 34%
+    );
+}
+
+.hero-visual::after {
+    content: "";
+    position: absolute;
+    right: 12%;
+    bottom: 8%;
+    width: 42%;
+    height: 22%;
+    z-index: 1;
+    background: rgba(37, 99, 235, .10);
+    filter: blur(70px);
+    border-radius: 50%;
+}
+
+.hero-visual-shine {
+    display: none !important;
+}
+
+/* Loop arrows */
+.loop-nav {
+    z-index: 80;
+}
+
+/* Hero animations: wait until JS adds .hero-ready */
+#home .hero-content .section-kicker,
+#home .hero-content h1,
+#home .hero-content p,
+#home .stats,
+#home .story-bridge,
+#home .hero-visual {
+    will-change: opacity, transform;
+}
+
+#home:not(.hero-ready) .hero-content .section-kicker,
+#home:not(.hero-ready) .hero-content h1,
+#home:not(.hero-ready) .hero-content p,
+#home:not(.hero-ready) .stats,
+#home:not(.hero-ready) .story-bridge {
+    opacity: 0 !important;
+    transform: translateY(28px) !important;
+    animation: none !important;
+}
+
+#home:not(.hero-ready) .hero-visual {
+    opacity: 0 !important;
+    transform: translateX(92px) scale(.96) !important;
+    animation: none !important;
+}
+
+#home.hero-ready .hero-content .section-kicker,
+#home.hero-ready .hero-content h1,
+#home.hero-ready .hero-content p,
+#home.hero-ready .stats,
+#home.hero-ready .story-bridge {
+    opacity: 0;
+    transform: translateY(28px);
+    animation: heroTextReveal .82s cubic-bezier(.19, .8, .22, 1) forwards !important;
+}
+
+#home.hero-ready .hero-content .section-kicker { animation-delay: .08s !important; }
+#home.hero-ready .hero-content h1 { animation-delay: .20s !important; }
+#home.hero-ready .hero-content p:nth-of-type(1) { animation-delay: .36s !important; }
+#home.hero-ready .hero-content p:nth-of-type(2) { animation-delay: .50s !important; }
+#home.hero-ready .stats { animation-delay: .66s !important; }
+#home.hero-ready .story-bridge { animation-delay: .82s !important; }
+
+#home.hero-ready .hero-visual {
+    opacity: 0;
+    transform: translateX(92px) scale(.96);
+    animation: heroVisualReveal 1.05s cubic-bezier(.16, .84, .2, 1) .32s forwards !important;
+}
+
+#home.hero-ready .stat-item {
+    animation: heroStatPop .72s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+#home.hero-ready .stat-item:nth-of-type(1) { animation-delay: .76s; }
+#home.hero-ready .stat-item:nth-of-type(2) { animation-delay: .86s; }
+#home.hero-ready .stat-item:nth-of-type(3) { animation-delay: .96s; }
+
+@keyframes heroTextReveal {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes heroVisualReveal {
+    from {
+        opacity: 0;
+        transform: translateX(92px) scale(.96);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes heroStatPop {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes heroImageBreath {
+    0%, 100% {
+        transform: scale(1.02) translateX(0);
+    }
+
+    50% {
+        transform: scale(1.035) translateX(-3px);
+    }
+}
+
+/* Responsive hero final */
+@media (max-width: 1300px) {
+    #home .hero-content {
+        max-width: 50vw;
+        padding-left: clamp(42px, 5vw, 78px);
+    }
+
+    #home .hero-content h1 {
+        font-size: clamp(58px, 6vw, 88px);
+    }
+}
+
+@media (max-width: 1050px) {
+    #home .hero-content {
+        max-width: 56vw;
+    }
+
+    #home .hero-content h1 {
+        font-size: clamp(50px, 6vw, 76px);
+    }
+}
+
+@media (max-width: 900px) {
+    #home .hero-content {
+        max-width: none;
+        padding-left: 28px;
+        padding-right: 28px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .82));
+    }
+
+    .hero-visual {
+        right: -25vw;
+        width: 92vw;
+        opacity: .12;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    #home .hero-content {
+        padding: 96px 22px 42px;
+        background: rgba(255, 255, 255, .82);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    #home .hero-content h1 {
+        font-size: clamp(42px, 12vw, 58px);
+        line-height: .9;
+    }
+
+    #home .hero-content p {
+        font-size: 15.5px;
+        line-height: 1.55;
+    }
+
+    #home .stats {
+        padding-top: 8px;
+    }
+
+    #home .stat-item {
+        width: 100%;
+    }
+
+    .hero-visual {
+        right: -40vw;
+        width: 120vw;
+        opacity: .36;
+    }
+
+    .hero-visual::before {
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, .92) 0%,
+            rgba(255, 255, 255, .55) 45%,
+            rgba(255, 255, 255, .08) 100%
+        );
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #home:not(.hero-ready) .hero-content .section-kicker,
+    #home:not(.hero-ready) .hero-content h1,
+    #home:not(.hero-ready) .hero-content p,
+    #home:not(.hero-ready) .stats,
+    #home:not(.hero-ready) .story-bridge,
+    #home:not(.hero-ready) .hero-visual,
+    #home.hero-ready .hero-content .section-kicker,
+    #home.hero-ready .hero-content h1,
+    #home.hero-ready .hero-content p,
+    #home.hero-ready .stats,
+    #home.hero-ready .story-bridge,
+    #home.hero-ready .hero-visual,
+    #home.hero-ready .stat-item,
+    .hero-visual-inner img {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        filter: none !important;
+    }
+}
+
+/* =========================================================
+   HERO 1.1 - FINAL POLISH
+========================================================= */
+
+.narrative-hero h1 {
+    font-size: clamp(52px, 4.4vw, 78px);
+    line-height: .94;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+.narrative-hero p {
+    max-width: 680px;
+    font-size: clamp(16px, 1.05vw, 17px);
+    line-height: 1.85;
+    color: #4d5d73;
+}
+
+/* Text entrance */
+#home .section-kicker,
+#home .narrative-hero h1,
+#home .narrative-hero p,
+#home .stats,
+#home .story-bridge {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: heroTextUp .75s ease forwards;
+}
+
+#home .section-kicker { animation-delay: .10s; }
+#home .narrative-hero h1 { animation-delay: .22s; }
+#home .narrative-hero p:nth-of-type(1) { animation-delay: .34s; }
+#home .narrative-hero p:nth-of-type(2) { animation-delay: .46s; }
+#home .stats { animation-delay: .60s; }
+#home .story-bridge { animation-delay: .74s; }
+
+@keyframes heroTextUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stats hover */
+#home .stat-item {
+    transition: transform .35s ease;
+}
+
+#home .stat-item:hover {
+    transform: translateY(-6px);
+}
+
+/* Story bridge hover */
+#home .story-bridge {
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+#home .story-bridge::after {
+    content: "→";
+    margin-left: 12px;
+    color: var(--tl-blue);
+    font-weight: 900;
+    transition: transform .35s ease;
+}
+
+#home .story-bridge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 42px rgba(15,23,42,.10);
+}
+
+#home .story-bridge:hover::after {
+    transform: translateX(6px);
+}
+
+
+/* =========================================================
+   14) TYPOGRAPHY SYSTEM V2 - SAFE OVERRIDE
+   ปรับเฉพาะหัวข้อจริง ไม่แตะ Timeline / Card content / Layout
+========================================================= */
+
+:root {
+    /* หัวข้อหลักทุกหน้า = ขนาดเดียวกับ Equipment & Capacity */
+    --tl-title-main: clamp(28px, 3vw, 42px);
+
+    /* หัวข้อย่อย/หัวข้อกล่อง = ขนาดเดียวกับ Certifications */
+    --tl-title-sub: clamp(24px, 2.2vw, 34px);
+
+    /* Kicker เช่น WHO WE ARE / OUR GROUP / OUR JOURNEY */
+    --tl-title-kicker: 13px;
+}
+
+/* Main page headings only */
+.zero-content h1,
+#home .narrative-hero h1,
+#group .group-content h2,
+.history-left h2,
+.product-section h2,
+.info-content > h2,
+.quality-page .quality-hero-copy h2,
+.equipment-head span {
+    font-size: var(--tl-title-main) !important;
+}
+
+/* Section/sub headings only */
+.quality-section-title h3,
+.process-head span,
+.machine-modal-head h3 {
+    font-size: var(--tl-title-sub) !important;
+}
+
+/* Kicker / small heading labels */
+.section-kicker,
+.group-kicker,
+.history-left > span,
+.product-kicker,
+.quality-kicker {
+    font-size: var(--tl-title-kicker) !important;
+}
+
+/* Restore timeline content size - not a heading system */
+.history-year {
+    font-size: 46px !important;
+}
+
+.history-text h3 {
+    font-size: 24px !important;
+}
+
+/* Restore timeline layout */
+.history-row {
+    grid-template-columns: 115px 1fr 150px !important;
+    gap: 24px !important;
+    padding: 18px 0 !important;
+}
+
+.history-row img {
+    width: 150px !important;
+    height: 82px !important;
+}
+
+/* Mobile typography scale */
+@media (max-width: 768px) {
+    :root {
+        --tl-title-main: clamp(30px, 8vw, 38px);
+        --tl-title-sub: clamp(24px, 6vw, 30px);
+        --tl-title-kicker: 12px;
+    }
+
+    .history-year {
+        font-size: 42px !important;
+    }
+
+    .history-text h3 {
+        font-size: 22px !important;
+    }
+
+    .history-row {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .history-row img {
+        width: 100% !important;
+        height: 180px !important;
     }
 }
 
@@ -3113,6 +3702,13 @@ body.modal-open {
                 </div>
             </div>
 
+            <div class="hero-visual" aria-hidden="true">
+                <div class="hero-visual-inner">
+                    <img src="hero-fastener.png" alt="THAI LOCK Fasteners">
+                    <span class="hero-visual-shine"></span>
+                </div>
+            </div>
+
             <div class="loop-nav">
                 <button class="loop-arrow" onclick="goToSlide(2)">❮</button>
                 <button class="loop-arrow" onclick="goToSlide(1)">❯</button>
@@ -3148,7 +3744,7 @@ body.modal-open {
 
                     <div class="group-card group-main">
                         <div class="group-main-top">
-                            <img src="TL 1.png" class="company-logo" alt="THAI LOCK CO., LTD.">
+                            <img src="logo-01.png" class="company-logo" alt="THAI LOCK CO., LTD.">
                             <strong>THAI LOCK</strong>
                         </div>
                         <div class="group-main-body">
@@ -4065,6 +4661,39 @@ function closeMachinePopup() {
 window.addEventListener("keydown", e => {
     if (e.key === "Escape") closeMachinePopup();
 });
+
+
+
+/* =========================================================
+   HERO PREMIUM ANIMATION TRIGGER
+   Adds .hero-ready only when Page 1.1 enters the viewport,
+   so the animation is visible after scrolling down from Page 0.
+========================================================= */
+(function(){
+    const homeHero = document.getElementById('home');
+    if (!homeHero) return;
+
+    const playHero = () => {
+        homeHero.classList.remove('hero-ready');
+        void homeHero.offsetWidth; // restart CSS animation reliably
+        homeHero.classList.add('hero-ready');
+    };
+
+    if ('IntersectionObserver' in window) {
+        const heroObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    playHero();
+                    heroObserver.unobserve(homeHero);
+                }
+            });
+        }, { threshold: 0.42 });
+
+        heroObserver.observe(homeHero);
+    } else {
+        window.addEventListener('load', playHero, { once:true });
+    }
+})();
 
 </script>
 
