@@ -3908,6 +3908,355 @@ body {
     }
 }
 
+
+
+/* =========================================================
+   GLOBAL SCROLL REVEAL - SMOOTH TEXT MOTION
+   Makes text/content reveal consistently on every section.
+========================================================= */
+.scroll-reveal {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+    filter: blur(3px);
+    transition:
+        opacity .78s cubic-bezier(.16, .84, .28, 1),
+        transform .78s cubic-bezier(.16, .84, .28, 1),
+        filter .78s cubic-bezier(.16, .84, .28, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
+}
+
+.scroll-reveal.reveal-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+}
+
+.scroll-reveal.reveal-from-right {
+    transform: translate3d(42px, 0, 0);
+}
+
+.scroll-reveal.reveal-from-right.reveal-visible {
+    transform: translate3d(0, 0, 0);
+}
+
+.scroll-reveal.reveal-soft {
+    transform: translate3d(0, 22px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-reveal.reveal-from-right,
+    .scroll-reveal.reveal-soft {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+/* =========================================================
+   FINAL PRESENTATION POLISH - MANAGEMENT PREVIEW
+   Motion, hover, spacing, and visual consistency without changing layout.
+========================================================= */
+:root {
+    --tl-motion-smooth: cubic-bezier(.16, .84, .28, 1);
+    --tl-motion-fast: .32s;
+    --tl-motion-mid: .72s;
+    --tl-card-radius: 18px;
+    --tl-card-shadow: 0 18px 45px rgba(15,23,42,.08);
+    --tl-card-shadow-hover: 0 28px 70px rgba(15,23,42,.14);
+    --tl-border-soft: rgba(37,99,235,.14);
+}
+
+/* smoother section rhythm */
+.page-zero,
+.page,
+.page-two-down,
+.info-page,
+.quality-page,
+#contact.contact-clean {
+    isolation: isolate;
+}
+
+.product-section,
+.info-page,
+.quality-page,
+#contact.contact-clean {
+    scroll-margin-top: 76px;
+}
+
+/* consistent premium cards */
+.company-card,
+.group-card,
+.category-card,
+.product-card,
+.info-card,
+.capability-card,
+.capacity-card,
+.spec-card,
+.equipment-item,
+.process-section,
+.quality-panel,
+.cert-card,
+.inspection-card,
+.process-step,
+.quality-highlights div,
+#contact.contact-clean .contact-column {
+    transition:
+        transform var(--tl-motion-fast) var(--tl-motion-smooth),
+        box-shadow var(--tl-motion-fast) var(--tl-motion-smooth),
+        border-color var(--tl-motion-fast) var(--tl-motion-smooth),
+        background-color var(--tl-motion-fast) var(--tl-motion-smooth),
+        opacity var(--tl-motion-fast) var(--tl-motion-smooth);
+}
+
+.company-card,
+.group-card,
+.category-card,
+.product-card,
+.info-card,
+.capability-card,
+.capacity-card,
+.spec-card,
+.equipment-item,
+.process-section,
+.quality-panel,
+.cert-card,
+.inspection-card,
+.process-step,
+.quality-highlights div {
+    border-radius: var(--tl-card-radius);
+    border-color: rgba(15,23,42,.09);
+}
+
+.company-card:hover,
+.group-card:hover,
+.category-card:hover,
+.product-card:hover,
+.info-card:hover,
+.capability-card:hover,
+.cert-card:hover,
+.inspection-card:hover,
+.process-step:hover,
+.quality-highlights div:hover,
+.equipment-item:hover {
+    transform: translate3d(0, -7px, 0);
+    border-color: rgba(37,99,235,.26);
+    box-shadow: var(--tl-card-shadow-hover);
+}
+
+/* avoid double-lifting the center group card too strongly */
+.group-main:hover {
+    transform: translate3d(0, -11px, 0);
+}
+
+/* image motion consistency */
+.category-image img,
+.capability-media img,
+.inspection-placeholder img,
+.cert-card img,
+.group-card .company-logo,
+.company-card .company-logo {
+    transition: transform .72s var(--tl-motion-smooth), filter .72s var(--tl-motion-smooth), opacity .72s var(--tl-motion-smooth);
+    will-change: transform;
+}
+
+.category-card:hover .category-image img,
+.product-card:hover .category-image img,
+.capability-card:hover .capability-media img,
+.inspection-card:hover .inspection-placeholder img,
+.cert-card:hover img {
+    transform: scale(1.045);
+}
+
+.group-card:hover .company-logo,
+.company-card:hover .company-logo {
+    transform: translate3d(0, -2px, 0) scale(1.035);
+}
+
+/* buttons: same premium feel throughout */
+.option button,
+.map-btn,
+.contact-form button,
+.slide-nav button,
+.loop-arrow,
+.process-arrow,
+.process-dot,
+.visit-link {
+    transition:
+        transform var(--tl-motion-fast) var(--tl-motion-smooth),
+        box-shadow var(--tl-motion-fast) var(--tl-motion-smooth),
+        background-color var(--tl-motion-fast) var(--tl-motion-smooth),
+        color var(--tl-motion-fast) var(--tl-motion-smooth),
+        border-color var(--tl-motion-fast) var(--tl-motion-smooth),
+        width var(--tl-motion-fast) var(--tl-motion-smooth);
+}
+
+.option button:hover,
+.contact-form button:hover,
+.slide-nav button:hover,
+.process-arrow:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 18px 42px rgba(37,99,235,.24);
+}
+
+.loop-arrow:hover {
+    transform: translate3d(0, -4px, 0) scale(1.02);
+    box-shadow: 0 18px 45px rgba(37,99,235,.20);
+}
+
+/* typography rhythm */
+.zero-content h1,
+.hero-content h1,
+.group-content h2,
+.history-left h2,
+.product-section h2,
+.info-content h2,
+.quality-page .quality-hero-copy h2 {
+    text-wrap: balance;
+}
+
+.zero-content p,
+.hero-content p,
+.group-subtitle,
+.history-left p,
+.product-intro,
+.info-subtitle,
+.product-note,
+.capability-body p,
+.info-card p,
+.info-card li {
+    text-wrap: pretty;
+}
+
+.section-kicker,
+.group-kicker,
+.product-kicker,
+.quality-kicker,
+.history-left span {
+    transform: translateZ(0);
+}
+
+/* smoother horizontal ABOUT presentation */
+.pages {
+    transition: transform .92s var(--tl-motion-smooth);
+    will-change: transform;
+}
+
+#homeSlider .page {
+    transform: translateZ(0);
+}
+
+.loop-nav {
+    transform: translateZ(0);
+}
+
+/* process slider feels less abrupt */
+.process-slide {
+    animation: processFade .62s var(--tl-motion-smooth);
+}
+
+.process-slide .capability-card {
+    animation: processCardUp .68s var(--tl-motion-smooth) both;
+}
+
+.process-slide .capability-card:nth-child(2) { animation-delay: .08s; }
+.process-slide .capability-card:nth-child(3) { animation-delay: .16s; }
+
+@keyframes processCardUp {
+    from { opacity: 0; transform: translate3d(0, 22px, 0); filter: blur(2px); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+
+/* upgraded reveal tuning */
+.scroll-reveal {
+    opacity: 0;
+    transform: translate3d(0, 38px, 0);
+    filter: blur(4px);
+    transition:
+        opacity .86s var(--tl-motion-smooth),
+        transform .86s var(--tl-motion-smooth),
+        filter .86s var(--tl-motion-smooth);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
+}
+
+.scroll-reveal.reveal-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+}
+
+.scroll-reveal.reveal-from-right {
+    transform: translate3d(46px, 0, 0);
+}
+
+.scroll-reveal.reveal-from-right.reveal-visible {
+    transform: translate3d(0, 0, 0);
+}
+
+.scroll-reveal.reveal-soft {
+    transform: translate3d(0, 26px, 0);
+}
+
+/* subtle stagger utility added by JavaScript */
+.scroll-reveal[data-reveal-group="cards"] {
+    transition-duration: .78s;
+}
+
+/* keep contact clean but less flat */
+#contact.contact-clean .contact-column {
+    border-radius: 14px;
+}
+
+#contact.contact-clean .contact-form input,
+#contact.contact-clean .contact-form textarea {
+    transition: border-color var(--tl-motion-fast) var(--tl-motion-smooth), box-shadow var(--tl-motion-fast) var(--tl-motion-smooth), background-color var(--tl-motion-fast) var(--tl-motion-smooth);
+}
+
+#contact.contact-clean .contact-form input:hover,
+#contact.contact-clean .contact-form textarea:hover {
+    background: rgba(255,255,255,.085);
+    border-color: rgba(255,255,255,.26);
+}
+
+/* mobile: keep it smooth, but not heavy */
+@media (max-width: 768px) {
+    .scroll-reveal {
+        transform: translate3d(0, 24px, 0);
+        filter: blur(2px);
+        transition-duration: .68s;
+    }
+
+    .company-card:hover,
+    .group-card:hover,
+    .category-card:hover,
+    .product-card:hover,
+    .info-card:hover,
+    .capability-card:hover,
+    .cert-card:hover,
+    .inspection-card:hover,
+    .process-step:hover,
+    .quality-highlights div:hover,
+    .equipment-item:hover {
+        transform: translate3d(0, -3px, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+    }
+}
+
 </style>
 </head>
 
@@ -4759,15 +5108,136 @@ if (menuToggle && navCenter && navMenu && mobileMenuBackdrop) {
 }
 
 /* =========================================================
-   1) TIMELINE ANIMATION
+   1) GLOBAL SCROLL REVEAL ANIMATION - FINAL POLISH
+   Smoothly reveals text/content upward across all pages.
 ========================================================= */
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("show");
-    });
-}, { threshold: 0.3 });
+const revealSelectors = [
+    ".zero-content > *",
+    "#home .hero-content .section-kicker",
+    "#home .hero-content h1",
+    "#home .hero-content p",
+    "#home .option",
+    "#home .stats",
+    "#home .story-bridge",
+    "#home .hero-visual",
+    "#group .group-kicker",
+    "#group h2",
+    "#group .group-subtitle",
+    "#group .group-card",
+    ".history-left span",
+    ".history-left h2",
+    ".history-left p",
+    ".history-left .story-bridge",
+    ".history-row",
+    ".product-kicker",
+    ".product-section h2",
+    ".product-intro",
+    ".category-card",
+    ".product-card",
+    ".product-note",
+    ".info-content > .section-kicker",
+    ".info-content > h2",
+    ".info-subtitle",
+    ".equipment-capacity",
+    ".equipment-layout-c > *",
+    ".equipment-machine-grid > *",
+    ".process-section",
+    ".process-head > *",
+    ".process-slide.active .capability-card",
+    ".capability-card",
+    ".quality-hero-copy > *",
+    ".quality-overview-item",
+    ".quality-panel",
+    ".cert-card",
+    ".inspection-card",
+    ".process-step",
+    ".quality-highlights > div",
+    "#contact .contact-column",
+    "#contact .footer-copy"
+];
 
-document.querySelectorAll(".timeline-card").forEach(card => observer.observe(card));
+const revealItems = Array.from(new Set(document.querySelectorAll(revealSelectors.join(","))));
+const cardRevealClasses = [
+    "group-card",
+    "company-card",
+    "category-card",
+    "product-card",
+    "capability-card",
+    "quality-overview-item",
+    "cert-card",
+    "inspection-card",
+    "process-step",
+    "contact-column",
+    "equipment-item"
+];
+
+function getRevealGroupKey(item) {
+    const group = item.closest(".group-network, .category-grid, .capabilities-grid, .equipment-machine-grid, .quality-overview, .cert-grid, .inspection-grid, .process-flow, .quality-highlights, .contact-inner, .process-slide, .equipment-layout-c");
+    if (!group) return null;
+    return group;
+}
+
+revealItems.forEach(item => {
+    item.classList.add("scroll-reveal");
+
+    if (item.classList.contains("hero-visual")) {
+        item.classList.add("reveal-from-right");
+    }
+
+    if (cardRevealClasses.some(className => item.classList.contains(className))) {
+        item.classList.add("reveal-soft");
+        item.dataset.revealGroup = "cards";
+    }
+
+    const group = getRevealGroupKey(item) || item.parentElement;
+    const siblings = group ? Array.from(group.children).filter(child => revealItems.includes(child) || child.querySelector?.(".scroll-reveal")) : [];
+    let localIndex = siblings.indexOf(item);
+
+    if (localIndex < 0 && group) {
+        localIndex = Array.from(group.querySelectorAll(":scope > .scroll-reveal, :scope > * > .scroll-reveal")).indexOf(item);
+    }
+
+    localIndex = Math.max(0, localIndex);
+    const delay = Math.min(localIndex * 92, 420);
+    item.style.setProperty("--reveal-delay", `${delay}ms`);
+});
+
+function revealNow(target) {
+    if (!target) return;
+    target.classList.add("reveal-visible");
+}
+
+function resetReveal(target) {
+    if (!target) return;
+    target.classList.remove("reveal-visible");
+}
+
+if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            revealNow(entry.target);
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -7% 0px"
+    });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+} else {
+    revealItems.forEach(revealNow);
+}
+
+function revealActiveSlideContent() {
+    const activeSlide = document.querySelectorAll("#homeSlider .page")[currentSlide];
+    if (!activeSlide) return;
+
+    activeSlide.querySelectorAll(".scroll-reveal").forEach((item, index) => {
+        resetReveal(item);
+        const delay = Math.min(index * 58, 360);
+        setTimeout(() => revealNow(item), delay);
+    });
+}
 
 /* =========================================================
    2) HORIZONTAL SLIDER
@@ -4787,6 +5257,7 @@ function goToSlide(index) {
     pages.style.transform = `translateX(-${currentSlide * 100}vw)`;
 
     updateSlideButtons();
+    requestAnimationFrame(revealActiveSlideContent);
 }
 
 function nextSlide() {
@@ -4809,6 +5280,7 @@ if (prevBtn) prevBtn.addEventListener("click", prevSlide);
 
 
 updateSlideButtons();
+requestAnimationFrame(revealActiveSlideContent);
 
 /* =========================================================
    3) NAVBAR HIDE / SHOW ON SCROLL
@@ -4838,16 +5310,18 @@ let touchEndY = 0;
 
 const slider = document.getElementById("homeSlider");
 
-slider.addEventListener("touchstart", e => {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
-});
+if (slider) {
+    slider.addEventListener("touchstart", e => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    });
 
-slider.addEventListener("touchend", e => {
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
-    handleSwipe();
-});
+    slider.addEventListener("touchend", e => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    });
+}
 
 function handleSwipe() {
     const distanceX = touchStartX - touchEndX;
@@ -4881,6 +5355,14 @@ function showProcessSlide(index) {
     processDots.forEach((dot, dotIndex) => {
         dot.classList.toggle("active", dotIndex === processCurrentSlide);
     });
+
+    const activeProcessSlide = processSlides[processCurrentSlide];
+    if (activeProcessSlide) {
+        activeProcessSlide.querySelectorAll(".scroll-reveal").forEach((item, itemIndex) => {
+            resetReveal(item);
+            setTimeout(() => revealNow(item), itemIndex * 80);
+        });
+    }
 }
 
 function changeProcessSlide(direction) {
