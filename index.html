@@ -3515,23 +3515,24 @@ body.modal-open {
 }
 
 
+
 /* =========================================================
-   14) TYPOGRAPHY SYSTEM V2 - SAFE OVERRIDE
-   ปรับเฉพาะหัวข้อจริง ไม่แตะ Timeline / Card content / Layout
+   14) TYPOGRAPHY SYSTEM - PHASE 1
+   Standardize heading sizes only. No layout / position changes.
 ========================================================= */
 
 :root {
-    /* หัวข้อหลักทุกหน้า = ขนาดเดียวกับ Equipment & Capacity */
-    --tl-title-main: clamp(28px, 3vw, 42px);
+    /* Main page headings: match Equipment & Capacity */
+    --tl-heading-main: clamp(28px, 3vw, 42px);
 
-    /* หัวข้อย่อย/หัวข้อกล่อง = ขนาดเดียวกับ Certifications */
-    --tl-title-sub: clamp(24px, 2.2vw, 34px);
+    /* Sub-section headings: match Certifications */
+    --tl-heading-sub: clamp(24px, 2.2vw, 34px);
 
-    /* Kicker เช่น WHO WE ARE / OUR GROUP / OUR JOURNEY */
-    --tl-title-kicker: 13px;
+    /* Small heading labels */
+    --tl-heading-kicker: 13px;
 }
 
-/* Main page headings only */
+/* Main headings across pages */
 .zero-content h1,
 #home .narrative-hero h1,
 #group .group-content h2,
@@ -3540,26 +3541,28 @@ body.modal-open {
 .info-content > h2,
 .quality-page .quality-hero-copy h2,
 .equipment-head span {
-    font-size: var(--tl-title-main) !important;
+    font-size: var(--tl-heading-main) !important;
+    line-height: .98 !important;
 }
 
-/* Section/sub headings only */
+/* Sub-section headings only */
 .quality-section-title h3,
 .process-head span,
 .machine-modal-head h3 {
-    font-size: var(--tl-title-sub) !important;
+    font-size: var(--tl-heading-sub) !important;
+    line-height: 1 !important;
 }
 
-/* Kicker / small heading labels */
+/* Kicker / small labels */
 .section-kicker,
 .group-kicker,
 .history-left > span,
 .product-kicker,
 .quality-kicker {
-    font-size: var(--tl-title-kicker) !important;
+    font-size: var(--tl-heading-kicker) !important;
 }
 
-/* Restore timeline content size - not a heading system */
+/* Restore timeline content: not part of heading system */
 .history-year {
     font-size: 46px !important;
 }
@@ -3568,7 +3571,7 @@ body.modal-open {
     font-size: 24px !important;
 }
 
-/* Restore timeline layout */
+/* Keep timeline layout unchanged */
 .history-row {
     grid-template-columns: 115px 1fr 150px !important;
     gap: 24px !important;
@@ -3580,12 +3583,12 @@ body.modal-open {
     height: 82px !important;
 }
 
-/* Mobile typography scale */
+/* Mobile scale */
 @media (max-width: 768px) {
     :root {
-        --tl-title-main: clamp(30px, 8vw, 38px);
-        --tl-title-sub: clamp(24px, 6vw, 30px);
-        --tl-title-kicker: 12px;
+        --tl-heading-main: clamp(30px, 8vw, 38px);
+        --tl-heading-sub: clamp(24px, 6vw, 30px);
+        --tl-heading-kicker: 12px;
     }
 
     .history-year {
@@ -3604,6 +3607,304 @@ body.modal-open {
     .history-row img {
         width: 100% !important;
         height: 180px !important;
+    }
+}
+
+.language-dropdown {
+    position: relative;
+}
+
+.language-current {
+    height: 38px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px solid rgba(37,99,235,.18);
+    border-radius: 999px;
+    background: rgba(255,255,255,.72);
+    color: #1f2937;
+
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+
+    box-shadow: 0 10px 24px rgba(15,23,42,.06);
+}
+
+.language-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 150px;
+    padding: 8px;
+    display: none;
+
+    background: #ffffff;
+    border: 1px solid rgba(15,23,42,.10);
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(15,23,42,.14);
+}
+
+.language-dropdown.active .language-menu {
+    display: block;
+}
+
+.language-menu a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+
+    color: #1f2937;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.language-menu a:hover {
+    background: #eff6ff;
+    color: var(--tl-blue);
+}
+
+#google_translate_element {
+    display: none !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-gadget,
+.goog-logo-link {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+
+/* =========================================================
+   PRODUCTS - DARK PREMIUM SHOWROOM
+   Product only. No other layout changes.
+========================================================= */
+#page2down {
+    position: relative;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(37,99,235,.30), transparent 32%),
+        radial-gradient(circle at 88% 8%, rgba(96,165,250,.18), transparent 30%),
+        radial-gradient(circle at 78% 92%, rgba(37,99,235,.16), transparent 35%),
+        linear-gradient(180deg, #06101f 0%, #071426 48%, #0b1830 100%) !important;
+    color: #ffffff;
+}
+
+#page2down::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,.028) 1px, transparent 1px);
+    background-size: 72px 72px;
+    opacity: .32;
+}
+
+#page2down .product-section {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 120px 80px 96px;
+    color: #ffffff;
+}
+
+#page2down .product-kicker {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 14px;
+    color: #60a5fa;
+}
+
+#page2down .product-kicker::before {
+    background: #60a5fa;
+}
+
+#page2down .product-section h2 {
+    color: #ffffff;
+    font-size: clamp(44px, 5vw, 72px);
+    letter-spacing: 2.5px;
+    text-shadow: 0 18px 42px rgba(0,0,0,.24);
+}
+
+#page2down .product-intro {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    color: rgba(255,255,255,.78);
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.8;
+}
+
+#page2down .category-grid {
+    position: relative;
+    z-index: 2;
+    max-width: 1240px;
+    margin: 0 auto 44px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(170px, 1fr));
+    gap: 22px;
+}
+
+#page2down .product-card {
+    position: relative;
+    width: 100%;
+    min-height: 356px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: #ffffff;
+    background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.045));
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
+    box-shadow: 0 22px 55px rgba(0,0,0,.28);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: transform .38s ease, border-color .38s ease, box-shadow .38s ease;
+}
+
+#page2down .product-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 55% 22%, rgba(96,165,250,.18), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,.08), transparent 42%);
+    opacity: .9;
+    transition: .38s ease;
+}
+
+#page2down .product-card:hover,
+#page2down .product-card.active {
+    transform: translateY(-8px);
+    border-color: rgba(96,165,250,.58);
+    box-shadow: 0 30px 78px rgba(37,99,235,.24), 0 20px 55px rgba(0,0,0,.34);
+}
+
+#page2down .category-image {
+    position: relative;
+    z-index: 2;
+    height: 190px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.035);
+    border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+#page2down .category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 28px rgba(0,0,0,.35));
+    transition: transform .55s ease;
+}
+
+#page2down .product-card:hover .category-image img {
+    transform: scale(1.08);
+}
+
+#page2down .category-title {
+    position: relative;
+    z-index: 2;
+    padding: 20px 18px 6px;
+    min-height: 58px;
+    text-align: left;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+}
+
+#page2down .product-card-meta {
+    position: relative;
+    z-index: 2;
+    padding: 0 18px;
+    color: rgba(255,255,255,.58);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+#page2down .product-card-link {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+    padding: 18px;
+    display: inline-flex;
+    align-items: center;
+    color: #93c5fd;
+    font-size: 13px;
+    font-weight: 900;
+    transition: transform .35s ease, color .35s ease;
+}
+
+#page2down .product-card:hover .product-card-link {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+#page2down .product-note {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    color: rgba(255,255,255,.78);
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 999px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* Smooth transition into light Capabilities */
+#capabilities,
+.info-page#capabilities {
+    background:
+        radial-gradient(circle at 12% 0%, rgba(37,99,235,.10), transparent 34%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 100%) !important;
+}
+
+@media (max-width: 1200px) {
+    #page2down .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #page2down .product-section {
+        padding: 105px 22px 72px;
+    }
+
+    #page2down .category-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        overflow: visible;
+    }
+
+    #page2down .product-card {
+        min-height: 320px;
+    }
+
+    #page2down .category-image {
+        height: 185px;
+    }
+
+    #page2down .product-note {
+        border-radius: 18px;
+        text-align: left;
     }
 }
 
@@ -3630,10 +3931,18 @@ body.modal-open {
     </div>
 
     <div class="nav-right">
-        <div class="language-switch">
-            <a href="#" onclick="changeGoogleTranslate('th'); return false;">TH</a><span>/</span>
-            <a href="#" onclick="changeGoogleTranslate('en'); return false;">EN</a><span>/</span>
-            <a href="#" onclick="changeGoogleTranslate('zh-CN'); return false;">中文</a>
+        <div class="language-dropdown">
+            <button class="language-current" type="button">
+                <span>🌐</span>
+                <span>English</span>
+                <span>⌄</span>
+            </button>
+
+            <div class="language-menu">
+                <a href="#" data-lang="th">ไทย</a>
+                <a href="#" data-lang="en">English</a>
+                <a href="#" data-lang="zh-CN">中文</a>
+            </div>
         </div>
 
         <div id="google_translate_element" style="display:none;"></div>
@@ -3874,39 +4183,39 @@ body.modal-open {
         </p>
 
         <div class="category-grid">
-            <a class="category-card" href="product-detail.html?cat=all">
+            <a class="category-card product-card" href="product-detail.html?cat=all">
                 <div class="category-image">
                     <img src="hero-fasteners-4.jpg" alt="All Products">
                 </div>
-                <div class="category-title">ALL</div>
+                <div class="category-title">ALL</div><div class="product-card-meta">Full product range</div><span class="product-card-link">View Products →</span>
             </a>
 
-            <a class="category-card" href="product-detail.html?cat=lock">
+            <a class="category-card product-card" href="product-detail.html?cat=lock">
                 <div class="category-image">
                     <img src="banner (1).png" alt="Lock Nuts">
                 </div>
-                <div class="category-title">Prevailing Torque Lock Nuts</div>
+                <div class="category-title">Prevailing Torque Lock Nuts</div><div class="product-card-meta">DIN 985 / DIN 982</div><span class="product-card-link">View Products →</span>
             </a>
 
-            <a class="category-card" href="product-detail.html?cat=flange">
+            <a class="category-card product-card" href="product-detail.html?cat=flange">
                 <div class="category-image">
                     <img src="banner (2).png" alt="Flange Nuts">
                 </div>
-                <div class="category-title">Hexagon nuts with flange</div>
+                <div class="category-title">Hexagon nuts with flange</div><div class="product-card-meta">Flange type lock nuts</div><span class="product-card-link">View Products →</span>
             </a>
 
-            <a class="category-card" href="product-detail.html?cat=weld">
+            <a class="category-card product-card" href="product-detail.html?cat=weld">
                 <div class="category-image">
-                    <img src="hero-fasteners.JPG" alt="Weld Nuts">
+                    <img src="All.jpg" alt="Hex Nuts">
                 </div>
-                <div class="category-title">Hex Nuts</div>
+                <div class="category-title">Hex Nuts</div><div class="product-card-meta">Standard fastening range</div><span class="product-card-link">View Products →</span>
             </a>
 
-            <a class="category-card" href="product-detail.html?cat=special">
+            <a class="category-card product-card" href="product-detail.html?cat=special">
                 <div class="category-image">
                     <img src="banner (3).png" alt="Special Nuts">
                 </div>
-                <div class="category-title">Weld Nuts</div>
+                <div class="category-title">Weld Nuts</div><div class="product-card-meta">Welding application nuts</div><span class="product-card-link">View Products →</span>
             </a>
         </div>
 
@@ -4719,6 +5028,61 @@ function changeGoogleTranslate(lang) {
 
     select.value = lang;
     select.dispatchEvent(new Event('change'));
+}
+
+const languageDropdown = document.querySelector(".language-dropdown");
+const languageCurrent = document.querySelector(".language-current");
+const languageLinks = document.querySelectorAll(".language-menu a");
+
+function changeGoogleTranslate(lang) {
+    const select = document.querySelector(".goog-te-combo");
+
+    if (!select) {
+        setTimeout(() => changeGoogleTranslate(lang), 500);
+        return;
+    }
+
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+}
+
+if (languageDropdown && languageCurrent) {
+    languageCurrent.addEventListener("click", function () {
+        languageDropdown.classList.toggle("active");
+    });
+
+    languageLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const lang = this.dataset.lang;
+            const label = this.textContent.trim();
+
+            languageCurrent.children[1].textContent = label;
+            languageDropdown.classList.remove("active");
+
+            changeGoogleTranslate(lang);
+        });
+    });
+
+    document.addEventListener("click", function (e) {
+        if (!languageDropdown.contains(e.target)) {
+            languageDropdown.classList.remove("active");
+        }
+    });
+}
+
+</script>
+
+<div id="google_translate_element"></div>
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'th,en,zh-CN',
+        autoDisplay: false
+    }, 'google_translate_element');
 }
 </script>
 
