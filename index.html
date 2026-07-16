@@ -3704,16 +3704,69 @@ body {
     transform: translateX(5px);
 }
 
-#page2down .product-note {
-    max-width: 780px;
+#page2down .view-all-products {
+    position: relative;
+    z-index: 2;
+    max-width: 1240px;
+    min-height: 82px;
     margin: 0 auto;
     padding: 18px 24px;
-    color: rgba(255,255,255,.78);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    color: #ffffff;
+    text-decoration: none;
     background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+    transition: background .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+#page2down .view-all-products:hover {
+    background: rgba(255,255,255,.11);
+    border-color: rgba(96,165,250,.48);
+    box-shadow: 0 20px 48px rgba(0,0,0,.22);
+}
+
+#page2down .view-all-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#page2down .view-all-copy strong {
+    color: #ffffff;
+    font-family: 'Barlow Condensed', 'Inter', Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: .8px;
+}
+
+#page2down .view-all-copy small {
+    color: rgba(255,255,255,.62);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#page2down .view-all-arrow {
+    flex: 0 0 auto;
+    color: #93c5fd;
+    font-size: 28px;
+    font-weight: 700;
+    transition: transform .35s ease, color .35s ease;
+}
+
+#page2down .view-all-products:hover .view-all-arrow {
+    color: #ffffff;
+    transform: translateX(6px);
+}
+
+#page2down .view-all-products:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 4px;
 }
 
 /* Smooth transition into light Capabilities */
@@ -3750,9 +3803,18 @@ body {
         height: 185px;
     }
 
-    #page2down .product-note {
-        border-radius: 18px;
-        text-align: left;
+    #page2down .view-all-products {
+        min-height: 76px;
+        padding: 16px 18px;
+        border-radius: 16px;
+    }
+
+    #page2down .view-all-copy strong {
+        font-size: 19px;
+    }
+
+    #page2down .view-all-copy small {
+        font-size: 12px;
     }
 }
 
@@ -4477,13 +4539,6 @@ body {
         </p>
 
         <div class="category-grid">
-            <a class="category-card product-card" href="product-detail.html?cat=all">
-                <div class="category-image">
-                    <img src="hero-fasteners-4.jpg" alt="All Products">
-                </div>
-                <div class="category-title">ALL</div><div class="product-card-meta">Full product range</div><span class="product-card-link">View Products →</span>
-            </a>
-
             <a class="category-card product-card" href="product-detail.html?cat=lock">
                 <div class="category-image">
                     <img src="banner (1).png" alt="Lock Nuts">
@@ -4513,9 +4568,13 @@ body {
             </a>
         </div>
 
-        <p class="product-note">
-            Select a product category to view product images, names, and detailed specifications on a separate product page.
-        </p>
+        <a class="view-all-products" href="product-detail.html?cat=all">
+            <span class="view-all-copy">
+                <strong>VIEW ALL PRODUCTS</strong>
+                <small>Browse our complete fastener product range</small>
+            </span>
+            <span class="view-all-arrow" aria-hidden="true">→</span>
+        </a>
     </div>
 </section>
 
