@@ -45,11 +45,15 @@ body {
     background: var(--tl-soft);
     color: var(--tl-ink);
     font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
 }
 
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 .category-title {
     font-family: 'Barlow Condensed', 'Inter', Arial, sans-serif;
     font-weight: 600;
@@ -62,8 +66,20 @@ a,
 button,
 input,
 textarea,
-span {
+select,
+label,
+span,
+small {
     font-family: 'Inter', Arial, sans-serif;
+}
+
+.nav-menu a,
+.language-switch a,
+.menu-toggle {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .2px;
 }
 
 button {
@@ -117,10 +133,12 @@ button {
 
 .nav-menu a,
 .language-switch a {
+    font-family: 'Inter', Arial, sans-serif;
     color: #1f2937;
     text-decoration: none;
-    font-size: clamp(13px, .95vw, 16px);
-    font-weight: 700;
+    font-size: clamp(15px, 1.05vw, 17px);
+    font-weight: 600;
+    letter-spacing: .15px;
     white-space: nowrap;
     transition: .3s ease;
 }
@@ -861,12 +879,12 @@ button {
 }
 
 .equipment-label {
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 600;
     color: #64748b;
-    letter-spacing: .7px;
+    letter-spacing: .5px;
     text-transform: uppercase;
-    line-height: 1.35;
 }
 
 .capacity-card strong,
@@ -1360,97 +1378,6 @@ button.equipment-item {
     letter-spacing: .8px;
 }
 
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-}
-
-.cert-card {
-    min-height: 250px;
-    padding: 26px 20px 22px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: var(--tl-white);
-    border: 1px solid var(--tl-line);
-    border-radius: 10px;
-    transition: .3s ease;
-}
-
-.cert-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 38px rgba(7,20,38,.08);
-}
-
-.cert-card img {
-    width: 130px;
-    height: 130px;
-    margin-bottom: 18px;
-    object-fit: contain;
-}
-
-.cert-card h4 {
-    margin-bottom: 8px;
-    color: var(--tl-navy);
-    font-size: 18px;
-    font-weight: 900;
-}
-
-.cert-card p,
-.inspection-card p,
-.process-step p {
-    margin: 0;
-    color: var(--tl-muted);
-    font-size: 13px;
-    line-height: 1.45;
-}
-
-.inspection-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-}
-
-.inspection-card {
-    overflow: hidden;
-    background: var(--tl-white);
-    border: 1px solid var(--tl-line);
-    border-radius: 10px;
-    text-align: center;
-}
-
-.inspection-placeholder{
-    height:200px;
-    padding:20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-
-    background:#f8fbff;
-}
-
-.inspection-placeholder img{
-    max-width:100%;
-    max-height:100%;
-    object-fit:contain;
-    display:block;
-}
-
-.inspection-card h4 {
-    padding: 16px 16px 6px;
-    color: var(--tl-navy);
-    font-size: 18px;
-    font-weight: 900;
-}
-
-.inspection-card p {
-    padding: 0 16px 18px;
-}
-
 .quality-bottom-grid {
     display: grid;
     grid-template-columns: 1.25fr .75fr;
@@ -1538,10 +1465,12 @@ button.equipment-item {
 .capacity-card strong,
 .spec-line p,
 .equipment-item strong,
+.history-year,
+.inspection-no,
 .quality-highlights strong {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Barlow Condensed', 'Inter', Arial, sans-serif;
     font-weight: 600;
-    letter-spacing: -0.4px;
+    letter-spacing: -0.2px;
 }
 
 #group{
@@ -1631,8 +1560,6 @@ button.equipment-item {
 
 
 @media (max-width: 1100px) {
-    .cert-grid,
-    .inspection-grid,
     .process-flow {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1644,8 +1571,6 @@ button.equipment-item {
 
 @media (max-width: 768px) {
     .quality-overview,
-    .cert-grid,
-    .inspection-grid,
     .process-flow,
     .quality-highlights {
         grid-template-columns: 1fr;
@@ -1653,15 +1578,6 @@ button.equipment-item {
 
     .quality-panel {
         padding: 22px;
-    }
-
-    .cert-card {
-        min-height: 220px;
-    }
-
-    .cert-card img {
-        width: 112px;
-        height: 112px;
     }
 
     .history-split{
@@ -1710,6 +1626,264 @@ button.equipment-item {
     .group-card{
         min-height:auto;
         padding:26px 22px;
+    }
+}
+
+
+/* ===== Quality: certification network + inspection list ===== */
+.quality-main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
+    gap: clamp(46px, 6vw, 88px);
+    align-items: start;
+}
+
+.quality-simple-title {
+    margin-bottom: 22px;
+}
+
+.quality-title-kicker {
+    display: block;
+    margin-bottom: 8px;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.quality-simple-title h3 {
+    margin: 0;
+    color: var(--tl-navy);
+    font-size: clamp(28px, 2.7vw, 40px);
+    line-height: 1;
+}
+
+.certification-network {
+    min-width: 0;
+}
+
+.cert-network-stage {
+    position: relative;
+    width: 100%;
+    min-height: 455px;
+}
+
+.cert-network-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.cert-network-lines path {
+    fill: none;
+    stroke: #8fa4bf;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 7 10;
+    opacity: .8;
+}
+
+.cert-node {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    transition: transform .3s ease;
+}
+
+.cert-node:hover {
+    transform: translate(-50%, -50%) scale(1.04);
+}
+
+.cert-node img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 98px;
+    height: 98px;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 20px rgba(15, 23, 42, .10));
+}
+
+.cert-node-main img {
+    width: 128px;
+    height: 128px;
+}
+
+.cert-node-14064 img {
+    width: 142px;
+    height: 76px;
+}
+
+.cert-ring {
+    position: absolute;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(37, 99, 235, .28);
+    border-radius: 50%;
+}
+
+.cert-ring::before,
+.cert-ring::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px dashed rgba(37, 99, 235, .18);
+    border-radius: inherit;
+}
+
+.cert-ring::after {
+    inset: -6px;
+    border-style: solid;
+    border-color: rgba(37, 99, 235, .10);
+}
+
+.cert-node-main .cert-ring {
+    width: 158px;
+    height: 158px;
+}
+
+.cert-ring-wide {
+    width: 162px;
+    height: 102px;
+    border-radius: 999px;
+}
+
+.cert-label {
+    position: absolute;
+    top: calc(100% + 18px);
+    white-space: nowrap;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.cert-node-main { left: 52%; top: 49%; }
+.cert-node-iso { left: 28%; top: 17%; }
+.cert-node-iatf { left: 14%; top: 52%; }
+.cert-node-14064 { left: 36%; top: 79%; }
+.cert-node-urs { left: 81%; top: 79%; }
+
+.inspection-list-panel {
+    align-self: start;
+    padding: clamp(30px, 3vw, 44px);
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, .10);
+    border-radius: 8px;
+}
+
+.inspection-list {
+    border-top: 1px solid var(--tl-line);
+}
+
+.inspection-list-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--tl-line);
+}
+
+.inspection-no {
+    color: var(--tl-blue);
+    font-family: 'Barlow Condensed', 'Inter', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.inspection-list-item h4 {
+    margin: 0 0 6px;
+    color: var(--tl-ink);
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.inspection-list-item p {
+    margin: 0;
+    color: #64748b;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.55;
+}
+
+@media (max-width: 1050px) {
+    .quality-main-grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .cert-network-stage {
+        max-width: 760px;
+        margin: 0 auto;
+    }
+
+    .inspection-list-panel {
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 640px) {
+    .quality-white-section {
+        padding: 64px 20px;
+    }
+
+    .cert-network-stage {
+        min-height: 440px;
+    }
+
+    .cert-network-lines path {
+        stroke-width: 1.6;
+    }
+
+    .cert-node img {
+        width: 82px;
+        height: 82px;
+    }
+
+    .cert-node-main img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .cert-node-14064 img {
+        width: 118px;
+        height: 64px;
+    }
+
+    .cert-ring {
+        width: 104px;
+        height: 104px;
+    }
+
+    .cert-node-main .cert-ring {
+        width: 140px;
+        height: 140px;
+    }
+
+    .cert-ring-wide {
+        width: 136px;
+        height: 88px;
+    }
+
+    .cert-label {
+        top: calc(100% + 11px);
+        font-size: 10px;
+    }
+
+    .inspection-list-panel {
+        padding: 26px 22px;
     }
 }
 
@@ -3909,8 +4083,6 @@ body {
 .equipment-item,
 .process-section,
 .quality-panel,
-.cert-card,
-.inspection-card,
 .process-step,
 .quality-highlights div,
 #contact.contact-clean .contact-column {
@@ -3933,8 +4105,6 @@ body {
 .equipment-item,
 .process-section,
 .quality-panel,
-.cert-card,
-.inspection-card,
 .process-step,
 .quality-highlights div {
     border-radius: var(--tl-card-radius);
@@ -3947,8 +4117,6 @@ body {
 .product-card:hover,
 .info-card:hover,
 .capability-card:hover,
-.cert-card:hover,
-.inspection-card:hover,
 .process-step:hover,
 .quality-highlights div:hover,
 .equipment-item:hover {
@@ -3965,8 +4133,6 @@ body {
 /* image motion consistency */
 .category-image img,
 .capability-media img,
-.inspection-placeholder img,
-.cert-card img,
 .group-card .company-logo,
 .company-card .company-logo {
     transition: transform .72s var(--tl-motion-smooth), filter .72s var(--tl-motion-smooth), opacity .72s var(--tl-motion-smooth);
@@ -3975,9 +4141,7 @@ body {
 
 .category-card:hover .category-image img,
 .product-card:hover .category-image img,
-.capability-card:hover .capability-media img,
-.inspection-card:hover .inspection-placeholder img,
-.cert-card:hover img {
+.capability-card:hover .capability-media img {
     transform: scale(1.045);
 }
 
@@ -4146,8 +4310,6 @@ body {
     .product-card:hover,
     .info-card:hover,
     .capability-card:hover,
-    .cert-card:hover,
-    .inspection-card:hover,
     .process-step:hover,
     .quality-highlights div:hover,
     .equipment-item:hover {
@@ -4265,6 +4427,140 @@ body {
         border-bottom:none;
     }
 }
+
+
+/* =========================================================
+   TYPOGRAPHY + SPACING SYSTEM — CLEANUP POLISH
+   Keeps the existing layout while making section rhythm consistent.
+========================================================= */
+:root {
+    --section-pad-x: clamp(24px, 5.2vw, 80px);
+    --section-pad-top: clamp(92px, 9vw, 122px);
+    --section-pad-bottom: clamp(76px, 8vw, 104px);
+    --content-gap-sm: 14px;
+    --content-gap-md: 24px;
+    --content-gap-lg: 42px;
+}
+
+/* Consistent section spacing */
+.product-section,
+.info-page {
+    padding-left: var(--section-pad-x);
+    padding-right: var(--section-pad-x);
+    padding-top: var(--section-pad-top);
+    padding-bottom: var(--section-pad-bottom);
+}
+
+.quality-white-section {
+    padding: clamp(70px, 7vw, 96px) var(--section-pad-x);
+}
+
+#contact.contact-clean {
+    padding-top: clamp(58px, 6vw, 82px);
+}
+
+/* Consistent title rhythm */
+.product-section > h2,
+.info-content > h2,
+.quality-hero-copy h2 {
+    margin-bottom: var(--content-gap-sm);
+}
+
+.product-intro,
+.info-subtitle {
+    margin-bottom: var(--content-gap-lg);
+}
+
+.quality-simple-title {
+    margin-bottom: var(--content-gap-md);
+}
+
+/* Body copy remains readable */
+.hero-content p,
+.product-intro,
+.info-subtitle,
+.company-card li,
+.group-card p,
+.history-left p,
+.history-text p,
+.capability-body p,
+.process-head p,
+.equipment-head p,
+.inspection-list-item p,
+#contact.contact-clean p {
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Display text remains distinct */
+.nav-menu a,
+.language-switch a,
+h1, h2, h3, h4, h5, h6,
+.category-title,
+.history-year,
+.process-no,
+.inspection-no,
+.capacity-card strong,
+.equipment-item strong,
+.quality-highlights strong {
+    font-family: 'Barlow Condensed', 'Inter', Arial, sans-serif;
+}
+
+/* Balanced quality columns */
+.quality-main-grid {
+    align-items: stretch;
+}
+
+.certification-network,
+.inspection-list-panel {
+    min-height: 100%;
+}
+
+.inspection-list-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.inspection-list {
+    flex: 1;
+}
+
+/* More consistent focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, .38);
+    outline-offset: 3px;
+}
+
+/* Touch devices should not depend on hover movement */
+@media (hover: none) {
+    .company-card:hover,
+    .group-card:hover,
+    .category-card:hover,
+    .product-card:hover,
+    .info-card:hover,
+    .capability-card:hover,
+    .process-step:hover,
+    .quality-highlights div:hover,
+    .equipment-item:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-pad-x: 20px;
+        --section-pad-top: 82px;
+        --section-pad-bottom: 72px;
+    }
+
+    .quality-white-section {
+        padding: 64px var(--section-pad-x);
+    }
+}
+
 </style>
 </head>
 
@@ -4821,80 +5117,92 @@ body {
         <section class="quality-white-section">
         <div class="info-content quality-content">
 
-        <div class="quality-panel">
-            <div class="quality-section-title">
-                <span></span>
-                <h3>CERTIFICATIONS</h3>
-                <span></span>
-            </div>
-
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <img src="ISO ลบหลัง.png" alt="ISO 9001:2015 Certified">
-                    <h4>ISO 9001:2015</h4>
-                    <p>Quality Management System</p>
+        <div class="quality-main-grid">
+            <section class="certification-network" aria-labelledby="certificationTitle">
+                <div class="quality-simple-title">
+                    <span class="quality-title-kicker">QUALITY SYSTEMS</span>
+                    <h3 id="certificationTitle">CERTIFICATIONS</h3>
                 </div>
 
-                <div class="cert-card">
-                    <img src="IATF.png" alt="IATF 16949:2016 Certified">
-                    <h4>IATF 16949:2016</h4>
-                    <p>Automotive Quality Management System</p>
-                </div>
+                <div class="cert-network-stage">
+                    <svg class="cert-network-lines" viewBox="0 0 700 520" preserveAspectRatio="none" aria-hidden="true">
+                        <path d="M350 260 C285 215 235 160 185 105" />
+                        <path d="M350 260 C270 270 175 280 95 275" />
+                        <path d="M350 260 C300 325 245 370 205 415" />
+                        <path d="M350 260 C425 325 500 375 570 420" />
+                    </svg>
 
-                <div class="cert-card">
-                    <img src="14064.png" alt="ISO 14064-1 Certification">
-                    <h4>ISO 14064-1</h4>
-                    <p>Greenhouse Gas Verification</p>
-                </div>
-
-                <div class="cert-card">
-                    <img src="16949.png" alt="United Registrar of Systems">
-                    <h4>URS</h4>
-                    <p>United Registrar of Systems</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="quality-panel quality-panel-soft">
-            <div class="quality-section-title">
-                <span></span>
-                <h3>INSPECTION EQUIPMENT</h3>
-                <span></span>
-            </div>
-
-            <div class="inspection-grid">
-                <div class="inspection-card">
-                    <div class="inspection-placeholder">
-                        <img src="เครื่องฉายภาพ.jpg" alt="Profile Projector">
+                    <div class="cert-node cert-node-main">
+                        <span class="cert-ring" aria-hidden="true"></span>
+                        <img src="logo-01.png" alt="THAI LOCK">
                     </div>
-                    <h4>Profile Projector</h4>
-                    <p>Dimension measurement and profile inspection</p>
+
+                    <div class="cert-node cert-node-iso">
+                        <span class="cert-ring" aria-hidden="true"></span>
+                        <img src="ISO ลบหลัง.png" alt="ISO 9001:2015 Certified">
+                        <span class="cert-label">ISO 9001:2015</span>
+                    </div>
+
+                    <div class="cert-node cert-node-iatf">
+                        <span class="cert-ring" aria-hidden="true"></span>
+                        <img src="IATF.png" alt="IATF 16949:2016 Certified">
+                        <span class="cert-label">IATF 16949:2016</span>
+                    </div>
+
+                    <div class="cert-node cert-node-14064">
+                        <span class="cert-ring cert-ring-wide" aria-hidden="true"></span>
+                        <img src="14064.png" alt="ISO 14064-1 Bureau Veritas Certification">
+                        <span class="cert-label">ISO 14064-1</span>
+                    </div>
+
+                    <div class="cert-node cert-node-urs">
+                        <span class="cert-ring" aria-hidden="true"></span>
+                        <img src="16949_1.PNG" alt="United Registrar of Systems">
+                        <span class="cert-label">URS</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="inspection-list-panel" aria-labelledby="inspectionTitle">
+                <div class="quality-simple-title">
+                    <span class="quality-title-kicker">MEASUREMENT & TESTING</span>
+                    <h3 id="inspectionTitle">INSPECTION EQUIPMENT</h3>
                 </div>
 
-                <div class="inspection-card">
-                    <div class="inspection-placeholder">
-                        <img src="900-359.jpg" alt="Hardness Tester">
-                    </div>
-                    <h4>Hardness Tester</h4>
-                    <p>Rockwell / Vickers hardness testing</p>
-                </div>
+                <div class="inspection-list">
+                    <article class="inspection-list-item">
+                        <span class="inspection-no">01</span>
+                        <div>
+                            <h4>Profile Projector</h4>
+                            <p>Dimension measurement and profile inspection</p>
+                        </div>
+                    </article>
 
-                <div class="inspection-card">
-                    <div class="inspection-placeholder">
-                        <img src="เครื่องทดสอบเกลือ.jpg" alt="Salt Spray Tester">
-                    </div>
-                    <h4>Salt Spray Tester</h4>
-                    <p>Corrosion resistance testing</p>
-                </div>
+                    <article class="inspection-list-item">
+                        <span class="inspection-no">02</span>
+                        <div>
+                            <h4>Hardness Tester</h4>
+                            <p>Rockwell / Vickers hardness testing</p>
+                        </div>
+                    </article>
 
-                <div class="inspection-card">
-                    <div class="inspection-placeholder">
-                        <img src="เครื่องวัดมุม.jpg" alt="Angle Finder">
-                    </div>
-                    <h4>Measuring Tools</h4>
-                    <p>Micrometer, caliper, gauges and measuring instruments</p>
+                    <article class="inspection-list-item">
+                        <span class="inspection-no">03</span>
+                        <div>
+                            <h4>Salt Spray Tester</h4>
+                            <p>Corrosion resistance testing</p>
+                        </div>
+                    </article>
+
+                    <article class="inspection-list-item">
+                        <span class="inspection-no">04</span>
+                        <div>
+                            <h4>Measuring Tools</h4>
+                            <p>Micrometer, caliper, gauges and measuring instruments</p>
+                        </div>
+                    </article>
                 </div>
-            </div>
+            </section>
         </div>
 
         <div class="quality-bottom-grid">
@@ -5151,8 +5459,6 @@ const revealSelectors = [
     ".quality-hero-copy > *",
     ".quality-overview-item",
     ".quality-panel",
-    ".cert-card",
-    ".inspection-card",
     ".process-step",
     ".quality-highlights > div",
     "#contact .contact-column",
@@ -5167,15 +5473,13 @@ const cardRevealClasses = [
     "product-card",
     "capability-card",
     "quality-overview-item",
-    "cert-card",
-    "inspection-card",
     "process-step",
     "contact-column",
     "equipment-item"
 ];
 
 function getRevealGroupKey(item) {
-    const group = item.closest(".group-network, .category-grid, .capabilities-grid, .equipment-machine-grid, .quality-overview, .cert-grid, .inspection-grid, .process-flow, .quality-highlights, .contact-inner, .process-slide, .equipment-layout-c");
+    const group = item.closest(".group-network, .category-grid, .capabilities-grid, .equipment-machine-grid, .quality-overview, .process-flow, .quality-highlights, .contact-inner, .process-slide, .equipment-layout-c");
     if (!group) return null;
     return group;
 }
