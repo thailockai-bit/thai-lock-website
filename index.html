@@ -5436,8 +5436,39 @@ body {
 
 /* ===== COMPANY NAV DROPDOWN ===== */
 .nav-company { position: relative; }
-.nav-company-trigger { display:flex; align-items:center; gap:7px; }
-.company-arrow { width:7px; height:7px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg) translateY(-2px); transition:transform .25s ease; }
+
+/* COMPANY uses exactly the same typography as every main navigation item */
+.nav-menu > li > .nav-company-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #1f2937;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: clamp(13px, .95vw, 16px);
+    font-weight: 700;
+    letter-spacing: .2px;
+    line-height: normal;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.company-arrow {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 auto;
+    border-right: 1.6px solid currentColor;
+    border-bottom: 1.6px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transform-origin: center;
+    transition: transform .22s ease;
+}
+
+.nav-company:hover .company-arrow,
+.nav-company:focus-within .company-arrow,
+.nav-company.open .company-arrow {
+    transform: rotate(-135deg) translate(-1px, -1px);
+}
 .company-menu { position:absolute; top:calc(100% + 18px); left:50%; min-width:230px; padding:10px; margin:0; list-style:none; background:rgba(255,255,255,.98); border:1px solid rgba(15,37,84,.10); border-radius:12px; box-shadow:0 18px 45px rgba(15,37,84,.16); opacity:0; visibility:hidden; transform:translate(-50%,-8px); transition:.25s ease; }
 .company-menu::before { content:""; position:absolute; left:0; right:0; top:-20px; height:20px; }
 .company-menu li { width:100%; }
@@ -5446,7 +5477,6 @@ body {
 .nav-company:hover .company-menu,
 .nav-company:focus-within .company-menu,
 .nav-company.open .company-menu { opacity:1; visibility:visible; transform:translate(-50%,0); }
-.nav-company.open .company-arrow { transform:rotate(-135deg) translate(-1px,-1px); }
 
 /* Home now contains only the About slide */
 #homeSlider .pages { width:100%; transform:none !important; }
