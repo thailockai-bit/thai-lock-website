@@ -5460,31 +5460,50 @@ body {
   .company-menu a { padding:10px 18px; text-align:center; font-size:13px; }
 }
 </style>
-</head>
 
-<body>
+<style>
+body.company-page { background:#fff; }
+.company-hero { position:relative; min-height:100vh; padding-top:70px; overflow:hidden; background:linear-gradient(90deg,#fff 0%,#f4f8ff 58%,#e9f1ff 100%); }
+.company-hero .hero-content { min-height:calc(100vh - 70px); }
+.company-section { scroll-margin-top:70px; }
+#group.company-section { min-height:100vh; padding-top:70px; background:#f7f9fc; }
+#group .about-content { min-height:calc(100vh - 70px); height:auto; overflow:visible; }
+#history.company-section { min-height:100vh; padding:110px 5vw 80px; background:#fff; }
+#history .history-split { min-height:auto; height:auto; }
+.company-page-intro { position:absolute; top:105px; left:50%; transform:translateX(-50%); z-index:12; font-size:12px; font-weight:800; letter-spacing:.2em; color:var(--tl-blue); text-transform:uppercase; }
+.company-footer { padding:28px 20px; text-align:center; background:var(--tl-dark); color:rgba(255,255,255,.7); font-size:13px; }
+@media(max-width:768px){
+ .company-hero{padding-top:70px; min-height:auto;}
+ .company-hero .hero-content{min-height:auto; padding-top:100px; padding-bottom:70px;}
+ #group.company-section{padding-top:70px;}
+ #group .about-content{padding-top:70px;}
+ #history.company-section{padding:100px 20px 70px;}
+}
+</style>
+</head>
+<body class="company-page" id="company-top">
 <nav class="navbar">
     <div class="nav-left">
         <div class="nav-logo">
-            <a href="#page0"><img src="logo-01.png" alt="Logo"></a>
+            <a href="index.html#page0"><img src="logo-01.png" alt="Logo"></a>
         </div>
     </div>
 
     <div class="nav-center">
         <ul class="nav-menu">
-            <li><a href="#page0">HOME</a></li>
+            <li><a href="index.html#page0">HOME</a></li>
             <li class="nav-company">
-                <a href="index.html#homeSlider" class="nav-company-trigger">COMPANY <span class="company-arrow" aria-hidden="true"></span></a>
+                <a href="#company-top" class="nav-company-trigger">COMPANY <span class="company-arrow" aria-hidden="true"></span></a>
                 <ul class="company-menu">
                     <li><a href="index.html#homeSlider">About THAI LOCK</a></li>
                     <li><a href="company.html#group">Group Companies</a></li>
                     <li><a href="company.html#history">Company History</a></li>
                 </ul>
             </li>
-            <li><a href="#page2down">PRODUCT</a></li>
-            <li><a href="#capabilities">CAPABILITIES</a></li>
-            <li><a href="#quality">QUALITY</a></li>
-            <li><a href="#contact">CONTACT US</a></li>
+            <li><a href="index.html#page2down">PRODUCT</a></li>
+            <li><a href="index.html#capabilities">CAPABILITIES</a></li>
+            <li><a href="index.html#quality">QUALITY</a></li>
+            <li><a href="index.html#contact">CONTACT US</a></li>
         </ul>
     </div>
 
@@ -5522,35 +5541,16 @@ body {
     </div>
 </nav>
 <div class="mobile-menu-backdrop" aria-hidden="true"></div>
-
-<section class="page-zero" id="page0">
-    <video class="zero-video" autoplay muted loop playsinline>
-        <source src="in.mp4" type="video/mp4">
-    </video>
-
-    <div class="zero-content">
-        <h1>
-            YOUR TRUSTED<br>
-            FASTENER SPECIALIST
-        </h1>
-        <p>WE SUPPLY TOP QUALITY PRODUCTS AND SERVICES</p>
-    </div>
-</section>
-
-<section class="horizontal-slider" id="homeSlider">
-    <div class="pages" id="pages">
-        <div class="page image-container home-bg" id="home">
-
-            <div class="page-overlay"></div>
-
-            <div class="hero-content narrative-hero">
+<section class="company-hero company-section" id="about"><div class="hero-content narrative-hero">
                 <div>
                     <span class="section-kicker">WHO WE ARE</span>
                     <h1>THAILOCK<br>FASTENERS</h1>
                     <p>THAILOCK FASTENERS CO., LTD was established in 1991 as a professional lock nuts manufacturer.</p>
                     <p>With over 30 years of experiences in the industry, Thailock Fasteners is now actively supplying a wide variety of nuts to customers worldwide.</p>
                 </div>
-</div>
+
+                
+            </div>
 
             <div class="hero-visual" aria-hidden="true">
                 <div class="hero-visual-inner">
@@ -5558,1103 +5558,152 @@ body {
                     <span class="hero-visual-shine"></span>
                 </div>
             </div>
-</div>
-    </div>
-</section>
 
-<section class="strength-strip-section" id="manufacturing-strength" aria-label="Manufacturing Strength">
-    <div class="strength-strip-inner">
-        <div class="strength-strip-item">
-            <strong>30+</strong>
-            <span>Years Experience</span>
-        </div>
+            </section>
+<section class="company-section" id="group"><div class="about-content group-content">
+                <span class="group-kicker">OUR GROUP</span>
+                <h2>TOGETHER WE BUILD<br>BETTER FASTENERS</h2>
+                <p class="group-subtitle">
+                    A connected manufacturing network built from Taiwan to Thailand,
+                    supporting stable quality, reliable capacity, and long-term customer trust.
+                </p>
 
-        <div class="strength-strip-item">
-            <strong>50+</strong>
-            <span>Countries Served</span>
-        </div>
+                <div class="group-network">
 
-        <div class="strength-strip-item">
-            <strong>1,000+</strong>
-            <span>Tons / Month Capacity</span>
-        </div>
-
-        <div class="strength-strip-item">
-            <strong>200+</strong>
-            <span>Employees</span>
-        </div>
-    </div>
-</section>
-
-<section class="page-two-down" id="page2down">
-    <div class="product-section">
-        <span class="section-kicker product-kicker">WHAT WE MAKE</span>
-        <h2>PRODUCTS</h2>
-        <p class="product-intro">
-            Fastener product categories designed for automotive, industrial, and OEM applications.
-        </p>
-
-        <div class="category-grid">
-            <a class="category-card product-card" href="product-detail.html?cat=lock">
-                <div class="category-image">
-                    <img src="banner (1).png" alt="Lock Nuts">
-                </div>
-                <div class="category-title">Prevailing Torque Lock Nuts</div><div class="product-card-meta">DIN 985 / DIN 982</div><span class="product-card-link">View Products →</span>
-            </a>
-
-            <a class="category-card product-card" href="product-detail.html?cat=flange">
-                <div class="category-image">
-                    <img src="banner (2).png" alt="Flange Nuts">
-                </div>
-                <div class="category-title">Product1</div><div class="product-card-meta">Flange type lock nuts</div><span class="product-card-link">View Products →</span>
-            </a>
-
-            <a class="category-card product-card" href="product-detail.html?cat=flange">
-                <div class="category-image">
-                    <img src="banner (2).png" alt="Flange Nuts">
-                </div>
-                <div class="category-title">Product2</div><div class="product-card-meta">Flange type lock nuts</div><span class="product-card-link">View Products →</span>
-            </a>
-
-            <a class="category-card product-card" href="product-detail.html?cat=flange">
-                <div class="category-image">
-                    <img src="banner (2).png" alt="Flange Nuts">
-                </div>
-                <div class="category-title">Product3</div><div class="product-card-meta">Flange type lock nuts</div><span class="product-card-link">View Products →</span>
-            </a>
-
-            <a class="category-card product-card" href="product-detail.html?cat=flange">
-                <div class="category-image">
-                    <img src="banner (2).png" alt="Flange Nuts">
-                </div>
-                <div class="category-title">Hexagon nuts with flange</div><div class="product-card-meta">Flange type lock nuts</div><span class="product-card-link">View Products →</span>
-            </a>
-
-            <a class="category-card product-card" href="product-detail.html?cat=flange">
-                <div class="category-image">
-                    <img src="banner (2).png" alt="Flange Nuts">
-                </div>
-                <div class="category-title">Hexagon nuts with flange</div><div class="product-card-meta">Flange type lock nuts</div><span class="product-card-link">View Products →</span>
-            </a>
-
-            <a class="category-card product-card" href="product-detail.html?cat=weld">
-                <div class="category-image">
-                    <img src="All.jpg" alt="Hex Nuts">
-                </div>
-                <div class="category-title">Hex Nuts</div><div class="product-card-meta">Standard fastening range</div><span class="product-card-link">View Products →</span>
-            </a>
-
-            <a class="category-card product-card" href="product-detail.html?cat=special">
-                <div class="category-image">
-                    <img src="banner (3).png" alt="Special Nuts">
-                </div>
-                <div class="category-title">Weld Nuts</div><div class="product-card-meta">Welding application nuts</div><span class="product-card-link">View Products →</span>
-            </a>
-        </div>
-
-        <a class="view-all-products" href="product-detail.html?cat=all">
-            <span class="view-all-copy">
-                <strong>VIEW ALL PRODUCTS</strong>
-                <small>Browse our complete fastener product range</small>
-            </span>
-            <span class="view-all-arrow" aria-hidden="true">→</span>
-        </a>
-    </div>
-</section>
-
-<section class="info-page" id="capabilities">
-    <div class="info-content">
-        <h2>CAPABILITIES</h2>
-        <p class="info-subtitle">Manufacturing capabilities designed for stable quality, consistent production, and custom fastener requirements.</p>
-
-        <div class="equipment-capacity">
-            <div class="equipment-head">
-                <span>Equipment & Capacity</span>
-                <p>Production capability overview for fastener manufacturing and OEM requirements.</p>
-            </div>
-
-            <div class="equipment-layout-c">
-                <div class="capacity-card">
-                    <span class="equipment-label">Monthly Capacity</span>
-                    <strong>1,000+</strong>
-                    <small>Tons / Month</small>
-                </div>
-
-                <div class="spec-card">
-                    <span class="equipment-label">Size Range</span>
-                    <div class="spec-line">
-                        <b>Metric</b>
-                        <p>M3 – M24</p>
+                    <div class="group-card group-side">
+                        <a href="https://www.jingfong.com/en/" target="_blank" rel="noopener noreferrer" class="group-logo-link">
+                            <img src="jingfong.jpg" class="company-logo" alt="JING FONG INDUSTRY CO., LTD.">
+                        </a>
+                        <h3>
+                            <a href="https://www.jingfong.com/en/" target="_blank" rel="noopener noreferrer" class="company-link">
+                                JING FONG INDUSTRY<br>CO., LTD.
+                            </a>
+                        </h3>
+                        <span>Taiwan</span>
+                        <p>Parent company and the origin of our quality commitment since 1980.</p>
                     </div>
-                    <div class="spec-line">
-                        <b>Inch</b>
-                        <p>#4 – 1"</p>
+
+                    <div class="group-card group-main">
+                        <div class="group-main-top">
+                            <img src="logo-01.png" class="company-logo" alt="THAI LOCK CO., LTD.">
+                            <strong>THAI LOCK</strong>
+                        </div>
+                        <div class="group-main-body">
+                            <h3>THAI LOCK CO., LTD.</h3>
+                            <span>Thailand</span>
+                            <p>Manufacturer of high-quality fasteners for industrial applications worldwide.</p>
+                        </div>
                     </div>
+
+                    <div class="group-card group-side">
+                        <img src="thaimax-logo.png" class="company-logo" alt="THAIMAX CO., LTD.">
+                        <h3>THAIMAX CO., LTD.</h3>
+                        <span>Thailand</span>
+                        <p>Manufacturer of high-quality plastic components and related products.</p>
+                    </div>
+
                 </div>
 
-                <div class="spec-card">
-                    <span class="equipment-label">Materials</span>
+                
+            </div>
 
-                    <div class="spec-line">
-                        <b>Grade</b>
-                        <p>SAE1010</p>
+            </section>
+<section class="company-section" id="history"><div class="history-split">
+
+            <div class="history-left">
+
+                <span>OUR JOURNEY</span>
+
+                <h2>
+                    COMPANY<br>
+                    HISTORY
+                </h2>
+
+                <p>
+                    From the group foundation in Taiwan to certified manufacturing in Thailand, our journey continues through stable growth and continuous improvement.
+                </p>
+
+            </div>
+
+            <div class="history-right">
+
+                <div class="history-row">
+                    <div class="history-year">1980</div>
+
+                    <div class="history-text">
+                        <h3>JING FONG INDUSTRY</h3>
                     </div>
-                    <div class="spec-line">
-                        <b>Grade</b>
-                        <p>SAE1015</p>
-                    </div>
-                    <div class="spec-line">
-                        <b>Grade</b>
-                        <p>10B21</p>
-                    </div>
-                    <div class="spec-line">
-                        <b>Grade</b>
-                        <p>S50C</p>
-                    </div>
+
+                    <img src="factory1.jpg" alt="Factory Image">
                 </div>
+
+                <div class="history-row">
+                    <div class="history-year">1991</div>
+
+                    <div class="history-text">
+                        <h3>THAILOCK ESTABLISHED</h3>
+                    </div>
+
+                    <img src="TL 1.png" alt="Factory Image">
+                </div>
+
+                <div class="history-row">
+                    <div class="history-year">2001</div>
+
+                    <div class="history-text">
+                        <h3>ISO 9001 CERTIFIED</h3>
+                    </div>
+
+                    <img src="iso.png" alt="">
+                </div>
+
+                <div class="history-row">
+                    <div class="history-year">2012</div>
+
+                    <div class="history-text">
+                        <h3>IATF16949 CERTIFIED</h3>
+                    </div>
+
+                    <img src="iatf.png" alt="">
+                </div>
+
+                <div class="history-row">
+                    <div class="history-year">2020</div>
+
+                    <div class="history-text">
+                        <h3>RAYONG FACTORY OPENED</h3>
+                    </div>
+
+                    <img src="factory2.jpg" alt="">
+                </div>
+
+                
+
             </div>
 
-            <div class="equipment-machine-grid">
-                <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('forming')">
-                    <span class="equipment-label">Forming Machines</span>
-                    <strong>47</strong>
-                    <small>Click to view machine list</small>
-                </button>
-
-                <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('tapping')">
-                    <span class="equipment-label">Tapping Machines</span>
-                    <strong>91</strong>
-                    <small>Click to view machine list</small>
-                </button>
-
-                <button class="equipment-item equipment-clickable" type="button" onclick="openMachinePopup('assembling')">
-                    <span class="equipment-label">Assembling Machines</span>
-                    <strong>37</strong>
-                    <small>Click to view machine list</small>
-                </button>
-            </div>
         </div>
 
-
-        <div class="process-section">
-            <div class="process-head">
-                <span>Manufacturing Process</span>
-                <p>Controlled production flow from raw material preparation to packing and delivery.</p>
-            </div>
-
-            <div class="process-slider">
-            <div class="process-slide active">
-<div class="info-card capability-card">
-                <div class="capability-media">
-                    <img src="แช่.png" alt="Cold Forging">
-                    <video muted loop playsinline><source src="แช่(1).mp4" type="video/mp4"></video>
-                </div>
-                <div class="capability-body">
-                    <div class="process-no">PROCESS 01</div>
-                    <h3>Wire Pickling</h3>
-                </div>
-            </div>
-
-<div class="info-card capability-card">
-                <div class="capability-media">
-                    <img src="รีด.png" alt="Threading Process">
-                    <video muted loop playsinline><source src="รีด.mp4" type="video/mp4"></video>
-                </div>
-                <div class="capability-body">
-                    <div class="process-no">PROCESS 02</div>
-                    <h3>Wire Drawing</h3>
-                </div>
-            </div>
-
-<div class="info-card capability-card">
-                <div class="capability-media">
-                    <img src="forming.png" alt="OEM Fasteners">
-                    <video muted loop playsinline><source src="FM.mp4" type="video/mp4"></video>
-                </div>
-                <div class="capability-body">
-                    <div class="process-no">PROCESS 03</div>
-                    <h3>Forming</h3>
-                </div>
-            </div>
-            </div>
-
-            <div class="process-slide">
-<div class="info-card capability-card">
-                <div class="capability-media">
-                    <img src="tap.png" alt="Heat Treatment">
-                    <video muted loop playsinline><source src="TAP.mp4" type="video/mp4"></video>
-                </div>
-                <div class="capability-body">
-                    <div class="process-no">PROCESS 04</div>
-                    <h3>Tapping</h3>
-                </div>
-            </div>
-
-<div class="info-card capability-card">
-                <div class="capability-media">
-                    <img src="heat.png" alt="Surface Finishing">
-                    <video muted loop playsinline><source src="HEAT.mp4" type="video/mp4"></video>
-                </div>
-                <div class="capability-body">
-                    <div class="process-no">PROCESS 05</div>
-                    <h3>Heat Treatment</h3>
-                </div>
-            </div>
-
-<div class="info-card capability-card">
-                <div class="capability-media">
-                    <img src="assembling.png" alt="Quality Inspection">
-                    <video muted loop playsinline><source src="assy.mp4" type="video/mp4"></video>
-                </div>
-                <div class="capability-body">
-                    <div class="process-no">PROCESS 06</div>
-                    <h3>Assembling</h3>
-                </div>
-            </div>
-            </div>
-
-            <div class="process-slide">
-<div class="info-card capability-card">
-                <div class="capability-media">
-                    <img src="plating.png" alt="Laboratory Testing">
-                    <video muted loop playsinline><source src="ชุบ.mp4" type="video/mp4"></video>
-                </div>
-                <div class="capability-body">
-                    <div class="process-no">PROCESS 07</div>
-                    <h3>Plating</h3>
-                </div>
-            </div>
-
-<div class="info-card capability-card">
-                <div class="capability-media">
-                    <img src="sorting.png" alt="Packaging">
-                    <video muted loop playsinline><source src="SORTING(1).mp4" type="video/mp4"></video>
-                </div>
-                <div class="capability-body">
-                    <div class="process-no">PROCESS 08</div>
-                    <h3>Sorting</h3>
-                </div>
-            </div>
-
-<div class="info-card capability-card">
-                <div class="capability-media">
-                    <img src="packing.png" alt="Production Capacity">
-                    <video muted loop playsinline><source src="" type="video/mp4"></video>
-                </div>
-                <div class="capability-body">
-                    <div class="process-no">PROCESS 09</div>
-                    <h3>Packing & Delivery</h3>
-                </div>
-            </div>
-            </div>
-            </div>
-
-            <div class="process-controls">
-                <button type="button" class="process-arrow" onclick="changeProcessSlide(-1)">❮</button>
-
-                <div class="process-dots">
-                    <button type="button" class="process-dot active" onclick="showProcessSlide(0)" aria-label="Process slide 1"></button>
-                    <button type="button" class="process-dot" onclick="showProcessSlide(1)" aria-label="Process slide 2"></button>
-                    <button type="button" class="process-dot" onclick="showProcessSlide(2)" aria-label="Process slide 3"></button>
-                </div>
-
-                <button type="button" class="process-arrow" onclick="changeProcessSlide(1)">❯</button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="info-page quality-page" id="quality">
-    <div class="info-content quality-content">
-        <div class="quality-hero-copy">
-            <span class="quality-kicker">Certified Quality System</span>
-            <h2>QUALITY ASSURANCE</h2>
-            <p class="info-subtitle">
-                Committed to delivering reliable fasteners through certified management systems,
-                controlled inspection, and continuous quality improvement.
-            </p>
-        </div>
-
-        <div class="quality-overview">
-            <div class="quality-overview-item">
-                <div class="quality-overview-icon">✓</div>
-                <strong>Certified Systems</strong>
-                <span>International quality standards</span>
-            </div>
-
-            <div class="quality-overview-item">
-                <div class="quality-overview-icon">◎</div>
-                <strong>Precise Control</strong>
-                <span>Inspection at every step</span>
-            </div>
-
-            <div class="quality-overview-item">
-                <div class="quality-overview-icon">↗</div>
-                <strong>Improvement</strong>
-                <span>Continuous process control</span>
-            </div>
-
-            <div class="quality-overview-item">
-                <div class="quality-overview-icon">◉</div>
-                <strong>Customer Trust</strong>
-                <span>Reliable product quality</span>
-            </div>
-        </div>
         </section>
-
-        <section class="quality-white-section">
-        <div class="info-content quality-content">
-
-        <div class="quality-main-grid">
-            <section class="certification-network" aria-labelledby="certificationTitle">
-                <div class="quality-simple-title">
-                    <span class="quality-title-kicker">QUALITY SYSTEMS</span>
-                    <h3 id="certificationTitle">CERTIFICATIONS</h3>
-                </div>
-
-                <div class="cert-network-stage">
-                    <svg class="cert-network-lines" viewBox="0 0 700 520" preserveAspectRatio="none" aria-hidden="true">
-                        <path d="M350 260 C285 215 235 160 185 105" />
-                        <path d="M350 260 C270 270 175 280 95 275" />
-                        <path d="M350 260 C300 325 245 370 205 415" />
-                        <path d="M350 260 C425 325 500 375 570 420" />
-                    </svg>
-
-                    <div class="cert-node cert-node-main">
-                        <span class="cert-ring" aria-hidden="true"></span>
-                        <img src="logo-01.png" alt="THAI LOCK">
-                    </div>
-
-                    <div class="cert-node cert-node-iso">
-                        <span class="cert-ring" aria-hidden="true"></span>
-                        <img src="ISO ลบหลัง.png" alt="ISO 9001:2015 Certified">
-                        <span class="cert-label">ISO 9001:2015</span>
-                    </div>
-
-                    <div class="cert-node cert-node-iatf">
-                        <span class="cert-ring" aria-hidden="true"></span>
-                        <img src="IATF.png" alt="IATF 16949:2016 Certified">
-                        <span class="cert-label">IATF 16949:2016</span>
-                    </div>
-
-                    <div class="cert-node cert-node-14064">
-                        <span class="cert-ring cert-ring-wide" aria-hidden="true"></span>
-                        <img src="14064.png" alt="ISO 14064-1 Bureau Veritas Certification">
-                        <span class="cert-label">ISO 14064-1</span>
-                    </div>
-
-                    <div class="cert-node cert-node-urs">
-                        <span class="cert-ring" aria-hidden="true"></span>
-                        <img src="16949_1.PNG" alt="United Registrar of Systems">
-                        <span class="cert-label">URS</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="inspection-list-panel" aria-labelledby="inspectionTitle">
-                <div class="quality-simple-title">
-                    <span class="quality-title-kicker">MEASUREMENT & TESTING</span>
-                    <h3 id="inspectionTitle">INSPECTION EQUIPMENT</h3>
-                </div>
-
-                <div class="inspection-list">
-                    <article class="inspection-list-item">
-                        <span class="inspection-no">01</span>
-                        <div>
-                            <h4>Profile Projector</h4>
-                            <p>Dimension measurement and profile inspection</p>
-                        </div>
-                    </article>
-
-                    <article class="inspection-list-item">
-                        <span class="inspection-no">02</span>
-                        <div>
-                            <h4>Hardness Tester</h4>
-                            <p>Rockwell / Vickers hardness testing</p>
-                        </div>
-                    </article>
-
-                    <article class="inspection-list-item">
-                        <span class="inspection-no">03</span>
-                        <div>
-                            <h4>Salt Spray Tester</h4>
-                            <p>Corrosion resistance testing</p>
-                        </div>
-                    </article>
-
-                    <article class="inspection-list-item">
-                        <span class="inspection-no">04</span>
-                        <div>
-                            <h4>Measuring Tools</h4>
-                            <p>Micrometer, caliper, gauges and measuring instruments</p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-        </div>
-
-        <div class="quality-bottom-grid">
-            <div class="quality-panel quality-process-panel">
-                <div class="quality-section-title compact">
-                    <span></span>
-                    <h3>QUALITY CONTROL PROCESS</h3>
-                    <span></span>
-                </div>
-
-                <div class="process-flow">
-                    <div class="process-step">
-                        <b>01</b>
-                        <strong>Incoming Inspection</strong>
-                        <p>Raw material checking before production</p>
-                    </div>
-
-                    <div class="process-step">
-                        <b>02</b>
-                        <strong>In-Process Control</strong>
-                        <p>Monitoring and checking during production</p>
-                    </div>
-
-                    <div class="process-step">
-                        <b>03</b>
-                        <strong>Final Inspection</strong>
-                        <p>Product inspection before packing</p>
-                    </div>
-
-                    <div class="process-step">
-                        <b>04</b>
-                        <strong>Packing & Shipment</strong>
-                        <p>Secure packing and delivery control</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quality-panel quality-highlights-panel">
-                <div class="quality-section-title compact">
-                    <span></span>
-                    <h3>QUALITY HIGHLIGHTS</h3>
-                    <span></span>
-                </div>
-
-                <div class="quality-highlights">
-                    <div>
-                        <strong>100%</strong>
-                        <span>Final Inspection</span>
-                    </div>
-                    <div>
-                        <strong>30+</strong>
-                        <span>Years Experience</span>
-                    </div>
-                    <div>
-                        <strong>GLOBAL</strong>
-                        <span>Customer Support</span>
-                    </div>
-                    <div>
-                        <strong>OEM</strong>
-                        <span>Specification Control</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-
-<section id="contact" class="contact-clean">
-    <div class="contact-inner">
-
-        <div class="contact-column location-column">
-            <h3>STRATEGIC LOCATION</h3>
-
-            <p class="company-name">THAILOCK FASTENERS CO., LTD.</p>
-            <p>
-                Located in Thailand's Eastern Economic Corridor (EEC), near Laem Chabang Port and major industrial zones.
-            </p>
-
-            <p><strong>Chonburi Plant:</strong> Near Laem Chabang Port</p>
-            <p><strong>Rayong Plant:</strong> New Production Plant</p>
-
-            <div class="map-box">
-                <iframe
-                    src="https://www.google.com/maps?q=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand&output=embed"
-                    loading="lazy"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <div class="map-buttons">
-                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20CO.%2C%20LTD.%20Chonburi%20Thailand" target="_blank">
-                    View Chonburi Plant →
-                </a>
-                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=THAILOCK%20FASTENERS%20Rayong%20Thailand" target="_blank">
-                    View Rayong Plant →
-                </a>
-            </div>
-        </div>
-
-        <form class="contact-column contact-form">
-            <h3>SEND MESSAGE</h3>
-
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <input type="text" placeholder="Subject">
-            <textarea placeholder="Message"></textarea>
-
-            <button type="submit">Send Message →</button>
-        </form>
-
-        <div class="contact-column contact-info">
-            <h3>CONTACT INFO</h3>
-
-            <div class="info-row">
-                <strong>Head Office / Plant:</strong>
-                <p>Chonburi Plant, Thailand<br>Rayong Plant, Thailand</p>
-            </div>
-
-            <div class="info-row">
-                <strong>Email:</strong>
-                <p>thailock.Ai@gmail.com</p>
-            </div>
-
-            <div class="info-row">
-                <strong>Tel:</strong>
-                <p>+66 xxx xxxx</p>
-            </div>
-
-            <div class="info-row">
-                <strong>Website:</strong>
-                <p>www.thailock.com</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer-copy">
-        © 2026 THAILOCK FASTENERS CO., LTD. All Rights Reserved.
-    </div>
-</section>
-
-<div class="machine-modal" id="machineModal" aria-hidden="true">
-    <div class="machine-modal-backdrop" onclick="closeMachinePopup()"></div>
-    <div class="machine-modal-panel" role="dialog" aria-modal="true" aria-labelledby="machineModalTitle">
-        <button class="machine-modal-close" type="button" onclick="closeMachinePopup()" aria-label="Close popup">×</button>
-        <div class="machine-modal-head">
-            <span>Machine List</span>
-            <h3 id="machineModalTitle">Machine List</h3>
-            <p id="machineModalSubtitle">Machine names and numbers can be updated later according to the actual factory list.</p>
-        </div>
-        <div class="machine-list" id="machineList"></div>
-    </div>
-</div>
+<footer class="company-footer">© THAI LOCK FASTENERS CO., LTD. All rights reserved.</footer>
 
 <script>
-
-/* =========================================================
-   MOBILE MENU TOGGLE - FIXED
-========================================================= */
-const menuToggle = document.querySelector(".menu-toggle");
-const navCenter = document.querySelector(".nav-center");
-const navMenu = document.querySelector(".nav-menu");
-const mobileMenuBackdrop = document.querySelector(".mobile-menu-backdrop");
-
-function openMobileMenu() {
-    navCenter.classList.add("active");
-    navMenu.classList.add("active");
-    menuToggle.classList.add("active");
-    mobileMenuBackdrop.classList.add("active");
-    document.body.classList.add("mobile-menu-open");
-    menuToggle.textContent = "×";
-    menuToggle.setAttribute("aria-expanded", "true");
-}
-
-function closeMobileMenu() {
-    navCenter.classList.remove("active");
-    navMenu.classList.remove("active");
-    menuToggle.classList.remove("active");
-    mobileMenuBackdrop.classList.remove("active");
-    document.body.classList.remove("mobile-menu-open");
-    menuToggle.textContent = "☰";
-    menuToggle.setAttribute("aria-expanded", "false");
-}
-
-if (menuToggle && navCenter && navMenu && mobileMenuBackdrop) {
-    menuToggle.setAttribute("type", "button");
-    menuToggle.setAttribute("aria-label", "Open menu");
-    menuToggle.setAttribute("aria-expanded", "false");
-
-    menuToggle.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        if (navCenter.classList.contains("active")) {
-            closeMobileMenu();
-        } else {
-            openMobileMenu();
-        }
-    });
-
-    mobileMenuBackdrop.addEventListener("click", closeMobileMenu);
-
-    document.querySelectorAll(".nav-menu a").forEach(link => {
-        link.addEventListener("click", closeMobileMenu);
-    });
-
-    window.addEventListener("keydown", e => {
-        if (e.key === "Escape") closeMobileMenu();
-    });
-
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) closeMobileMenu();
-    });
-}
-
-/* =========================================================
-   1) GLOBAL SCROLL REVEAL ANIMATION - FINAL POLISH
-   Smoothly reveals text/content upward across all pages.
-========================================================= */
-const revealSelectors = [
-    ".zero-content > *",
-    "#home .hero-content .section-kicker",
-    "#home .hero-content h1",
-    "#home .hero-content p",
-    "#home .story-bridge",
-    "#home .hero-visual",
-    "#group .group-kicker",
-    "#group h2",
-    "#group .group-subtitle",
-    "#group .group-card",
-    ".history-left span",
-    ".history-left h2",
-    ".history-left p",
-    ".history-left .story-bridge",
-    ".history-row",
-    ".strength-strip-item",
-    ".product-kicker",
-    ".product-section h2",
-    ".product-intro",
-    ".category-card",
-    ".product-card",
-    ".product-note",
-    ".info-content > .section-kicker",
-    ".info-content > h2",
-    ".info-subtitle",
-    ".equipment-capacity",
-    ".equipment-layout-c > *",
-    ".equipment-machine-grid > *",
-    ".process-section",
-    ".process-head > *",
-    ".process-slide.active .capability-card",
-    ".capability-card",
-    ".quality-hero-copy > *",
-    ".quality-overview-item",
-    ".quality-panel",
-    ".process-step",
-    ".quality-highlights > div",
-    "#contact .contact-column",
-    "#contact .footer-copy"
-];
-
-const revealItems = Array.from(new Set(document.querySelectorAll(revealSelectors.join(","))));
-const cardRevealClasses = [
-    "group-card",
-    "company-card",
-    "category-card",
-    "product-card",
-    "capability-card",
-    "quality-overview-item",
-    "process-step",
-    "contact-column",
-    "equipment-item"
-];
-
-function getRevealGroupKey(item) {
-    const group = item.closest(".group-network, .category-grid, .capabilities-grid, .equipment-machine-grid, .quality-overview, .process-flow, .quality-highlights, .contact-inner, .process-slide, .equipment-layout-c");
-    if (!group) return null;
-    return group;
-}
-
-revealItems.forEach(item => {
-    item.classList.add("scroll-reveal");
-
-    if (item.classList.contains("hero-visual")) {
-        item.classList.add("reveal-from-right");
-    }
-
-    if (cardRevealClasses.some(className => item.classList.contains(className))) {
-        item.classList.add("reveal-soft");
-        item.dataset.revealGroup = "cards";
-    }
-
-    const group = getRevealGroupKey(item) || item.parentElement;
-    const siblings = group ? Array.from(group.children).filter(child => revealItems.includes(child) || child.querySelector?.(".scroll-reveal")) : [];
-    let localIndex = siblings.indexOf(item);
-
-    if (localIndex < 0 && group) {
-        localIndex = Array.from(group.querySelectorAll(":scope > .scroll-reveal, :scope > * > .scroll-reveal")).indexOf(item);
-    }
-
-    localIndex = Math.max(0, localIndex);
-    const delay = Math.min(localIndex * 92, 420);
-    item.style.setProperty("--reveal-delay", `${delay}ms`);
-});
-
-function revealNow(target) {
-    if (!target) return;
-    target.classList.add("reveal-visible");
-}
-
-function resetReveal(target) {
-    if (!target) return;
-    target.classList.remove("reveal-visible");
-}
-
-if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            revealNow(entry.target);
-        });
-    }, {
-        threshold: 0.12,
-        rootMargin: "0px 0px -7% 0px"
-    });
-
-    revealItems.forEach(item => revealObserver.observe(item));
-} else {
-    revealItems.forEach(revealNow);
-}
-
-function revealActiveSlideContent() {
-    const activeSlide = document.querySelectorAll("#homeSlider .page")[currentSlide];
-    if (!activeSlide) return;
-
-    activeSlide.querySelectorAll(".scroll-reveal").forEach((item, index) => {
-        resetReveal(item);
-        const delay = Math.min(index * 58, 360);
-        setTimeout(() => revealNow(item), delay);
-    });
-}
-
-/* =========================================================
-   2) HOME ABOUT SECTION (single slide)
-========================================================= */
-const pages = document.getElementById("pages");
-let currentSlide = 0;
-function goToSlide() {
-    if (pages) pages.style.transform = "translateX(0)";
-}
-requestAnimationFrame(() => {
-    if (typeof revealActiveSlideContent === "function") revealActiveSlideContent();
-});
-
-/* =========================================================
-   3) NAVBAR HIDE / SHOW ON SCROLL
-========================================================= */
-let lastScrollTop = 0;
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > 100) {
-        navbar.style.top = currentScroll > lastScrollTop ? "-120px" : "0";
-    } else {
-        navbar.style.top = "0";
-    }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-});
-
-/* =========================================================
-   4) COMPANY DROPDOWN
-========================================================= */
-const companyNav = document.querySelector(".nav-company");
-const companyTrigger = document.querySelector(".nav-company-trigger");
-if (companyNav && companyTrigger) {
-    companyTrigger.addEventListener("click", (event) => {
-        if (window.innerWidth <= 768) {
-            companyNav.classList.toggle("open");
-        }
-    });
-}
-
-/* =========================================================
-   5) MANUFACTURING PROCESS SLIDER
-========================================================= */
-let processCurrentSlide = 0;
-const processSlides = document.querySelectorAll(".process-slide");
-const processDots = document.querySelectorAll(".process-dot");
-
-function showProcessSlide(index) {
-    if (!processSlides.length) return;
-
-    if (index < 0) index = processSlides.length - 1;
-    if (index >= processSlides.length) index = 0;
-
-    processCurrentSlide = index;
-
-    processSlides.forEach((slide, slideIndex) => {
-        slide.classList.toggle("active", slideIndex === processCurrentSlide);
-    });
-
-    processDots.forEach((dot, dotIndex) => {
-        dot.classList.toggle("active", dotIndex === processCurrentSlide);
-    });
-
-    const activeProcessSlide = processSlides[processCurrentSlide];
-    if (activeProcessSlide) {
-        activeProcessSlide.querySelectorAll(".scroll-reveal").forEach((item, itemIndex) => {
-            resetReveal(item);
-            setTimeout(() => revealNow(item), itemIndex * 80);
-        });
-    }
-}
-
-function changeProcessSlide(direction) {
-    showProcessSlide(processCurrentSlide + direction);
-}
-
-showProcessSlide(0);
-
-/* =========================================================
-   6) CAPABILITY HOVER VIDEO
-========================================================= */
-document.querySelectorAll(".capability-card").forEach(card => {
-    const video = card.querySelector("video");
-    const source = video ? video.querySelector("source") : null;
-
-    card.addEventListener("mouseenter", () => {
-        if (!video || !source || !source.getAttribute("src")) return;
-
-        video.currentTime = 0;
-        video.play();
-    });
-
-    card.addEventListener("mouseleave", () => {
-        if (!video) return;
-
-        video.pause();
-        video.currentTime = 0;
-    });
-});
-
-/* =========================================================
-   6) EQUIPMENT MACHINE POPUP
-========================================================= */
-const machineData = {
-    forming: {
-        title: "Forming Machines",
-        subtitle: "Forming machines list.",
-        machines: [ "8B 4 sets", "11B 14 sets", "14B 14 sets", "19B 9 sets", "24B 4 sets", "30B 1 set", "33B 1 set", "41B 1 set" ]
-        
-    },
-    tapping: {
-        title: "Tapping Machines",
-        subtitle: "Tapping machines list.",
-        machines: [ "8B 1 Set", "11B 2 Sets", "13B 37 Sets", "14B 12 Sets", "19B 25 Sets", "24B 5 Sets", "32B 1 Set", "33B 1 Set", "38B 1 Set", "CF68B 1 Set" ]
-    },
-    assembling: {
-        title: "Assembling Machines",
-        subtitle: "Assembling machines list.",
-        machines: [ "8B 6 Sets", "11B 8 Sets", "14B 8 Sets", "19B 7 Sets", "24B 1 Set", "33B 1 Set", "JH14B 2 Sets" ]
-    }
-};
-
-function openMachinePopup(type) {
-    const data = machineData[type];
-    const modal = document.getElementById("machineModal");
-    const title = document.getElementById("machineModalTitle");
-    const subtitle = document.getElementById("machineModalSubtitle");
-    const list = document.getElementById("machineList");
-
-    if (!data || !modal || !title || !subtitle || !list) return;
-
-    title.textContent = data.title;
-    subtitle.textContent = data.subtitle;
-    list.innerHTML = "";
-
-    data.machines.forEach(machine => {
-        const item = document.createElement("div");
-        item.className = "machine-list-item";
-        item.textContent = machine;
-        list.appendChild(item);
-    });
-
-    modal.classList.add("active");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
-}
-
-function closeMachinePopup() {
-    const modal = document.getElementById("machineModal");
-    if (!modal) return;
-
-    modal.classList.remove("active");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
-}
-
-window.addEventListener("keydown", e => {
-    if (e.key === "Escape") closeMachinePopup();
-});
-
-
-/* =========================================================
-   HERO PREMIUM ANIMATION TRIGGER
-   Adds .hero-ready only when Page 1.1 enters the viewport,
-   so the animation is visible after scrolling down from Page 0.
-========================================================= */
-(function(){
-    const homeHero = document.getElementById('home');
-    if (!homeHero) return;
-
-    const playHero = () => {
-        homeHero.classList.remove('hero-ready');
-        void homeHero.offsetWidth; // restart CSS animation reliably
-        homeHero.classList.add('hero-ready');
-    };
-
-    if ('IntersectionObserver' in window) {
-        const heroObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    playHero();
-                    heroObserver.unobserve(homeHero);
-                }
-            });
-        }, { threshold: 0.42 });
-
-        heroObserver.observe(homeHero);
-    } else {
-        window.addEventListener('load', playHero, { once:true });
-    }
-})();
-
+const menuToggle=document.querySelector('.menu-toggle');
+const navMenu=document.querySelector('.nav-menu');
+const backdrop=document.querySelector('.mobile-menu-backdrop');
+function closeMenu(){navMenu?.classList.remove('active');menuToggle?.classList.remove('active');backdrop?.classList.remove('active');document.body.classList.remove('mobile-menu-open');}
+menuToggle?.addEventListener('click',()=>{navMenu?.classList.toggle('active');menuToggle.classList.toggle('active');backdrop?.classList.toggle('active');document.body.classList.toggle('mobile-menu-open');});
+backdrop?.addEventListener('click',closeMenu);
+const companyNav=document.querySelector('.nav-company');
+const companyTrigger=document.querySelector('.nav-company-trigger');
+companyTrigger?.addEventListener('click',e=>{if(innerWidth<=768){e.preventDefault();companyNav.classList.toggle('open');}});
+document.querySelectorAll('.company-menu a').forEach(a=>a.addEventListener('click',closeMenu));
+const languageDropdown=document.querySelector('.language-dropdown');
+languageDropdown?.querySelector('.language-current')?.addEventListener('click',()=>languageDropdown.classList.toggle('active'));
+document.addEventListener('click',e=>{if(languageDropdown&&!languageDropdown.contains(e.target))languageDropdown.classList.remove('active');});
+function changeGoogleTranslate(lang){const select=document.querySelector('.goog-te-combo');if(!select)return;select.value=lang;select.dispatchEvent(new Event('change'));}
+document.querySelectorAll('.language-menu a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();changeGoogleTranslate(a.dataset.lang);languageDropdown?.classList.remove('active');}));
+function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,th,zh-CN',autoDisplay:false},'google_translate_element');}
 </script>
-
-<script>
-const languageOptions = {
-    th: {
-        label: "TH",
-        flag: "th.svg",
-        alt: "Thailand flag"
-    },
-    en: {
-        label: "EN",
-        flag: "gb.svg",
-        alt: "United Kingdom flag"
-    },
-    "zh-CN": {
-        label: "中文",
-        flag: "cn.svg",
-        alt: "China flag"
-    }
-};
-
-const languageDropdown = document.querySelector(".language-dropdown");
-const languageCurrent = document.querySelector(".language-current");
-const languageLinks = document.querySelectorAll(".language-menu a");
-
-let activeLanguage = localStorage.getItem("thailockLanguage") || "en";
-
-function updateLanguageButton(lang) {
-    const option = languageOptions[lang] || languageOptions.en;
-    const flag = languageCurrent?.querySelector("img");
-    const label = languageCurrent?.querySelector(".current-language-label");
-
-    activeLanguage = lang in languageOptions ? lang : "en";
-
-    if (flag) {
-        flag.src = option.flag;
-        flag.alt = option.alt;
-    }
-
-    if (label && label.textContent !== option.label) {
-        label.textContent = option.label;
-    }
-}
-
-const currentLanguageLabel =
-    languageCurrent?.querySelector(".current-language-label");
-
-if (currentLanguageLabel) {
-    const languageLabelObserver = new MutationObserver(() => {
-        const option = languageOptions[activeLanguage] || languageOptions.en;
-
-        if (currentLanguageLabel.textContent !== option.label) {
-            currentLanguageLabel.textContent = option.label;
-        }
-    });
-
-    languageLabelObserver.observe(currentLanguageLabel, {
-        childList: true,
-        characterData: true,
-        subtree: true
-    });
-}
-
-function changeGoogleTranslate(lang, attempt = 0) {
-    const select = document.querySelector(".goog-te-combo");
-
-    if (!select) {
-        if (attempt < 20) {
-            setTimeout(() => changeGoogleTranslate(lang, attempt + 1), 300);
-        }
-        return;
-    }
-
-    select.value = lang;
-    select.dispatchEvent(new Event("change"));
-}
-
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-        {
-            pageLanguage: "en",
-            includedLanguages: "th,en,zh-CN",
-            autoDisplay: false
-        },
-        "google_translate_element"
-    );
-
-    const savedLanguage = localStorage.getItem("thailockLanguage") || "en";
-    updateLanguageButton(savedLanguage);
-
-    if (savedLanguage !== "en") {
-        setTimeout(() => changeGoogleTranslate(savedLanguage), 500);
-    }
-}
-
-if (languageDropdown && languageCurrent) {
-    const savedLanguage = localStorage.getItem("thailockLanguage") || "en";
-    updateLanguageButton(savedLanguage);
-
-    languageCurrent.addEventListener("click", function (event) {
-        event.stopPropagation();
-        languageDropdown.classList.toggle("active");
-    });
-
-    languageLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-
-            const lang = this.dataset.lang;
-
-            activeLanguage = lang;
-            updateLanguageButton(lang);
-            localStorage.setItem("thailockLanguage", lang);
-            languageDropdown.classList.remove("active");
-            changeGoogleTranslate(lang);
-        });
-    });
-
-    document.addEventListener("click", function (event) {
-        if (!languageDropdown.contains(event.target)) {
-            languageDropdown.classList.remove("active");
-        }
-    });
-}
-</script>
-
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
