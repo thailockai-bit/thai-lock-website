@@ -4376,18 +4376,6 @@ body {
     text-transform: uppercase;
 }
 
-/* —— Quality page: image background with dark overlay —— */
-
-.quality-page {
-    background: linear-gradient( 90deg, rgba(7,20,38,.82) 0%, rgba(7,20,38,.60) 45%, rgba(7,20,38,.75) 100% ), url("assets/images/quality-bg.png") center center / cover no-repeat;
-}
-
-/* The image is applied directly above, so this pseudo-element is not needed. */
-
-.quality-page::before {
-    display: none !important;
-}
-
 .quality-overview-icon {
     border: 1px solid rgba(255,255,255,.35);
     border-radius: 50%;
@@ -5474,5 +5462,50 @@ body.subpage {
 
     .home-company-media {
         min-height: 320px;
+    }
+}
+
+/* =========================================================
+   FINAL OVERRIDES — QUALITY HERO BOUNDARY
+   Keep the background image inside the hero section only.
+========================================================= */
+.quality-page {
+    position: relative;
+    min-height: 560px;
+    overflow: hidden;
+    background: #ffffff !important;
+}
+
+.quality-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block !important;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 20, 38, .82) 0%,
+            rgba(7, 20, 38, .60) 45%,
+            rgba(7, 20, 38, .75) 100%
+        ),
+        url("assets/images/quality-bg.png") center / cover no-repeat;
+}
+
+.quality-page > .quality-content {
+    position: relative;
+    z-index: 1;
+}
+
+.quality-white-section {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    background: #f8fafd !important;
+}
+
+@media (max-width: 768px) {
+    .quality-page {
+        min-height: 500px;
     }
 }

@@ -297,7 +297,7 @@ const machineData = {
         title: "Forming Machines",
         subtitle: "Forming machines list.",
         machines: [ "8B 4 sets", "11B 14 sets", "14B 14 sets", "19B 9 sets", "24B 4 sets", "30B 1 set", "33B 1 set", "41B 1 set" ]
-        
+
     },
     tapping: {
         title: "Tapping Machines",
@@ -380,7 +380,6 @@ window.addEventListener("keydown", e => {
         window.addEventListener('load', playHero, { once:true });
     }
 })();
-
 
 
 const languageOptions = {
