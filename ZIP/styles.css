@@ -1164,37 +1164,14 @@ button.equipment-item {
     color:#102a63;
 }
 
-.quality-page{
-    position:relative;
-    overflow:hidden;
-    color:#fff;
-    min-height:55vh;
-    padding-bottom:40px;
-}
+.quality-page {
+    position: relative;
+    overflow: hidden;
+    background: var(--tl-dark);
+    color: var(--tl-white);
 
-.quality-page::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(7,20,38,.82) 0%,
-            rgba(7,20,38,.60) 45%,
-            rgba(7,20,38,.75) 100%
-        ),
-        url("assets/images/quality-bg.png");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-}
-
-.quality-page > *{
-    position:relative;
-    z-index:1;
+    min-height: 55vh;
+    padding-bottom: 40px;
 }
 
 .quality-page .info-content {
@@ -2140,6 +2117,7 @@ body.modal-open {
 
 .page-two-down::before,
 .info-page::before,
+.quality-page::before,
 #contact::before,
 .equipment-capacity::before {
     display: none;
@@ -4739,21 +4717,14 @@ body {
     text-transform: uppercase;
 }
 
-/* —— Quality page: image background with dark overlay —— */
+/* —— Quality page: dark section —— */
 .quality-page {
-    background:
-        linear-gradient(
-            90deg,
-            rgba(7,20,38,.82) 0%,
-            rgba(7,20,38,.60) 45%,
-            rgba(7,20,38,.75) 100%
-        ),
-        url("assets/images/quality-bg.png") center center / cover no-repeat;
+    background: #060f1e;
 }
 
-/* The image is applied directly above, so this pseudo-element is not needed. */
-.quality-page::before {
-    display: none !important;
+.quality-page::after {
+    background: linear-gradient(rgba(6,15,30,.82), rgba(6,15,30,.90)),
+                url("assets/images/quality-bg.png") center center / cover no-repeat;
 }
 
 .quality-overview-icon {
