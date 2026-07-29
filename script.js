@@ -385,19 +385,15 @@ window.addEventListener("keydown", e => {
 
 const languageOptions = {
     th: {
-        label: "TH",
-        flag: "assets/icons/th.svg",
-        alt: "Thailand flag"
+        label: "TH"
     },
+
     en: {
-        label: "EN",
-        flag: "assets/icons/gb.svg",
-        alt: "United Kingdom flag"
+        label: "EN"
     },
-    "zh-CN": {
-        label: "中文",
-        flag: "assets/icons/cn.svg",
-        alt: "China flag"
+
+    "zh-TW": {
+        label: "繁體"
     }
 };
 
@@ -409,17 +405,11 @@ let activeLanguage = localStorage.getItem("thailockLanguage") || "en";
 
 function updateLanguageButton(lang) {
     const option = languageOptions[lang] || languageOptions.en;
-    const flag = languageCurrent?.querySelector("img");
     const label = languageCurrent?.querySelector(".current-language-label");
 
     activeLanguage = lang in languageOptions ? lang : "en";
 
-    if (flag) {
-        flag.src = option.flag;
-        flag.alt = option.alt;
-    }
-
-    if (label && label.textContent !== option.label) {
+    if (label) {
         label.textContent = option.label;
     }
 }
@@ -461,7 +451,7 @@ function googleTranslateElementInit() {
     new google.translate.TranslateElement(
         {
             pageLanguage: "en",
-            includedLanguages: "th,en,zh-CN",
+            includedLanguages: "th,en,zh-TW",
             autoDisplay: false
         },
         "google_translate_element"
