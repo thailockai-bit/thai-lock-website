@@ -390,9 +390,8 @@ const languageOptions = {
     en: {
         label: "EN"
     },
-
     "zh-TW": {
-        label: "繁體"
+        label: "中文"
     }
 };
 
