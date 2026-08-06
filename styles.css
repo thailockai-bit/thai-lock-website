@@ -928,29 +928,45 @@ button.equipment-item {
     box-shadow: 0 22px 60px rgba(15,23,42,.08);
 }
 
-.process-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 30px;
-    margin-bottom: 24px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid rgba(15,23,42,.08);
+.process-head{
+    display:grid;
+    grid-template-columns:300px auto;
+    gap:40px;
+    align-items:start;
+
+    margin-bottom:24px;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(15,23,42,.08);
 }
 
-.process-head span {
-    font-family: "Barlow Condensed","Inter",Arial,sans-serif;
-    font-size: clamp(28px,3vw,42px);
-    font-weight: 600;
-    color: var(--tl-ink);
+.process-head span{
+    display:block;
+    font-family:"Barlow Condensed","Inter",Arial,sans-serif;
+    font-size:clamp(34px,3vw,46px);
+    font-weight:600;
+    line-height:1;
+    color:var(--tl-ink);
 }
 
-.process-head p {
-    max-width: 560px;
-    text-align: right;
-    color: #64748b;
-    line-height: 1.7;
-    font-size: 15px;
+.process-text{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    width: 600px;;
+
+    margin-left:auto;
+}
+
+.process-text p{
+    margin:0;
+    text-align:right;
+    max-width:none;
+    line-height:1.8;
+}
+
+/* ลบหรือคอมเมนต์อันเก่าออก */
+.process-head p{
+    all:unset;
 }
 
 .process-slider {
@@ -4873,7 +4889,7 @@ body {
 /* —— Home hero h1 —— */
 
 #home .hero-content h1 {
-    font-size: clamp(58px, 6vw, 96px);
+    font-size: clamp(64px, 7vw, 110px);
     letter-spacing: -1.5px;
     line-height: .86;
     color: #060f1e;
@@ -5509,3 +5525,7 @@ body.subpage {
         min-height: 500px;
     }
 }
+
+
+/* 2026-08-06 updates */
+.navbar { top: 0 !important; }

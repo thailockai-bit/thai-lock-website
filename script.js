@@ -199,22 +199,10 @@ requestAnimationFrame(() => {
 });
 
 /* =========================================================
-   3) NAVBAR HIDE / SHOW ON SCROLL
+   3) NAVBAR ALWAYS VISIBLE
 ========================================================= */
-let lastScrollTop = 0;
 const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > 100) {
-        navbar.style.top = currentScroll > lastScrollTop ? "-120px" : "0";
-    } else {
-        navbar.style.top = "0";
-    }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-});
+if (navbar) navbar.style.top = "0";
 
 /* =========================================================
    4) COMPANY DROPDOWN
