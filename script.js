@@ -47,7 +47,16 @@ if (menuToggle && navCenter && navMenu && mobileMenuBackdrop) {
     mobileMenuBackdrop.addEventListener("click", closeMobileMenu);
 
     document.querySelectorAll(".nav-menu a").forEach(link => {
-        link.addEventListener("click", closeMobileMenu);
+        link.addEventListener("click", () => {
+            if (
+                window.innerWidth <= 768 &&
+                link.classList.contains("nav-company-trigger")
+            ) {
+                return;
+            }
+
+            closeMobileMenu();
+        });
     });
 
     window.addEventListener("keydown", e => {
@@ -212,6 +221,7 @@ const companyTrigger = document.querySelector(".nav-company-trigger");
 if (companyNav && companyTrigger) {
     companyTrigger.addEventListener("click", (event) => {
         if (window.innerWidth <= 768) {
+            event.preventDefault();
             companyNav.classList.toggle("open");
         }
     });
