@@ -5192,6 +5192,8 @@ body {
     }
 
     .nav-menu > li > .nav-company-trigger {
+         width: 100%;
+        padding: 0 26px;
         justify-content: flex-start;
         top: 0;
     }
