@@ -2185,7 +2185,7 @@ body.modal-open {
     }
 
     .nav-logo img {
-        width: 50px;
+        width: 170px;
     }
 
     .menu-toggle {
@@ -5191,8 +5191,9 @@ body {
         width: 100%;
     }
 
-    .nav-company-trigger {
+    .nav-menu > li > .nav-company-trigger {
         justify-content: flex-start;
+        top: 0;
     }
 
     .company-menu {
