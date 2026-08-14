@@ -116,7 +116,7 @@ button {
 }
 
 .nav-logo img {
-    width: 50px;
+    width: 170px;
     height: auto;
     display: block;
 }
@@ -5105,6 +5105,8 @@ body {
     line-height: normal;
     text-decoration: none;
     white-space: nowrap;
+    position: relative;
+    top: 4px;
 }
 
 .company-arrow {
@@ -5190,7 +5192,7 @@ body {
     }
 
     .nav-company-trigger {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .company-menu {
@@ -5269,7 +5271,7 @@ body.subpage {
 
 .home-company-media {
     min-height: 430px;
-    border-radius: 18px;
+    border-radius: 0;
     background: url("assets/images/หน้า.png") center/cover;
 }
 
