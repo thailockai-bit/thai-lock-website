@@ -214,6 +214,21 @@ const navbar = document.querySelector(".navbar");
 if (navbar) navbar.style.top = "0";
 
 /* =========================================================
+   ACTIVE NAV PAGE
+   Automatically highlights the current page
+========================================================= */
+
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+document.querySelectorAll(".nav-menu > li > a").forEach(link => {
+    const linkPage = link.getAttribute("href")?.split("#")[0];
+
+    if (linkPage === currentPage) {
+        link.classList.add("active-page");
+    }
+});
+
+/* =========================================================
    4) COMPANY DROPDOWN
 ========================================================= */
 const companyNav = document.querySelector(".nav-company");

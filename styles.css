@@ -5531,6 +5531,71 @@ body.subpage {
     }
 }
 
+/* ===== FIX MANUFACTURING PROCESS TEXT ON MOBILE ===== */
+
+@media (max-width: 768px) {
+
+    .process-text {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .process-text p {
+        width: 100%;
+        max-width: 100%;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+}
 
 /* 2026-08-06 updates */
 .navbar { top: 0 !important; }
+
+/* ===== HOME HEADING SIZE MATCH HERO ===== */
+.home-heading h2 {
+    font-size: var(--tl-heading-main) !important;
+    line-height: .98 !important;
+}
+
+/* ===== HOME CTA HEADING ===== */
+.home-cta h2 {
+    font-size: clamp(30px, 3vw, 44px);
+    line-height: 1;
+}
+
+/* =========================================================
+   ACTIVE NAV PAGE
+========================================================= */
+
+.nav-menu > li > a {
+    position: relative;
+}
+
+/* Current page text */
+.nav-menu > li > a.active-page {
+    color: var(--tl-blue);
+}
+
+/* Blue line */
+.nav-menu > li > a::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: -10px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--tl-blue);
+    transform: translateX(-50%);
+
+    transition: width .25s ease;
+}
+
+/* Current page line */
+.nav-menu > li > a.active-page::after {
+    width: 100%;
+}
