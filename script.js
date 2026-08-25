@@ -15,6 +15,7 @@ function openMobileMenu() {
     mobileMenuBackdrop.classList.add("active");
     document.body.classList.add("mobile-menu-open");
     menuToggle.textContent = "×";
+    menuToggle.setAttribute("aria-label", "Close menu");
     menuToggle.setAttribute("aria-expanded", "true");
 }
 
@@ -25,6 +26,7 @@ function closeMobileMenu() {
     mobileMenuBackdrop.classList.remove("active");
     document.body.classList.remove("mobile-menu-open");
     menuToggle.textContent = "☰";
+    menuToggle.setAttribute("aria-label", "Open menu");
     menuToggle.setAttribute("aria-expanded", "false");
 }
 
@@ -49,7 +51,7 @@ if (menuToggle && navCenter && navMenu && mobileMenuBackdrop) {
     document.querySelectorAll(".nav-menu a").forEach(link => {
         link.addEventListener("click", () => {
             if (
-                window.innerWidth <= 768 &&
+                window.innerWidth <= 1000 &&
                 link.classList.contains("nav-company-trigger")
             ) {
                 return;
@@ -64,7 +66,7 @@ if (menuToggle && navCenter && navMenu && mobileMenuBackdrop) {
     });
 
     window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) closeMobileMenu();
+        if (window.innerWidth > 1000) closeMobileMenu();
     });
 }
 
@@ -235,7 +237,7 @@ const companyNav = document.querySelector(".nav-company");
 const companyTrigger = document.querySelector(".nav-company-trigger");
 if (companyNav && companyTrigger) {
     companyTrigger.addEventListener("click", (event) => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1000) {
             event.preventDefault();
             companyNav.classList.toggle("open");
         }
