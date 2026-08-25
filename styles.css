@@ -1596,8 +1596,8 @@ button.equipment-item {
 
 .quality-main-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
-    gap: clamp(46px, 6vw, 88px);
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+    gap: 24px;
     align-items: start;
 }
 
@@ -3703,6 +3703,93 @@ body {
     outline-offset: 4px;
 }
 
+/* Customer brand logos */
+.customer-brands {
+    padding: 70px clamp(24px, 7vw, 100px) 80px;
+    background: #fff;
+}
+
+.customer-brands-inner {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.customer-brands h2 {
+    margin: 0;
+    color: #0f59bb;
+    font-family: "Barlow Condensed", Arial, sans-serif;
+    font-size: clamp(24px, 2.5vw, 36px);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.customer-brands-line {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    margin: 18px 0 34px;
+    background: #0f59bb;
+}
+
+.customer-brands-line::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -3px;
+    width: 100px;
+    height: 7px;
+    background: #0f59bb;
+}
+
+.customer-brands-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: center;
+    gap: 42px 38px;
+}
+
+.customer-brands-grid img {
+    display: block;
+    width: 100%;
+    max-width: 190px;
+    height: 85px;
+    margin: 0 auto;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    transition: transform .25s ease;
+}
+
+.customer-brands-grid img:hover {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+    .customer-brands-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .customer-brands {
+        padding: 50px 20px 60px;
+    }
+
+    .customer-brands-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px 20px;
+    }
+
+    .customer-brands-grid img {
+        height: 65px;
+    }
+}
+
 /* Smooth transition into light Capabilities */
 
 #capabilities, .info-page#capabilities {
@@ -4172,6 +4259,16 @@ h1, h2, h3, h4, h5, h6, .category-title, .history-year, .process-no, .inspection
 }
 
 .inspection-list {
+    flex: 1;
+}
+
+.certification-network.inspection-list-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.certification-list {
     flex: 1;
 }
 
