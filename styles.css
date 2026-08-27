@@ -6081,6 +6081,20 @@ body.subpage {
     background: #d9dde4;
 }
 
+/* ===== QUALITY HERO — MATCH BOTH HEADINGS ===== */
+
+.quality-page .quality-hero-copy .quality-kicker {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--tl-white);
+    font-family: "Barlow Condensed", "Inter", Arial, sans-serif;
+    font-size: var(--tl-heading-main) !important;
+    font-weight: 600;
+    letter-spacing: .2px;
+    line-height: .98;
+    text-transform: uppercase;
+}
+
 .company-content #history .simple-timeline {
     display: flex;
     align-items: stretch;
