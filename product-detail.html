@@ -611,6 +611,35 @@ const productData = {
         ]
     },
 
+    hex: {
+        title: "HEX NUTS",
+        subtitle: "Standard hex nut products for general industrial and automotive fastening.",
+        products: [
+            {
+                name: "Standard Hex Nut",
+                image: "assets/images/hex-nuts.png",
+                short: "Standard hexagonal nut for dependable fastening.",
+                description: "Standard hex nut designed for general-purpose threaded assembly across automotive and industrial applications.",
+                category: "Hex Nuts",
+                material: "Carbon Steel / Stainless Steel",
+                standard: "DIN / ISO / JIS",
+                size: "M5 - M30",
+                application: "Automotive, machinery, industrial assembly"
+            },
+            {
+                name: "Heavy Duty Hex Nut",
+                image: "assets/images/product-13.png",
+                short: "Hex nut for higher-load industrial applications.",
+                description: "Heavy-duty hex nut manufactured for stable fastening under demanding load and service conditions.",
+                category: "Hex Nuts",
+                material: "Carbon Steel / Alloy Steel",
+                standard: "DIN / ISO / OEM Specification",
+                size: "M6 - M36",
+                application: "Heavy equipment, machinery, structural assembly"
+            }
+        ]
+    },
+
     weld: {
         title: "WELD NUTS",
         subtitle: "Weld nut products for sheet metal and industrial assembly applications.",
@@ -672,6 +701,7 @@ const productData = {
 
 const params = new URLSearchParams(window.location.search);
 const selectedCategory = params.get("cat") || "all";
+const selectedCategoryLabel = params.get("label");
 
 const productGrid = document.getElementById("productGrid");
 const productCategory = document.getElementById("productCategory");
@@ -702,10 +732,11 @@ function getProductsByCategory(categoryKey) {
 
 function renderProducts() {
     const category = getProductsByCategory(selectedCategory);
+    const displayTitle = selectedCategoryLabel || category.title;
 
-    document.title = `${category.title} - THAI LOCK`;
+    document.title = `${displayTitle} - THAI LOCK`;
 
-    productCategory.textContent = category.title;
+    productCategory.textContent = displayTitle.toUpperCase();
 
     productGrid.innerHTML = "";
 
