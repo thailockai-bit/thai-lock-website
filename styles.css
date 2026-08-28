@@ -5756,6 +5756,112 @@ body.subpage {
     }
 }
 
+/* =========================================================
+   PRODUCT / CAPABILITIES IMAGE HERO
+   Change --section-hero-image on each modifier to use another image.
+========================================================= */
+.section-image-hero {
+    --section-hero-image: none;
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: clamp(170px, 19vw, 230px);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: clamp(54px, 5vw, 68px) clamp(24px, 7vw, 100px) clamp(28px, 3.5vw, 42px);
+    color: #fff;
+    background-color: #071b3d;
+    background-image:
+        linear-gradient(105deg, rgba(3, 18, 48, .92) 0%, rgba(4, 38, 88, .78) 52%, rgba(4, 28, 66, .88) 100%),
+        var(--section-hero-image);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.section-image-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(24, 91, 190, .10), rgba(0, 11, 34, .30));
+    pointer-events: none;
+}
+
+.section-image-hero--products {
+    --section-hero-image: url("assets/images/product-banner.jpg");
+}
+
+.section-image-hero--capabilities {
+    --section-hero-image: url("assets/images/หน้าโรงงานลบสายไฟแล้ว.png");
+}
+
+.section-image-hero__content {
+    position: relative;
+    z-index: 1;
+    width: min(920px, 100%);
+    text-align: center;
+}
+
+.section-image-hero__content h1 {
+    margin: 0;
+    color: #fff;
+    font-family: "Barlow Condensed", "Inter", Arial, sans-serif;
+    font-size: clamp(48px, 7vw, 84px);
+    font-weight: 700;
+    line-height: .95;
+    letter-spacing: .055em;
+    text-shadow: 0 4px 24px rgba(0, 8, 26, .32);
+}
+
+.section-image-hero__content p {
+    max-width: 760px;
+    margin: 22px auto 0;
+    color: rgba(255, 255, 255, .86);
+    font-size: clamp(15px, 1.35vw, 19px);
+    line-height: 1.7;
+}
+
+/* Headings now live in their own image heroes, so content starts below them. */
+#page2down .product-section {
+    min-height: auto;
+    padding-top: clamp(58px, 7vw, 88px);
+}
+
+#capabilities.info-page {
+    padding: 0 0 100px;
+}
+
+#capabilities .info-content {
+    padding: clamp(58px, 7vw, 88px) 80px 0;
+}
+
+@media (max-width: 768px) {
+    .section-image-hero {
+        min-height: 180px;
+        padding: 58px 22px 30px;
+        background-position: center;
+    }
+
+    .section-image-hero__content h1 {
+        font-size: clamp(38px, 11vw, 52px);
+    }
+
+    .section-image-hero__content p {
+        margin-top: 10px;
+        line-height: 1.6;
+    }
+
+    #page2down .product-section {
+        padding-top: 56px;
+    }
+
+    #capabilities .info-content {
+        padding: 56px 22px 0;
+    }
+}
+
 /* ===== FIX MANUFACTURING PROCESS TEXT ON MOBILE ===== */
 
 @media (max-width: 768px) {
@@ -6230,5 +6336,18 @@ body.subpage {
         height: 130px;
         margin: 0 20px 22px;
         transform: translateY(-10px);
+    }
+
+    /* Keep the year visible on collapsed timeline cards in mobile Safari. */
+    .company-content #history .timeline-item > strong {
+        position: relative !important;
+        z-index: 3 !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff;
     }
 }
