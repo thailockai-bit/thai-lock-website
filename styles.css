@@ -6340,7 +6340,10 @@ body.subpage {
 
     /* Keep the year visible on collapsed timeline cards in mobile Safari. */
     .company-content #history .timeline-item > strong {
-        position: relative !important;
+        position: absolute !important;
+        inset: 0 auto 0 0 !important;
+        width: 110px !important;
+        height: 92px !important;
         z-index: 3 !important;
         display: flex !important;
         visibility: visible !important;
