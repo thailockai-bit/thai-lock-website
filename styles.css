@@ -6353,4 +6353,30 @@ body.subpage {
         color: #ffffff !important;
         -webkit-text-fill-color: #ffffff;
     }
+
+    /* Mobile accordion state: JavaScript toggles .is-open on tap. */
+    .company-content #history .timeline-item:hover,
+    .company-content #history .timeline-item:focus,
+    .company-content #history .timeline-item:focus-within {
+        max-height: 92px;
+    }
+
+    .company-content #history .timeline-item .timeline-content,
+    .company-content #history .timeline-item .timeline-image {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .company-content #history .timeline-item.is-open {
+        max-height: 430px;
+        background: #123f91;
+        box-shadow: 0 18px 38px rgba(15,37,84,.18);
+    }
+
+    .company-content #history .timeline-item.is-open .timeline-content,
+    .company-content #history .timeline-item.is-open .timeline-image {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 }

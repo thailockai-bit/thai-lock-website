@@ -507,3 +507,47 @@ if (languageDropdown && languageCurrent) {
         }
     });
 }
+
+/* =========================================================
+   COMPANY TIMELINE — MOBILE TAP TOGGLE
+========================================================= */
+const companyTimelineItems = document.querySelectorAll(
+    ".company-content #history .timeline-item"
+);
+const companyTimelineMobile = window.matchMedia("(max-width: 900px)");
+
+function closeCompanyTimelineItem(item) {
+    item.classList.remove("is-open");
+    item.setAttribute("aria-expanded", "false");
+}
+
+function toggleCompanyTimelineItem(item) {
+    if (!companyTimelineMobile.matches) return;
+
+    const shouldOpen = !item.classList.contains("is-open");
+    companyTimelineItems.forEach(closeCompanyTimelineItem);
+
+    if (shouldOpen) {
+        item.classList.add("is-open");
+        item.setAttribute("aria-expanded", "true");
+    } else {
+        item.blur();
+    }
+}
+
+companyTimelineItems.forEach(item => {
+    item.setAttribute("role", "button");
+    item.setAttribute("aria-expanded", "false");
+
+    item.addEventListener("click", () => toggleCompanyTimelineItem(item));
+
+    item.addEventListener("keydown", event => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        toggleCompanyTimelineItem(item);
+    });
+});
+
+companyTimelineMobile.addEventListener("change", event => {
+    if (!event.matches) companyTimelineItems.forEach(closeCompanyTimelineItem);
+});
