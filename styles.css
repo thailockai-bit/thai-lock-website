@@ -5478,9 +5478,13 @@ body {
     }
 
     .company-menu a {
-        padding: 10px 18px;
-        text-align: center;
-        font-size: 13px;
+        min-height: 58px;
+        padding: 0 26px 0 42px;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        font-size: 15px;
+        font-weight: 700;
     }
 }
 
