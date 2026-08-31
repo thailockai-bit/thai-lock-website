@@ -215,6 +215,15 @@ requestAnimationFrame(() => {
 const navbar = document.querySelector(".navbar");
 if (navbar) navbar.style.top = "0";
 
+if (navbar && document.body.classList.contains("home-page")) {
+    const updateHomeNavbar = () => {
+        navbar.classList.toggle("is-scrolled", window.scrollY > 20);
+    };
+
+    updateHomeNavbar();
+    window.addEventListener("scroll", updateHomeNavbar, { passive: true });
+}
+
 /* =========================================================
    ACTIVE NAV PAGE
    Automatically highlights the current page
